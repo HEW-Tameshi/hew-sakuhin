@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出品 - ココロのメール便</title>
+    <link rel="stylesheet" href="css/post.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            ココロのメール便
+        </div>
+    </header>
+
+    <!-- 出品画面 -->
+    <main class="post-page">
+        <!-- 左側：プレビュー -->
+        <section class="preview-area">
+            <!-- トップページでの表示 -->
+            <div class="preview-section">
+                <h2>✉ トップページ</h2>
+
+                <div class="home-preview">
+                    <div class="emotion-color"></div>
+                    <h3 class="preview-title">
+                        見出し
+                    </h3>
+                    <div class="preview-info">
+                        <span class="preview-point">---pt</span>
+                        <span>/</span>
+                        <span class="preview-time">--分</span>
+                    </div>
+                    <img class="preview-call"src="images/telefone.png"alt="通話" >
+                    <img class="preview-goat"src="images/goat.png"alt="感情">
+                </div>
+            </div>
+
+            <!-- 商品詳細ページでの表示 -->
+            <div class="preview-section">
+                <h2>✉ 商品詳細ページ</h2>
+
+                <div class="detail-preview">
+                    <div class="detail-header">
+                        <h3 class="detail-title">
+                            見出し
+                        </h3>
+                        <div class="detail-info">
+                            <span class="detail-point">---pt</span>
+                            <span>/</span>
+                            <span class="detail-time">--分</span>
+                        </div>
+                    </div>
+                    <div class="detail-description">
+                        内容がここに表示されます。
+                    </div>
+                    <div class="detail-bottom">
+                        <div class="rating">
+                            ★ ★ ★ ★ ☆
+                            <span>4.5</span>
+                        </div>
+                        <button type="button">
+                            購入する
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 右側：出品フォーム -->
+        <section class="post-form-area">
+            <div class="post-form">
+                <!-- 見出し -->
+                <div class="form-group">
+                    <label for="post-title">
+                        見出し：
+                    </label>
+                    <input
+                        type="text"
+                        id="post-title"
+                        placeholder="見出しを入力"
+                    >
+                </div>
+
+                <!-- 内容 -->
+                <div class="form-group">
+                    <label for="post-description">
+                        内容：
+                    </label>
+                    <textarea id="post-description"placeholder="話したい内容を入力"></textarea>
+                </div>
+
+                <!-- 通話 -->
+                <div class="form-group option-group">
+                    <span>通話：</span>
+
+                    <label>
+                        <input type="radio" name="call" value="yes">
+                        有
+                    </label>
+                    <label>
+                        <input type="radio" name="call" value="no">
+                        無
+                    </label>
+                </div>
+                <!-- 速達 -->
+                <div class="form-group option-group">
+                    <span>速達：</span>
+                    <label>
+                        <input type="radio" name="express" value="yes">
+                        有
+                    </label>
+
+                    <label>
+                        <input type="radio" name="express" value="no">
+                        無
+                    </label>
+                </div>
+                <!-- 感情 -->
+                <div id="emotion-area">
+                    <label>感情：</label>
+                    <div id="emotion-options">
+                        <button type="button" id="joy">喜</button>
+                        <button type="button" id="fun">楽</button>
+                        <button type="button" id="sad">悲</button>
+                        <button type="button" id="angry">怒</button>
+                    </div>
+                </div>
+
+                <!-- 希望時間 -->
+                <div class="form-group">
+                    <label for="post-time">
+                        希望時間：
+                    </label>
+
+                    <div class="input-unit">
+                        <input type="number"id="post-time" min="1">
+
+                        <span>分</span>
+                    </div>
+                </div>
+
+                <!-- POINT -->
+                <div class="form-group">
+                    <label for="post-point">
+                        POINT：
+                    </label>
+
+                    <div class="input-unit">
+                        <input type="number"id="post-point" min="0">
+                        <span>pt</span>
+                    </div>
+
+                    <p class="point-note">
+                        ポイントの追加購入はこちら
+                    </p>
+                </div>
+
+                <!-- 注意事項 -->
+                <div class="agreement">
+                    <input type="checkbox"id="agreement">
+                    <label for="agreement">
+                        相手は医療専門家ではありません。
+                    </label>
+                </div>
+
+                <!-- 出品 -->
+                <button type="button"class="post-button">
+                    出品
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- 下メニュー -->
+    <nav class="bottom-menu">
+        <button>ホーム</button>
+        <button>AI分析</button>
+        <button>チャット</button>
+        <button>出品</button>
+        <button>プロフィール</button>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/post.js"></script>
+</body>
+</html>
