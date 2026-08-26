@@ -1,108 +1,135 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-    // 見出しに入力した時
-    $('#post-title').on('input',function(){
+    // 見出し
+    // inputされた時に実行
+    $('#post-title').on('input', function () {
+
+        // this = 今入力しているpost-title
+        // val() = 入力された値を取得
         let title = $(this).val();
 
-        // 入力がない時は「見出し」に戻す
-        if(title == ''){
+        // 入力がない場合
+        if (title === '') {
             title = '見出し';
         }
 
-        // プレビューの見出しを変更
-        $('.preview-title').text(title);
-        $('.detail-title').text(title);
+        // text() = 表示する文字を変更
+        $('#home-title').text(title);
+        $('#detail-title').text(title);
     });
 
-    // 内容に入力した時
-    $('#post-description').on('input',function(){
-        let description = $(this).val();
 
-        // 入力がない時は最初の文章に戻す
-        if(description == ''){
-            description = '内容がここに表示されます。';
+    // 内容
+    $('#post-description').on('input', function () {
+
+        // 入力された内容を取得
+        let text = $(this).val();
+
+        // 入力がない場合
+        if (text === '') {
+            text = '内容がここに表示されます。';
         }
 
-        // 商品詳細ページの内容を変更
-        $('.detail-description').text(description);
+        // 商品詳細の内容を変更
+        $('#detail-text').text(text);
     });
 
-    // 希望時間に入力した時
-    $('#post-time').on('input',function(){
+
+    // 希望時間
+    $('#post-time').on('input', function () {
+
+        // 入力された数字を取得
         let time = $(this).val();
 
-        // 入力がない時
-        if(time == ''){
-            $('.preview-time').text('--分');
-            $('.detail-time').text('--分');
-        }
-
-        // 入力がある時
-        else{
-            $('.preview-time').text(time + '分');
-            $('.detail-time').text(time + '分');
+        // 入力がない場合
+        if (time === '') {
+            $('#home-time').text('--分');
+            $('#detail-time').text('--分');
+        // 入力がある場合
+        } else {
+            $('#home-time').text(time + '分');
+            $('#detail-time').text(time + '分');
         }
     });
 
-    // ポイントに入力した時
-    $('#post-point').on('input',function(){
+
+    // POINT
+    $('#post-point').on('input', function () {
+
+        // 入力されたポイントを取得
         let point = $(this).val();
 
-        // 入力がない時
-        if(point == ''){
-            $('.preview-point').text('---pt');
-            $('.detail-point').text('---pt');
-        }
-
-        // 入力がある時
-        else{
-            $('.preview-point').text(point + 'pt');
-            $('.detail-point').text(point + 'pt');
+        // 入力がない場合
+        if (point === '') {
+            $('#home-point').text('---pt');
+            $('#detail-point').text('---pt');
+        // 入力がある場合
+        } else {
+            $('#home-point').text(point + 'pt');
+            $('#detail-point').text(point + 'pt');
         }
     });
 
-    // 感情をクリックした時
-    $('#emotion-options button').on('click',function(){
 
-        // 前に選択した感情を元に戻す
+    // 感情
+    // 喜・楽・悲・怒のどれかをクリックした時
+    $('#emotion-options button').on('click', function () {
+
+        // すべてのselectedを消す
         $('#emotion-options button').removeClass('selected');
 
-        // クリックした感情を選択状態にする
+        // 今クリックしたボタンにselectedを付ける
         $(this).addClass('selected');
 
-        // 選択した感情の色を取得
+        // クリックした文字の色を取得
         let color = $(this).css('color');
 
-        // 感情のラインの色を変更
-        $('.emotion-color').css('background-color',color);
+        // 感情ラインの色を変更
+        $('#emotion-color').css('background-color',color);
 
-        // プレビューに感情の色の影を付ける
-        $('.home-preview').css('box-shadow','0 5px 15px ' + color);
+        // カードの後ろに同じ色の影を付ける
+        $('#home-preview').css('box-shadow','0 5px 15px ' + color);
     });
 
-    // 通話を選択した時
-    $('input[name="call"]').on('change',function(){
 
-        // 「有」の時は電話アイコンを表示
-        if($(this).val() == 'yes'){
-            $('.preview-call').show();
-        }
-        // 「無」の時は電話アイコンを非表示
-        else{
-            $('.preview-call').hide();
+    // 通話
+    // 有・無を変更した時
+    $('input[name="call"]').on('change', function () {
+        // 有の場合
+        if ($(this).val() === 'yes') {
+            // 電話アイコンを表示
+            $('#call-icon').show();
+        // 無の場合
+        } else {
+            // 電話アイコンを非表示
+            $('#call-icon').hide();
         }
     });
 
-    // 速達を選択した時
-    $('input[name="express"]').on('change',function(){
-        // 「有」の時は速達のデザインに変更
-        if($(this).val() == 'yes'){
-            $('.home-preview').addClass('express');
-        }
-        // 「無」の時は元に戻す
-        else{
-            $('.home-preview').removeClass('express');
+
+    // 速達
+    // 有・無を変更した時
+    $('input[name="express"]').on('change', function () {
+        // 有の場合
+        if ($(this).val() === 'yes') {
+            // expressというclassを追加
+            // CSSの #home-preview.express が使われる
+            $('#home-preview').addClass('express');
+        // 無の場合
+        } else {
+            // expressを消して元に戻す
+            $('#home-preview').removeClass('express');
         }
     });
 
 });
+
+// memo
+// val() = inputの値を取得
+// text() = 文字を変更
+// css() = CSSを変更
+// show() = 表示
+// hide() = 非表示
+// addClass() = classを追加
+// removeClass() = classを削除
+// this = 今操作している要素
