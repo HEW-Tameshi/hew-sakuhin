@@ -96,8 +96,8 @@ header {
 #call-icon {
     display:none;
     position:absolute;
-    right:30px;
-    top:60px;
+    right:20px;
+    top:20px;
     width:60px;
     height:60px;
     object-fit:contain;
@@ -105,10 +105,10 @@ header {
 
 #goat {
     position:absolute;
-    right:-10px;
-    bottom:-20px;
-    width:120px;
-    height:120px;
+    right:-50px;
+    bottom:-50px;
+    width:140px;
+    height:140px;
     object-fit:contain;
 }
 
