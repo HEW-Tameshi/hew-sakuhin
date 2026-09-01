@@ -70,9 +70,40 @@ $(document).ready(function () {
         }
     });
 
-
     // 感情
     // 喜・楽・悲・怒のどれかをクリックした時
+    $('#emotion-options button').hover(
+        function(){
+            let id = $(this).attr('id');
+            let color = '';
+
+            if(id == 'joy'){
+                color = '#e6a23c';
+            }
+            else if(id == 'fun'){
+                color = '#65a765';
+            }
+            else if(id == 'sad'){
+                color = '#7772c9';
+            }
+            else if(id == 'angry'){
+                color = '#d85c5c';
+            }
+
+            $(this).css('color', color);
+            $('#emotion-color').css('background-color', color);
+            $('#home-preview').css('box-shadow', '0 5px 15px ' + color);
+        },
+
+        function(){
+            if(!$(this).hasClass('selected')){
+                $(this).css('color', '#333');
+                $('#emotion-color').css('background-color', '#b9b5ee');
+                $('#home-preview').css('box-shadow', '0 5px 15px rgba(0, 0, 0, 0.15)');
+            }
+        }
+    );
+
     $('#emotion-options button').on('click', function () {
 
         // すべてのselectedを消す
@@ -85,10 +116,10 @@ $(document).ready(function () {
         let color = $(this).css('color');
 
         // 感情ラインの色を変更
-        $('#emotion-color').css('background-color',color);
+        $('#emotion-color').css('background-color', color);
 
         // カードの後ろに同じ色の影を付ける
-        $('#home-preview').css('box-shadow','0 5px 15px ' + color);
+        $('#home-preview').css('box-shadow', '0 5px 15px ' + color);
     });
 
 

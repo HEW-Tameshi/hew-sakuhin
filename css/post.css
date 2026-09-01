@@ -280,28 +280,28 @@ header {
     background:none;
     padding:5px;
     font-size:24px;
+    color:#333;
     cursor:pointer;
 }
 
-#joy {
+#joy:hover {
     color:#e6a23c;
 }
 
-#fun {
+#fun:hover{
     color:#65a765;
 }
 
-#sad {
+#sad:hover {
     color:#7772c9;
 }
 
-#angry {
+#angry:hover{
     color:#d85c5c;
 }
 
 #emotion-options button.selected {
     font-weight:bold;
-    text-decoration:underline;
     transform:scale(1.2);
 }
 
