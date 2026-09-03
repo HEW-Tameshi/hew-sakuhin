@@ -216,19 +216,19 @@ main {
     background-color: #b9b5ee;
 }
 
-/* 下メニュー */
 .bottom-menu {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
-    background-color: #f7caca;
-    border-top: 1px solid #aaa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 90px;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:75px;
+    background-color:#f7caca;
+    border-top:1px solid #aaa;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:90px;
+    z-index:100;
 }
 
 .bottom-menu button {
@@ -260,4 +260,31 @@ main {
     width: 180px;
     height: 180px;
     object-fit: contain;
+}
+
+/* ポイントやぎ */
+#pointgoat {
+    position:fixed;
+    right:5px;
+    bottom:55px;
+    width:450px;
+    z-index:110;
+}
+
+#pointgoat img {
+    width:100%;
+    display:block;
+}
+
+#userpoint {
+    position:absolute;
+    left:120px;
+    top:85px;
+    width:140px;
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+    font-family:"Comic Sans MS","Segoe Print",cursive;
+    color:#5a4035;
+    transform:rotate(-3deg);
 }
