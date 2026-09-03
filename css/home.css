@@ -267,7 +267,9 @@ main {
     position:fixed;
     right:5px;
     bottom:55px;
-    width:450px;
+    width:25vw;
+    max-width:450px;
+    min-width:280px;
     z-index:110;
 }
 
@@ -278,11 +280,11 @@ main {
 
 #userpoint {
     position:absolute;
-    left:120px;
-    top:85px;
-    width:140px;
+    left:27%;
+    top:19%;
+    width:31%;
     text-align:center;
-    font-size:40px;
+    font-size:clamp(25px,2.2vw,40px);
     font-weight:bold;
     font-family:"Comic Sans MS","Segoe Print",cursive;
     color:#5a4035;
