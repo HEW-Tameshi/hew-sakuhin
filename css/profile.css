@@ -23,9 +23,8 @@ header {
     font-weight:bold;
 }
 
-/* =========================
-  プロフィール情報
-========================= */
+/* プロフィール情報 */
+
 .profile-info {
    display: flex;
    align-items: center;
@@ -72,9 +71,8 @@ header {
    white-space: nowrap;
 }
 
-/* =========================
-  メニューボタン
-========================= */
+
+/* メニューボタン */
 .menu {
    width: 290px;
    margin-left: 240px;
@@ -104,9 +102,7 @@ header {
    color: #111;
 }
 
-/* =========================
-  下部ナビ
-========================= */
+
 .bottom-nav {
    position: absolute;
    left: 0;
@@ -130,53 +126,6 @@ header {
    color: #111;
 }
 
-/* ホーム */
-.home-icon {
-   font-size: 62px;
-   line-height: 1;
-   transform: translateY(-5px);
-}
-
-/* AI */
-.ai {
-   font-size: 42px;
-   font-family: serif;
-}
-
-/* コメント */
-.comment-icon {
-   width: 58px;
-   height: 45px;
-   border: 3px solid #111;
-   border-radius: 50%;
-   position: relative;
-   font-size: 0;
-}
-.comment-icon::after {
-   content: "";
-   position: absolute;
-   right: 2px;
-   bottom: -9px;
-   width: 15px;
-   height: 15px;
-   border-left: 3px solid #111;
-   border-bottom: 3px solid #111;
-   transform: rotate(-15deg);
-}
-
-/* プラス */
-.plus-icon {
-   width: 52px;
-   height: 52px;
-   border: 3px solid #111;
-   border-radius: 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 45px;
-   font-weight: 300;
-   line-height: 1;
-}
 
 /* 下メニュー */
 nav.bottom-menu {
@@ -197,6 +146,7 @@ nav.bottom-menu {
 nav.bottom-menu button {
     border:none;
     background:none;
+
     padding:12px 15px;
     font-size:18px;
     font-weight:bold;
