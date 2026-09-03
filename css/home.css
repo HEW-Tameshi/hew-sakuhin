@@ -265,11 +265,11 @@ main {
 /* ポイントやぎ */
 #pointgoat {
     position:fixed;
-    right:5px;
+    right:1vw;
     bottom:55px;
-    width:25vw;
+    width:24vw;
     max-width:450px;
-    min-width:280px;
+    min-width:300px;
     z-index:110;
 }
 
@@ -284,9 +284,9 @@ main {
     top:19%;
     width:31%;
     text-align:center;
-    font-size:clamp(25px,2.2vw,40px);
+    font-size:clamp(28px,2vw,40px);
     font-weight:bold;
-    font-family:"Comic Sans MS","Segoe Print",cursive;
+    font-family:"Segoe Print","Comic Sans MS",cursive;
     color:#5a4035;
     transform:rotate(-3deg);
 }
