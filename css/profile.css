@@ -6,7 +6,7 @@ body {
     margin:0;
     font-family:Arial, sans-serif;
     background-color:#fff8f8;
-    color:#333;
+    color:#55505A;
 }
 
 /* ヘッダー */
@@ -28,70 +28,80 @@ header {
 .profile-info {
    display: flex;
    align-items: center;
-   padding: 45px 55px 20px;
+   justify-content: center;
+   gap: 25px;
+   padding: 130px 0 20px;
 }
 
 /* アイコン */
 .profile-icon {
-   width: 120px;
-   height: 120px;
-   border-radius: 50%;
-   overflow: hidden;
-   border: 3px solid #111;
-   background-color: #b8c8d8;
-   flex-shrink: 0;
+   width: 150px; 
+   height: 150px; 
+   border-radius: 50%; 
+   overflow: hidden; 
+   border: 5px solid #f7dede; 
+   background-color: #fff1f1; 
+   flex-shrink: 0; 
+   box-shadow: 0 5px 15px rgba(220, 170, 175, 0.2);
 }
-.profile-icon img {
+ .profile-icon img {
    width: 100%;
    height: 100%;
-   object-fit: cover;
+   object-fit: cover; 
 }
 
 /* ユーザー情報 */
+
 .user-info {
-   margin-left: 25px;
+   width: 295px;
+   margin: 0;
 }
+
 .username {
    width: 295px;
    font-size: 32px;
-   color: #111;
+   color: #55505A;
    padding-bottom: 5px;
-   border-bottom: 3px solid #111;
+   border-bottom: 3px solid #55505A;
 }
+
 .rank {
    margin-top: 8px;
    font-size: 22px;
 }
 
 /* ポイント */
-.point {
-   margin-left: auto;
-   font-size: 42px;
-   color: #7371c9;
-   white-space: nowrap;
-}
+
+.point { width: 150px; 
+         margin: 0; 
+         font-size: 38px; 
+         font-weight: bold; 
+         color: #817fd1; 
+         white-space: nowrap; 
+         text-align: center; /* ポイントを少し目立たせる */ 
+         text-shadow: 1px 2px 0 #eeeefe; 
+      }
 
 
 /* メニューボタン */
 .menu {
-   width: 290px;
-   margin-left: 240px;
-   margin-top: 5px;
+   width: 330px;
+   margin: 30px auto 0;
    display: flex;
    flex-direction: column;
-   gap: 14px;
+   gap: 18px;
 }
 .menu-button {
-   width: 290px;
-   height: 52px;
+   width: 330px;
+   height: 60px;
    background-color: #ffffff;
-   border: 3px solid #111;
-   border-radius: 12px;
+   border: 3px solid #55505A;
+   border-radius: 14px;
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 0 15px;
-   font-size: 20px;
+   padding: 0 18px;
+   font-size: 22px;
    cursor: pointer;
 }
 .menu-button:hover {
@@ -99,7 +109,7 @@ header {
 }
 .arrow {
    font-size: 18px;
-   color: #111;
+   color: #55505A;
 }
 
 
@@ -110,7 +120,7 @@ header {
    width: 100%;
    height: 78px;
    background-color: #dccaca;
-   border-top: 3px solid #111;
+   border-top: 3px solid #55505A;
    display: flex;
    align-items: center;
    justify-content: space-around;
@@ -123,7 +133,22 @@ header {
    align-items: center;
    justify-content: center;
    text-decoration: none;
-   color: #111;
+   color: #55505A;
+}
+
+/* 枠 */
+.profile {
+    width: 70%;
+    max-width: 900px;
+    margin: 75px auto 100px;
+    padding: 10px 40px 40px;
+    background-color: #ffffff;
+    border: 3px solid #f6d6d6;
+    border-radius: 20px;
+    box-shadow: 6px 6px 0 #f6d6d6;
+}
+.profile-info {
+    padding: 70px 0 20px;
 }
 
 
