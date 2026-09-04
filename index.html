@@ -2,15 +2,108 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>こころのメェ～る便</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>こころのメール便</title>
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            コkkkkkkkkkkkkkkkk
+        </div>
+    </header>
 
-    <h1>こころのメェ～る便</h1>
-    <p>ホーム画面です。</p>
+    <div class="top-menu">
+        <div class="user">
+            <img src="images/goat.png" alt="ユーザー">
+        </div>
+        <div class="search">
+            <span class="search-icon">⌕</span>
+            <input type="text" placeholder="キーワードで検索">
+        </div>
+        <div class="notice">
+            <img src="images/correio.png" alt="通知">
+        </div>
 
-    <button>レターを見る</button>
+    </div>
+    <!-- 新着・速達 -->
+    <div class="tabs">
+        <button class="active">新着</button>
+        <span class="tab-line"></span>
+        <button>速達</button>
+    </div>
 
+    <!-- レター一覧 -->
+    <main>
+        <!-- レター1 -->
+        <div class="letter">
+            <div class="emotion-color"></div>
+            <p class="category">恋愛・悩み</p>
+            <div class="letter-title">
+                <h2>ちょっとだけ話を聞いてほしい</h2>
+                <img class="call-icon" src="images/telefone.png" alt="通話">
+            </div>
+            <p class="description">
+                恋愛のことでモヤモヤしてて…<br>
+                誰かに話したいです。
+            </p>
+            <div class="letter-info">
+                <span>135pt</span>
+                <span>/</span>
+                <span>25分</span>
+            </div>
+            <img class="goat" src="images/goat.png" alt="感情">
+        </div>
+
+        <!-- レター2 -->
+        <div class="letter">
+            <div class="emotion-color pink"></div>
+            <p class="category">愚痴・ストレス</p>
+            <div class="letter-title">
+                <h2>仕事がしんどくて愚痴りたい</h2>
+                <img class="call-icon" src="images/telefone.png" alt="通話">
+            </div>
+            <p class="description">
+                今日も仕事でいろいろあって…<br>
+                聞いてくれる人を探しています。
+            </p>
+            <div class="letter-info">
+                <span>85pt</span>
+                <span>/</span>
+                <span>15分</span>
+            </div>
+            <img class="goat" src="images/goat.png" alt="感情">
+        </div>
+
+        <!-- レター3 -->
+        <div class="letter">
+            <div class="emotion-color purple"></div>
+            <p class="category">日常・雑談</p>
+            <div class="letter-title">
+                <h2>楽しかったことを話したい！</h2>
+                <img class="call-icon" src="images/telefone.png" alt="通話">
+            </div>
+            <p class="description">
+                今日はいいことがあったので<br>
+                誰かに聞いてほしいです。
+            </p>
+            <div class="letter-info">
+                <span>40pt</span>
+                <span>/</span>
+                <span>10分</span>
+            </div>
+            <img class="goat" src="images/goat.png" alt="感情">
+        </div>
+    </main>
+
+    <nav class="bottom-menu">
+        <button>ホーム</button>
+        <button>AI分析</button>
+        <button>チャット</button>
+        <button>出品</button>
+        <button>プロフィール</button>
+    </nav>
+
+    <script src="js/home.js"></script>
 </body>
 </html>
