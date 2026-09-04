@@ -3,10 +3,15 @@
 }
 
 body {
-    margin:0;
-    font-family:Arial, sans-serif;
-    background-color:#fff8f8;
-    color:#55505A;
+    margin: 0;
+    font-family: Arial, sans-serif;
+   /* 背景の画像 */
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #55505A;
 }
 
 /* ヘッダー */
@@ -140,12 +145,12 @@ header {
 .profile {
     width: 70%;
     max-width: 900px;
-    margin: 75px auto 100px;
-    padding: 10px 40px 40px;
-    background-color: #ffffff;
-    border: 3px solid #f6d6d6;
-    border-radius: 20px;
-    box-shadow: 6px 6px 0 #f6d6d6;
+    margin: 40px auto 100px;
+    padding: 20px 40px 40px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid #f3d5d8;
+    border-radius: 28px;
+    box-shadow: 0 8px 25px rgba(225, 130, 155, 0.4);
 }
 .profile-info {
     padding: 70px 0 20px;
