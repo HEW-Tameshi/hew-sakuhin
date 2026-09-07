@@ -84,21 +84,21 @@ $(document).ready(function () {
             // 喜
             if(id == 'joy'){
                 color = '#e6a23c';
-                image = 'images/happy.png';
+                image = 'images/happy.jpg';
             }
             else if(id == 'fun'){
                 color = '#65a765';
-                image = 'images/happy.png';
+                image = 'images/happy.jpg';
 
             }
             else if(id == 'sad'){
                 color = '#7772c9';
-                image = 'images/happy.png';
+                image = 'images/happy.jpg';
 
             }
             else if(id == 'angry'){
                 color = '#d85c5c';
-                image = 'images/angry.png';
+                image = 'images/angry.jpg';
 
             }
 
