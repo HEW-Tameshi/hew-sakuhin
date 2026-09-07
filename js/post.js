@@ -72,8 +72,7 @@ $(document).ready(function () {
 
     // 感情
     // 喜・楽・悲・怒のどれかをクリックした時
-    $('#emotion-options button').hover(
-        function(){
+    $('#emotion-options button').hover(function(){
             let id = $(this).attr('id');
             let color = '';
 
