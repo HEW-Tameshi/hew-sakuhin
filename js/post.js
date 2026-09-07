@@ -134,28 +134,30 @@ $(document).ready(function () {
         let id = $(this).attr('id');
 
         if(id =='joy'){
-            color = '#e6a23c';
-            image = 'images/happy.jpg';
+            selectedColor = '#e6a23c';
+            selectedImage = 'images/happy.jpg';
         }
         else if(id =='fun'){
-            color = '#65a765';
-            image = 'images/happy.jpg';
+            selectedColor = '#65a765';
+            selectedImage = 'images/happy.jpg';
         }
         else if(id =='sad'){
-            color = '#7772c9';
-            image = 'images/happy.jpg';
+            selectedColor = '#7772c9';
+            selectedImage = 'images/happy.jpg';
         }
         else if(id =='angry'){
-            color = '#d85c5c';
-            image = 'images/angry.jpg';
+            selectedColor = '#d85c5c';
+            imagselectedImagee = 'images/angry.jpg';
         }
 
-        // 途中まで
+        // 選択した文字の色を変更
+        $(this).css('color', selectedColor);
         // 感情ラインの色を変更
-        $('#emotion-color').css('background-color', color);
-
-        // カードの後ろに同じ色の影を付ける
-        $('#home-preview').css('box-shadow', '0 5px 15px ' + color);
+        $('#emotion-color').css('background-color', selectedColor);
+        // カードの影を変更
+        $('#home-preview').css('box-shadow', '0 5px 15px ' + selectedColor);
+        // 八木の画像を変更
+        $('#goat').attr('src', selectedImage);
     });
 
 
