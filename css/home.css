@@ -243,10 +243,10 @@ main {
 /* 表情のアイコン */
 .call-icon {
     position: absolute;
-    right: 45px;
-    top: 65px;
-    width: 60px;
-    height: 60px;
+    right: 25px;
+    top: 25px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
 }
 
@@ -255,7 +255,7 @@ main {
 
 .goat {
     position: absolute;
-    right: -50px;
+    right: -45px;
     bottom: -50px;
     width: 180px;
     height: 180px;
