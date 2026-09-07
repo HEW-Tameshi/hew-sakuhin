@@ -72,36 +72,41 @@ $(document).ready(function () {
 
     // 感情
     // 喜・楽・悲・怒のどれかをクリックした時
-    $('#emotion-options button').hover(function(){
+    let selectedColor =  '#b9b5ee';
+    let selectedImage =  'images/happy.png';
+
+    $('#emotion-options button').mouseenter(function(){
+
             let id = $(this).attr('id');
             let color = '';
+            let image = '';
 
+            // 喜
             if(id == 'joy'){
                 color = '#e6a23c';
+                image = 'images/happy.png';
             }
             else if(id == 'fun'){
                 color = '#65a765';
+                image = 'images/happy.png';
+
             }
             else if(id == 'sad'){
                 color = '#7772c9';
+                image = 'images/happy.png';
+
             }
             else if(id == 'angry'){
                 color = '#d85c5c';
+                image = 'images/angry.png';
+
             }
 
             $(this).css('color', color);
             $('#emotion-color').css('background-color', color);
             $('#home-preview').css('box-shadow', '0 5px 15px ' + color);
-        },
-
-        function(){
-            if(!$(this).hasClass('selected')){
-                $(this).css('color', '#333');
-                $('#emotion-color').css('background-color', '#b9b5ee');
-                $('#home-preview').css('box-shadow', '0 5px 15px rgba(0, 0, 0, 0.15)');
-            }
-        }
-    );
+            $('#goat').attr('src', image);
+        });
 
     $('#emotion-options button').on('click', function () {
 
