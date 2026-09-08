@@ -73,6 +73,7 @@ $(document).ready(function () {
     // 感情
     let selectedColor =  '#b9b5ee';
     let selectedImage =  'images/happy.jpg';
+    let selectedEmotion = '';
 
     $('#emotion-options button').mouseenter(function(){
 
@@ -87,12 +88,12 @@ $(document).ready(function () {
             }
             else if(id == 'fun'){
                 color = '#65a765';
-                image = 'images/happy.jpg';
+                image = 'images/normal.png';
 
             }
             else if(id == 'sad'){
                 color = '#7772c9';
-                image = 'images/happy.jpg';
+                image = 'images/sad.png';
 
             }
             else if(id == 'angry'){
@@ -123,7 +124,7 @@ $(document).ready(function () {
         // すべてのselectedを消す
         $('#emotion-options button').removeClass('selected');
 
-        // すべてのもしを元の色に戻す
+        // すべての文字を元の色に戻す
         $('#emotion-options button').css('color', '#333');
 
         // 今クリックしたボタンにselectedを付ける
@@ -132,17 +133,21 @@ $(document).ready(function () {
         // クリックした文字の色を取得
         let id = $(this).attr('id');
 
+        // 選択された感情を保存
+        selectedEmotion = id;
+
+
         if(id =='joy'){
             selectedColor = '#e6a23c';
             selectedImage = 'images/happy.jpg';
         }
         else if(id =='fun'){
             selectedColor = '#65a765';
-            selectedImage = 'images/happy.jpg';
+            selectedImage = 'images/normal.png';
         }
         else if(id =='sad'){
             selectedColor = '#7772c9';
-            selectedImage = 'images/happy.jpg';
+            selectedImage = 'images/sad.png';
         }
         else if(id =='angry'){
             selectedColor = '#d85c5c';
@@ -188,6 +193,59 @@ $(document).ready(function () {
             // expressを消して元に戻す
             $('#home-preview').removeClass('express');
         }
+    });
+    // 出品
+    // 出品ボタンをクリック
+    $('#post-button').on('click', function () {
+
+        // 入力された見出しを取得
+        let title = $('#post-title').val();
+        // 入力された内容を取得
+        let text = $('#post-description').val();
+        // 入力された希望時間
+        let time = $('#post-time').val();
+        //入力されたポイント
+        let point = $('#post-point').val();
+        // 選択された通話
+        let call = $('input[name="call"]:checked').val();
+        // そくたつ
+        let express = $('input[name="express"]:checked').val();
+        // 注意事項
+        let agreement = $('#agreement').is(':checked');
+        // 見出しが入力されていない場合
+        if (title === '') {
+            alert('見出しを入力してください。');
+        }
+        // 内容が入力されてない
+        else if (text === '') {
+            alert('内容を入力してください。');
+        }
+        // 希望時間が入力されていない場合
+        else if (time === '') {
+            alert('希望時間を入力してください。');
+        }
+        // ポイントが入力されていない場合
+        else if (point === '') {
+            alert('ポイントを入力してください。');
+        }
+        else if (call === undefined) {
+            alert('通話の有無を選択してください。');
+        }
+        else if (express === undefined) {
+            alert('速達の有無を選択してください。');
+        }
+        else if (selectedEmotion === '') {
+            alert('感情を選択してください。');
+        }
+        else if (agreement === false) {
+            alert('注意事項に同意してください。');
+        } 
+        // すべて入力されている場合
+        else{
+            localStorage.setItem('postTitle', title);
+            alert('出品できます。');
+        }
+        
     });
 
 });
