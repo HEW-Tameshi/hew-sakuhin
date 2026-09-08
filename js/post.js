@@ -71,7 +71,6 @@ $(document).ready(function () {
     });
 
     // 感情
-    // 喜・楽・悲・怒のどれかをクリックした時
     let selectedColor =  '#b9b5ee';
     let selectedImage =  'images/happy.jpg';
 
