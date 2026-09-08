@@ -147,7 +147,7 @@ $(document).ready(function () {
         }
         else if(id =='angry'){
             selectedColor = '#d85c5c';
-            imagselectedImagee = 'images/angry.jpg';
+            selectedImage = 'images/angry.jpg';
         }
 
         // 選択した文字の色を変更
