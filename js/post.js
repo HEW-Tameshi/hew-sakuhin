@@ -72,54 +72,92 @@ $(document).ready(function () {
 
     // 感情
     // 喜・楽・悲・怒のどれかをクリックした時
-    $('#emotion-options button').hover(
-        function(){
+    let selectedColor =  '#b9b5ee';
+    let selectedImage =  'images/happy.jpg';
+
+    $('#emotion-options button').mouseenter(function(){
+
             let id = $(this).attr('id');
             let color = '';
+            let image = '';
 
+            // 喜
             if(id == 'joy'){
                 color = '#e6a23c';
+                image = 'images/happy.jpg';
             }
             else if(id == 'fun'){
                 color = '#65a765';
+                image = 'images/happy.jpg';
+
             }
             else if(id == 'sad'){
                 color = '#7772c9';
+                image = 'images/happy.jpg';
+
             }
             else if(id == 'angry'){
                 color = '#d85c5c';
+                image = 'images/angry.jpg';
+
             }
 
             $(this).css('color', color);
             $('#emotion-color').css('background-color', color);
             $('#home-preview').css('box-shadow', '0 5px 15px ' + color);
-        },
-
-        function(){
+            $('#goat').attr('src', image);
+        });
+        $('#emotion-options button').mouseleave(function(){
+            // 選択されていない文字を元の色に戻す
             if(!$(this).hasClass('selected')){
-                $(this).css('color', '#333');
-                $('#emotion-color').css('background-color', '#b9b5ee');
-                $('#home-preview').css('box-shadow', '0 5px 15px rgba(0, 0, 0, 0.15)');
+                $(this).css('color', '#333'); 
             }
-        }
-    );
+            // 選択した感情の色に戻す
+            $('#emotion-color').css('background-color', selectedColor);
+            $('#home-preview').css('box-shadow', '0 5px 15px ' + selectedColor);
+            $('#goat').attr('src', selectedImage); 
+        });   
+
 
     $('#emotion-options button').on('click', function () {
 
         // すべてのselectedを消す
         $('#emotion-options button').removeClass('selected');
 
+        // すべてのもしを元の色に戻す
+        $('#emotion-options button').css('color', '#333');
+
         // 今クリックしたボタンにselectedを付ける
         $(this).addClass('selected');
 
         // クリックした文字の色を取得
-        let color = $(this).css('color');
+        let id = $(this).attr('id');
 
+        if(id =='joy'){
+            selectedColor = '#e6a23c';
+            selectedImage = 'images/happy.jpg';
+        }
+        else if(id =='fun'){
+            selectedColor = '#65a765';
+            selectedImage = 'images/happy.jpg';
+        }
+        else if(id =='sad'){
+            selectedColor = '#7772c9';
+            selectedImage = 'images/happy.jpg';
+        }
+        else if(id =='angry'){
+            selectedColor = '#d85c5c';
+            selectedImage = 'images/angry.jpg';
+        }
+
+        // 選択した文字の色を変更
+        $(this).css('color', selectedColor);
         // 感情ラインの色を変更
-        $('#emotion-color').css('background-color', color);
-
-        // カードの後ろに同じ色の影を付ける
-        $('#home-preview').css('box-shadow', '0 5px 15px ' + color);
+        $('#emotion-color').css('background-color', selectedColor);
+        // カードの影を変更
+        $('#home-preview').css('box-shadow', '0 5px 15px ' + selectedColor);
+        // 八木の画像を変更
+        $('#goat').attr('src', selectedImage);
     });
 
 
