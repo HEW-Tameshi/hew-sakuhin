@@ -39,8 +39,8 @@ header {
 
 /* ユーザー */
 .user {
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height:90px;
     border-radius: 50%;
     background-color: #d9f1f7;
     display: flex;
@@ -50,8 +50,8 @@ header {
 }
 
 .user img {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     object-fit: contain;
 }
 
@@ -81,13 +81,13 @@ header {
 
 /* 通知 */
 .notice {
-    width: 75px;
+    width:95px;
     text-align: center;
 }
 
 .notice img {
-    width: 65px;
-    height: 65px;
+    width: 95px;
+    height: 95px;
     object-fit: contain;
 }
 /* 新着・速達 */
@@ -162,15 +162,40 @@ main {
     background-color:#fff7f7;
 }
 
-/* 感情カラー */
-
-.emotion-color {
-    width: 70px;
-    height: 8px;
-    background-color: #9ad59a;
-    border-radius: 10px;
+/* 感情の影 */
+.letter.joy {
+    box-shadow:8px 8px 0 #e6a23c;
+}
+.letter.fun {
+    box-shadow:8px 8px 0 #65a765;
 }
 
+.letter.sad {
+    box-shadow:8px 8px 0 #7772c9;
+}
+
+.letter.angry {
+    box-shadow:8px 8px 0 #d85c5c;
+}
+
+/* 感情カラー */
+.emotion-color {
+    width:70px;
+    height:8px;
+    border-radius:10px;
+}
+.joy .emotion-color {
+    background-color:#e6a23c;
+}
+.fun .emotion-color {
+    background-color:#65a765;
+}
+.sad .emotion-color {
+    background-color:#7772c9;
+}
+.angry .emotion-color {
+    background-color:#d85c5c;
+}
 
 /* カテゴリ */
 .category {
@@ -217,16 +242,8 @@ main {
     height: 20px;
 }
 
-/* 感情カラー */
-.pink {
-    background-color: #f3aaaa;
-}
 
-.purple {
-    background-color: #b9b5ee;
-}
-
-.bottom-menu {
+.bottommenu {
     position:fixed;
     bottom:0;
     left:0;
@@ -241,15 +258,28 @@ main {
     z-index:100;
 }
 
-.bottom-menu button {
-    border: none;
-    background: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px 15px;
-    cursor: pointer;
+.bottommenu a {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:0 15px;
+    cursor:pointer;
+    color:inherit;
+    text-decoration:none;
 }
 
+.bottommenu img {
+    width:38px;
+    height:38px;
+    object-fit:contain;
+}
+
+.bottommenu span {
+    margin-top:-2px;
+    font-size:13px;
+    font-weight:bold;
+}
 /* 表情のアイコン */
 .call-icon {
     position: absolute;
@@ -275,12 +305,12 @@ main {
 /* ポイントやぎ */
 #pointgoat {
     position:fixed;
-    right:1vw;
-    bottom:55px;
-    width:24vw;
-    max-width:450px;
-    min-width:300px;
-    z-index:110;
+    right:20px;
+    bottom:65px;
+    width:20vw;
+    max-width:350px;
+    min-width:220px;
+    z-index:90;
 }
 
 #pointgoat img {
@@ -294,7 +324,7 @@ main {
     top:19%;
     width:31%;
     text-align:center;
-    font-size:clamp(28px,2vw,40px);
+    font-size:clamp(22px,1.7vw,34px);
     font-weight:bold;
     font-family:"Segoe Print","Comic Sans MS",cursive;
     color:#5a4035;
