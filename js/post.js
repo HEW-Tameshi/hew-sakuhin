@@ -242,7 +242,21 @@ $(document).ready(function () {
         } 
         // すべて入力されている場合
         else{
+            // '' nome pra guardar
             localStorage.setItem('postTitle', title);
+            // 内容
+            localStorage.setItem('postDescription', text);
+            // 希望時間
+            localStorage.setItem('postTime', time);
+            // ポイント
+            localStorage.setItem('postPoint', point);
+            // 通話
+            localStorage.setItem('postCall', call);
+            // 速達
+            localStorage.setItem('postExpress', express);
+            // 感情
+            localStorage.setItem('postEmotion', selectedEmotion);
+
             alert('出品できます。');
         }
         
