@@ -144,6 +144,7 @@ header {
     font-size:22px;
     font-weight:bold;
     color:#333;
+    white-space:nowrap;
 }
 
 #detail-text {
