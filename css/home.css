@@ -164,18 +164,19 @@ main {
 
 /* 感情の影 */
 .letter.joy {
-    box-shadow:8px 8px 0 #e6a23c;
+    box-shadow:0 0 15px #e6a23c;
 }
+
 .letter.fun {
-    box-shadow:8px 8px 0 #65a765;
+    box-shadow:0 0 15px #65a765;
 }
 
 .letter.sad {
-    box-shadow:8px 8px 0 #7772c9;
+    box-shadow:0 0 15px #7772c9;
 }
 
 .letter.angry {
-    box-shadow:8px 8px 0 #d85c5c;
+    box-shadow:0 0 15px #d85c5c;
 }
 
 /* 感情カラー */
