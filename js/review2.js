@@ -10,18 +10,15 @@ $(document).ready(function(){
     $('#titlearea').hide();
 
     // 包容力のバー
-    $('#bar1').animate({
-        width:score1 + '%'
+    $('#bar1').animate({width:score1 + '%'
     },1000);
 
     // 共感力のバー
-    $('#bar2').animate({
-        width:score2 + '%'
+    $('#bar2').animate({width:score2 + '%'
     },1200);
 
     // 論理性のバー
-    $('#bar3').animate({
-        width:score3 + '%'
+    $('#bar3').animate({width:score3 + '%'
     },1400);
 
     // 点数
@@ -41,12 +38,10 @@ $(document).ready(function(){
             number2++;
             $('#score2').text(number2);
         }
-
         if(number3 < score3){
             number3++;
             $('#score3').text(number3);
         }
-
         // 全部終わったら止める
         if(number1 == score1 && number2 == score2 && number3 == score3){
             clearInterval(timer);
@@ -55,40 +50,28 @@ $(document).ready(function(){
     },15);
 
     // ランクを動かす
-    $('#rankpoint').animate({
-        left:'35%'
+    $('#rankpoint').animate({left:'35%'
     },1500);
 
     // タイプを表示
     setTimeout(function(){
-
         $('#personalitytext').text('相手を安心させるタイプ');
-
         $('#personalityarea').fadeIn();
-
     },1600);
 
     // 肩書きを表示
     setTimeout(function(){
-
         $('#titlename').text('言語化の神');
-
         $('#titlearea').fadeIn();
-
     },2200);
 
     // プロフィールに追加
     $('#profilebutton').click(function(){
-
         $('#profilebutton').text('追加しました！');
-
     });
 
     // 閉じる
     $('#closebutton').click(function(){
-
         window.location.href = 'index.html';
-
     });
-
 });
