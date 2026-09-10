@@ -7,33 +7,24 @@
     <link rel="stylesheet" href="css/review1.css">
 </head>
 <body>
-
-    <!-- ヘッダー -->
     <header>
         <div class="logo">ココロのメール便</div>
     </header>
-
-    <!-- レビュー画面 -->
     <main id="reviewpage">
-
         <div id="reviewbox">
-
+            <button id="closebutton">X</button>
             <h1>レビュー</h1>
             <p id="reviewmessage">今回の相談はいかがでしたか？</p>
 
-            <!-- AIまとめ -->
             <section class="reviewarea">
                 <h2>― AIまとめ ―</h2>
-
                 <div id="summarybox">
                     <p id="summarytext"></p>
                 </div>
             </section>
 
-            <!-- 評価 -->
             <section class="reviewarea">
                 <h2>― 評価 ―</h2>
-
                 <div id="stars">
                     <span class="star">☆</span>
                     <span class="star">☆</span>
@@ -41,23 +32,17 @@
                     <span class="star">☆</span>
                     <span class="star">☆</span>
                 </div>
-
                 <p id="ratingtext">星を選択してください</p>
             </section>
 
-            <!-- コメント -->
             <section class="reviewarea">
                 <h2>― コメント ―</h2>
-
                 <textarea id="comment">親身になって寄りそって話を聞いてくれた。</textarea>
             </section>
 
-            <!-- チップ -->
             <section class="reviewarea">
                 <h2>― チップ ―</h2>
-
                 <p id="tipmessage">感謝の気持ちをポイントで送れます</p>
-
                 <div id="tipbuttons">
                     <button class="tipbutton" data-point="0">なし</button>
                     <button class="tipbutton" data-point="50">50pt</button>
@@ -70,18 +55,12 @@
                     <span id="point">100</span>
                     <span>pt</span>
                 </div>
-
                 <p id="pointbuy">ポイント追加購入はこちら ▶</p>
             </section>
-
-            <!-- 送信 -->
             <button id="sendbutton">送信</button>
-
         </div>
-
     </main>
-
-    <!-- 所持ポイント -->
+    
     <div id="pointgoat">
         <img src="images/pointsgoat.png" alt="ヤギ">
         <span id="userpoint">230pt</span>
