@@ -35,37 +35,38 @@
 
     <!-- レター一覧 -->
     <main>
+        <div id="new-letter"></div>
         <!-- レター1 -->
-        <div class="letter">
+        <div class="letter fun">
             <div class="emotion-color"></div>
-            <p class="category">恋愛・悩み</p>
+            <p class="category">趣味・雑談</p>
             <div class="letter-title">
-                <h2>ちょっとだけ話を聞いてほしい</h2>
+                <h2>最近ハマっていることを話したい！</h2>
                 <img class="call-icon" src="images/telefone.png" alt="通話">
             </div>
             <p class="description">
-                恋愛のことでモヤモヤしてて…<br>
-                誰かに話したいです。
+                最近すごくハマっている趣味があります！<br>
+                誰かと楽しく話したいです。
             </p>
             <div class="letter-info">
-                <span>135pt</span>
+                <span>60pt</span>
                 <span>/</span>
-                <span>25分</span>
+                <span>15分</span>
             </div>
-            <img class="goat" src="images/goat.png" alt="感情">
+            <img class="goat" src="images/normal.png" alt="感情">
         </div>
 
         <!-- レター2 -->
-        <div class="letter">
-            <div class="emotion-color pink"></div>
+        <div class="letter angry">
+            <div class="emotion-color"></div>
             <p class="category">愚痴・ストレス</p>
             <div class="letter-title">
-                <h2>仕事がしんどくて愚痴りたい</h2>
+                <h2>仕事で嫌なことがあって愚痴りたい</h2>
                 <img class="call-icon" src="images/telefone.png" alt="通話">
             </div>
             <p class="description">
-                今日も仕事でいろいろあって…<br>
-                聞いてくれる人を探しています。
+                今日も仕事でいろいろあって…。<br>
+                少しだけ愚痴を聞いてほしいです。
             </p>
             <div class="letter-info">
                 <span>85pt</span>
@@ -76,23 +77,23 @@
         </div>
 
         <!-- レター3 -->
-        <div class="letter">
-            <div class="emotion-color purple"></div>
-            <p class="category">日常・雑談</p>
+        <div class="letter sad">
+            <div class="emotion-color"></div>
+            <p class="category">恋愛・悩み</p>
             <div class="letter-title">
-                <h2>楽しかったことを話したい！</h2>
+                <h2>ちょっとだけ話を聞いてほしい</h2>
                 <img class="call-icon" src="images/telefone.png" alt="通話">
             </div>
             <p class="description">
-                今日はいいことがあったので<br>
-                誰かに聞いてほしいです。
+                恋愛のことでモヤモヤしてて…<br>
+                誰かに話を聞いてほしいです。
             </p>
             <div class="letter-info">
-                <span>40pt</span>
+                <span>135pt</span>
                 <span>/</span>
-                <span>10分</span>
+                <span>25分</span>
             </div>
-            <img class="goat" src="images/goat.png" alt="感情">
+            <img class="goat" src="images/sad.png" alt="感情">
         </div>
     </main>
     <div id="pointgoat">
@@ -100,14 +101,25 @@
         <span id="userpoint">230pt</span>
     </div>
 
-    <nav class="bottom-menu">
-        <button>ホーム</button>
-        <button>AI分析</button>
-        <button>チャット</button>
-        <button>出品</button>
-        <button>プロフィール</button>
-    </nav>
-
+    <nav class="bottommenu">
+        <a href="index.html">
+            <img src="images/home.png" alt="ホーム">
+            <span>ホーム</span>
+        </a>
+        <a href="#">
+            <img src="images/ai.png" alt="AI分析">
+            <span>AI分析</span>
+        </a>
+        <a href="#">
+            <img src="images/chat.png" alt="チャット">
+            <span>チャット</span>
+        </a>
+        <a href="post.html">
+            <img src="images/post.png" alt="出品">
+            <span>出品</span>
+        </a>
+    </nav>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/home.js"></script>
 </body>
 </html>
