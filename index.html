@@ -9,14 +9,14 @@
 <body>
     <header>
         <div class="logo">
-            ココロのメ
+            ココロのメール便
         </div>
     </header>
 
     <div class="top-menu">
-        <div class="user">
+        <a class="user" href="profile.html">
             <img src="images/goat.png" alt="ユーザー">
-        </div>
+        </a>
         <div class="search">
             <span class="search-icon">⌕</span>
             <input type="text" placeholder="キーワードで検索">
@@ -28,15 +28,56 @@
     </div>
     <!-- 新着・速達 -->
     <div class="tabs">
-        <button class="active">新着</button>
+        <button id="newtab" class="active">新着</button>
         <span class="tab-line"></span>
-        <button>速達</button>
+        <button id="expresstab">速達</button>
     </div>
 
     <!-- レター一覧 -->
     <main>
+        <div id="new-letter"></div>
         <!-- レター1 -->
-        <div class="letter">
+        <div class="letter fun">
+            <div class="emotion-color"></div>
+            <p class="category">趣味</p>
+            <div class="letter-title">
+                <h2>最近ハマっていることを話したい！</h2>
+                <img class="call-icon" src="images/telefone.png" alt="通話">
+            </div>
+            <p class="description">
+                最近すごくハマっている趣味があります！<br>
+                誰かと楽しく話したいです。
+            </p>
+            <div class="letter-info">
+                <span>60pt</span>
+                <span>/</span>
+                <span>15分</span>
+            </div>
+            <img class="goat" src="images/normal.png" alt="感情">
+        </div>
+
+        <!-- レター2 -->
+        <div class="letter angry express">
+            <div class="emotion-color"></div>
+            <p class="category">愚痴・ストレス</p>
+            <div class="letter-title">
+                <h2>仕事で嫌なことがあって愚痴りたい</h2>
+                <img class="call-icon" src="images/telefone.png" alt="通話">
+            </div>
+            <p class="description">
+                今日も仕事でいろいろあって…。<br>
+                少しだけ愚痴を聞いてほしいです。
+            </p>
+            <div class="letter-info">
+                <span>85pt</span>
+                <span>/</span>
+                <span>15分</span>
+            </div>
+            <img class="goat" src="images/angry.jpg" alt="感情">
+        </div>
+
+        <!-- レター3 -->
+        <div class="letter sad">
             <div class="emotion-color"></div>
             <p class="category">恋愛・悩み</p>
             <div class="letter-title">
@@ -45,69 +86,145 @@
             </div>
             <p class="description">
                 恋愛のことでモヤモヤしてて…<br>
-                誰かに話したいです。
+                誰かに話を聞いてほしいです。
             </p>
             <div class="letter-info">
                 <span>135pt</span>
                 <span>/</span>
                 <span>25分</span>
             </div>
-            <img class="goat" src="images/goat.png" alt="感情">
-        </div>
-
-        <!-- レター2 -->
-        <div class="letter">
-            <div class="emotion-color pink"></div>
-            <p class="category">愚痴・ストレス</p>
-            <div class="letter-title">
-                <h2>仕事がしんどくて愚痴りたい</h2>
-                <img class="call-icon" src="images/telefone.png" alt="通話">
-            </div>
-            <p class="description">
-                今日も仕事でいろいろあって…<br>
-                聞いてくれる人を探しています。
-            </p>
-            <div class="letter-info">
-                <span>85pt</span>
-                <span>/</span>
-                <span>15分</span>
-            </div>
-            <img class="goat" src="images/goat.png" alt="感情">
-        </div>
-
-        <!-- レター3 -->
-        <div class="letter">
-            <div class="emotion-color purple"></div>
-            <p class="category">日常・雑談</p>
-            <div class="letter-title">
-                <h2>楽しかったことを話したい！</h2>
-                <img class="call-icon" src="images/telefone.png" alt="通話">
-            </div>
-            <p class="description">
-                今日はいいことがあったので<br>
-                誰かに聞いてほしいです。
-            </p>
-            <div class="letter-info">
-                <span>40pt</span>
-                <span>/</span>
-                <span>10分</span>
-            </div>
-            <img class="goat" src="images/goat.png" alt="感情">
+            <img class="goat" src="images/sad.png" alt="感情">
         </div>
     </main>
+
+    <!-- 商品詳細 -->
+    <div id="detailmodal">
+
+        <div id="detailwindow">
+            <button id="detailclose" type="button">×</button>
+
+            <!-- ① 詳細 -->
+            <div class="purchase-step is-active" id="detailStep">
+                <div id="modaltop">
+                    <div id="modalcategory">
+                        <span id="modalemotion"></span>
+                        <span id="modal-category">カテゴリー</span>
+                    </div>
+                    <span id="modalexpress">速達</span>
+                </div>
+
+                <h2 id="modal-title">見出し</h2>
+
+                <div id="modal-info">
+                    <span id="modal-point">---pt</span>
+                    <span>/</span>
+                    <span id="modal-time">--分</span>
+                </div>
+
+                <div id="modal-description">
+                    内容がここに表示されます。
+                </div>
+
+                <div id="modal-rating">
+                    <span>★★★★☆</span>
+                    <strong>4.5</strong>
+                </div>
+
+                <button id="buybutton" type="button">購入する</button>
+            </div>
+
+            <!-- ② 購入確認 -->
+            <div class="purchase-step" id="confirmStep">
+                <div class="purchase-icon">✉️</div>
+
+                <p class="step-label">PURCHASE CONFIRMATION</p>
+                <h2>この手紙を購入しますか？</h2>
+
+                <div class="purchase-summary">
+                    <p class="summary-label">購入する手紙</p>
+                    <strong id="confirmTitle">手紙のタイトル</strong>
+
+                    <div class="point-change">
+                        <div>
+                            <span>現在のポイント</span>
+                            <strong id="beforePoint">230pt</strong>
+                        </div>
+
+                        <span class="point-arrow">▶</span>
+
+                        <div>
+                            <span>購入後</span>
+                            <strong id="afterPoint">95pt</strong>
+                        </div>
+                    </div>
+
+                    <p class="purchase-price">
+                        必要ポイント：
+                        <strong><span id="confirmPoint">135</span>pt</strong>
+                    </p>
+                </div>
+
+                <p class="purchase-note">
+                    購入を確定すると、チャットを開始できます。
+                </p>
+
+                <div class="confirm-buttons">
+                    <button id="cancelBuyBtn" type="button">キャンセル</button>
+                    <button id="confirmBuyBtn" type="button">購入を確定する</button>
+                </div>
+            </div>
+
+            <!-- ③ 購入完了 -->
+            <div class="purchase-step" id="completeStep">
+                <div class="complete-icon">✓</div>
+
+                <p class="step-label">PURCHASE COMPLETE</p>
+                <h2>購入が完了しました！</h2>
+
+                <p class="complete-message">
+                    手紙の購入が完了しました。<br>
+                    チャットを開始して、相手の話を聞いてみましょう。
+                </p>
+
+                <div class="complete-point">
+                    残りのポイント
+                    <strong id="remainingPoint">95pt</strong>
+                </div>
+
+                <button id="startChatBtn" type="button">
+                    チャットを開始する
+                    <span>▶</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
     <div id="pointgoat">
-        <img src="images/pointsgoat.png" alt="ヤギ">
+        <img src="images/pointsgoat.png" alt="ポイントを表示するヤギ">
         <span id="userpoint">230pt</span>
     </div>
 
-    <nav class="bottom-menu">
-        <button>ホーム</button>
-        <button>AI分析</button>
-        <button>チャット</button>
-        <button>出品</button>
-        <button>プロフィール</button>
-    </nav>
+    <nav class="bottommenu">
+        <a href="index.html">
+            <img src="images/home.png" alt="ホーム">
+            <span>ホーム</span>
+        </a>
+        <a href="review1.html">
 
+            <img src="images/ai.png" alt="AI分析">
+            <span>AI分析</span>
+        </a>
+        <a href="#">
+            <img src="images/chat.png" alt="チャット">
+            <span>チャット</span>
+        </a>
+        <a href="post.html">
+            <img src="images/post.png" alt="出品">
+            <span>出品</span>
+        </a>
+    </nav>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/home.js"></script>
 </body>
 </html>

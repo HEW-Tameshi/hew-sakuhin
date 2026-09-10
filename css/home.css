@@ -2,7 +2,11 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff8f8;
+    background-image:url('../images/background.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
     color: #333;
 }
 
@@ -35,19 +39,21 @@ header {
 
 /* ユーザー */
 .user {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background-color: #d9f1f7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background-color:#d9f1f7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    text-decoration:none;
+    cursor:pointer;
 }
 
 .user img {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     object-fit: contain;
 }
 
@@ -77,13 +83,13 @@ header {
 
 /* 通知 */
 .notice {
-    width: 75px;
+    width:95px;
     text-align: center;
 }
 
 .notice img {
-    width: 65px;
-    height: 65px;
+    width: 95px;
+    height: 95px;
     object-fit: contain;
 }
 /* 新着・速達 */
@@ -126,13 +132,13 @@ main {
 
 /* レター */
 .letter {
-    position: relative;
-    background-color: white;
-    margin-bottom: 45px;
-    padding: 25px 120px 25px 25px;
-    border: 2px solid #666;
-    border-radius: 12px;
-    min-height: 180px;
+    position:relative;
+    background-color:white;
+    margin-bottom:35px;
+    padding:20px 120px 20px 25px;
+    border:2px solid #666;
+    border-radius:12px;
+    min-height:150px;
 }
 
 .letter h2 {
@@ -152,15 +158,47 @@ main {
     cursor: pointer;
 }
 
-/* 感情カラー */
-
-.emotion-color {
-    width: 70px;
-    height: 8px;
-    background-color: #9ad59a;
-    border-radius: 10px;
+/* 速達 */
+.letter.express {
+    border:5px solid #e45f6f;
+    background-color:#fff7f7;
 }
 
+/* 感情の影 */
+.letter.joy {
+    box-shadow:0 0 12px rgba(255,180,55,0.65);
+}
+
+.letter.fun {
+    box-shadow:0 0 12px rgba(90,205,105,0.65);
+}
+
+.letter.sad {
+    box-shadow:0 0 12px rgba(125,115,230,0.65);
+}
+
+.letter.angry {
+    box-shadow:0 0 12px rgba(245,90,100,0.65);
+}
+
+/* 感情カラー */
+.emotion-color {
+    width:70px;
+    height:8px;
+    border-radius:10px;
+}
+.joy .emotion-color {
+    background-color:#e6a23c;
+}
+.fun .emotion-color {
+    background-color:#65a765;
+}
+.sad .emotion-color {
+    background-color:#7772c9;
+}
+.angry .emotion-color {
+    background-color:#d85c5c;
+}
 
 /* カテゴリ */
 .category {
@@ -207,16 +245,8 @@ main {
     height: 20px;
 }
 
-/* 感情カラー */
-.pink {
-    background-color: #f3aaaa;
-}
 
-.purple {
-    background-color: #b9b5ee;
-}
-
-.bottom-menu {
+.bottommenu {
     position:fixed;
     bottom:0;
     left:0;
@@ -231,22 +261,35 @@ main {
     z-index:100;
 }
 
-.bottom-menu button {
-    border: none;
-    background: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px 15px;
-    cursor: pointer;
+.bottommenu a {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:0 15px;
+    cursor:pointer;
+    color:inherit;
+    text-decoration:none;
 }
 
+.bottommenu img {
+    width:38px;
+    height:38px;
+    object-fit:contain;
+}
+
+.bottommenu span {
+    margin-top:-2px;
+    font-size:13px;
+    font-weight:bold;
+}
 /* 表情のアイコン */
 .call-icon {
     position: absolute;
-    right: 45px;
-    top: 65px;
-    width: 60px;
-    height: 60px;
+    right: 25px;
+    top: 25px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
 }
 
@@ -254,23 +297,23 @@ main {
 /* 感情キャラクター */
 
 .goat {
-    position: absolute;
-    right: -50px;
-    bottom: -50px;
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
+    position:absolute;
+    right:-35px;
+    bottom:-40px;
+    width:160px;
+    height:160px;
+    object-fit:contain;
 }
 
 /* ポイントやぎ */
 #pointgoat {
     position:fixed;
-    right:1vw;
-    bottom:55px;
-    width:24vw;
-    max-width:450px;
-    min-width:300px;
-    z-index:110;
+    right:15px;
+    bottom:65px;
+    width:17vw;
+    max-width:290px;
+    min-width:190px;
+    z-index:90;
 }
 
 #pointgoat img {
@@ -284,9 +327,365 @@ main {
     top:19%;
     width:31%;
     text-align:center;
-    font-size:clamp(28px,2vw,40px);
+    font-size:clamp(22px,1.7vw,34px);
     font-weight:bold;
     font-family:"Segoe Print","Comic Sans MS",cursive;
     color:#5a4035;
     transform:rotate(-3deg);
+}
+
+/* 詳細ページ */
+#detailmodal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.6);
+    z-index:200;
+}
+
+#detailwindow {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:600px;
+    max-width:calc(100% - 40px);
+    padding:35px;
+    background-color:white;
+    border:3px solid #555;
+    border-radius:20px;
+    transform:translate(-50%,-50%);
+}
+
+#detailclose {
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border:2px solid #555;
+    border-radius:50%;
+    background-color:white;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* 感情・カテゴリー・速達 */
+#modaltop {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+    padding-right:65px;
+}
+
+#modalcategory {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    min-width:0;
+}
+
+/* 感情カラー */
+#modalemotion {
+    width:55px;
+    height:8px;
+    border-radius:10px;
+    background-color:#777;
+}
+
+/* 速達 */
+#modalexpress {
+    margin-left:auto;
+    padding:5px 15px;
+    border:2px solid #e45f6f;
+    border-radius:15px;
+    background-color:#fff0f0;
+    color:#d85c5c;
+    font-size:14px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+/* 見出し */
+#modal-title {
+    margin:0 50px 15px 0;
+    font-size:26px;
+}
+
+/* ポイント・時間 */
+#modal-info {
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-bottom:25px;
+    font-size:20px;
+    font-weight:bold;
+    line-height:1;
+}
+
+#modal-info span {
+    display:inline-flex;
+    align-items:center;
+    height:24px;
+}
+
+/* 内容 */
+#modal-description {
+    min-height:120px;
+    padding:20px;
+    background-color:#eef7fa;
+    border:2px solid #777;
+    border-radius:10px;
+    font-size:16px;
+    line-height:1.6;
+}
+
+/* 評価 */
+#modal-rating {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:20px;
+    height:40px;
+}
+
+#modal-rating span {
+    display:flex;
+    align-items:center;
+    color:#f5b82e;
+    font-size:32px;
+    letter-spacing:2px;
+    line-height:1;
+}
+
+#modal-rating strong {
+    display:flex;
+    align-items:center;
+    color:#333;
+    font-size:18px;
+    line-height:1;
+    padding-top:3px;
+}
+
+/* 購入 */
+#buybutton {
+    display:block;
+    width:200px;
+    height:55px;
+    margin:35px auto 0;
+    border:2px solid #555;
+    border-radius:15px;
+    background-color:#f7caca;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.purchase-step {
+    display: none;
+}
+
+.purchase-step.is-active {
+    display: block;
+}
+
+#confirmStep,
+#completeStep {
+    text-align: center;
+    padding: 15px 10px 5px;
+}
+
+.purchase-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background-color: #fff0f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    box-shadow: 0 4px 12px rgba(232, 106, 122, 0.25);
+}
+
+.step-label {
+    margin: 0 0 5px;
+    color: #e86f7d;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#confirmStep h2,
+#completeStep h2 {
+    margin: 5px 0 20px;
+    font-size: 26px;
+}
+
+.purchase-summary {
+    padding: 20px;
+    background-color: #fff7f8;
+    border: 2px solid #f3c3c9;
+    border-radius: 15px;
+}
+
+.summary-label {
+    margin: 0 0 8px;
+    color: #888;
+    font-size: 13px;
+}
+
+#confirmTitle {
+    display: block;
+    font-size: 18px;
+}
+
+.point-change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.point-change div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.point-change div span {
+    color: #777;
+    font-size: 13px;
+}
+
+.point-change strong {
+    color: #817fd1;
+    font-size: 24px;
+}
+
+.point-arrow {
+    color: #e86f7d;
+}
+
+.purchase-price {
+    margin: 18px 0 0;
+    padding-top: 15px;
+    border-top: 1px dashed #e5aeb5;
+}
+
+.purchase-price strong {
+    color: #e86f7d;
+    font-size: 22px;
+}
+
+.purchase-note {
+    color: #777;
+    font-size: 14px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.confirm-buttons button {
+    min-width: 180px;
+    padding: 14px 20px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cancelBuyBtn {
+    background-color: white;
+    color: #555;
+}
+
+#confirmBuyBtn {
+    background-color: #f7caca;
+    color: #333;
+}
+
+.complete-icon {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: #e86f7d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    box-shadow: 0 5px 18px rgba(232, 106, 122, 0.35);
+}
+
+.complete-message {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.complete-point {
+    width: 280px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fff7f8;
+    border-radius: 12px;
+    color: #777;
+}
+
+.complete-point strong {
+    display: block;
+    margin-top: 4px;
+    color: #817fd1;
+    font-size: 25px;
+}
+
+#startChatBtn {
+    width: 280px;
+    padding: 15px 22px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    background-color: #f7caca;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#startChatBtn span {
+    margin-left: 20px;
+}
+
+.tabs button,
+.user,
+.bottommenu a {
+    transition:0.2s;
+}
+.tabs button:hover {
+    color:#e86f7d;
+    transform:scale(1.08);
+}
+.user:hover {
+    transform:scale(1.08);
+}
+.bottommenu a:hover {
+    transform:translateY(-4px);
+}
+.letter {
+    cursor:pointer;
+    transition:0.2s;
+}
+.letter:hover {
+    transform:translateY(-5px);
 }
