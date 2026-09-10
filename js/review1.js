@@ -61,18 +61,79 @@ $(document).ready(function(){
 
 
     // 送信ボタン
+    // $('#sendbutton').click(function(){
+    //     // 次のレビュー画面へ移動
+    //     window.location.href = 'review2.html';
+    // });
+
+    let pointAfterSending = 0;
+
+    // 「送信」を押したとき
     $('#sendbutton').click(function(){
-        // 次のレビュー画面へ移動
+
+        // 選択中のチップ
+        const tipPoint = Number($('#point').text());
+
+        // 現在の所持ポイント
+        const currentPoint = Number(
+            $('#userpoint').text().replace(/[^0-9]/g, '')
+        );
+
+        pointAfterSending = currentPoint - tipPoint;
+
+        $('#confirmTipPoint').text(tipPoint);
+        $('#sendBeforePoint').text(currentPoint + 'pt');
+        $('#sendAfterPoint').text(pointAfterSending + 'pt');
+
+        // ポイントが足りるか確認
+        if(pointAfterSending < 0){
+            $('#sendAfterPoint').text('不足');
+            $('#sendConfirmMessage').text(
+                'ポイントが不足しています。チップを変更してください。'
+            );
+            $('#sendConfirmButton').prop('disabled', true);
+        } else {
+            $('#sendConfirmMessage').text(
+                'レビューとチップを相手に送信します。'
+            );
+            $('#sendConfirmButton').prop('disabled', false);
+        }
+
+        $('#sendconfirmmodal').css('display', 'flex');
+    });
+
+    // キャンセル
+    $('#sendCancelButton, #sendconfirmclose').click(function(){
+        $('#sendconfirmmodal').hide();
+    });
+
+    // モーダルの黒い背景を押したとき
+    $('#sendconfirmmodal').click(function(event){
+        if(event.target === this){
+            $('#sendconfirmmodal').hide();
+        }
+    });
+
+    // 送信を確定
+    $('#sendConfirmButton').click(function(){
+
+        if(pointAfterSending < 0){
+            return;
+        }
+
+        $('#userpoint').text(pointAfterSending + 'pt');
+
         window.location.href = 'review2.html';
     });
-    $("#closebutton").click(function(){
-        window.location.href = 'index.html';
-    });
-});
 
-// charAt(count) -> pega uma letra da frase.
-// setInterval() -> repete ate terminar o texto.
-// $(this).index() -> descobre qual estrela foi clicada.
-// .each() -> passa por cada estrela.
-// .attr('data-point') -> pega o valor de ponto do botao.
-// .addClass() / .removeClass() -> muda o visual da opcao selecionada.
+        $("#closebutton").click(function(){
+            window.location.href = 'index.html';
+        });
+    });
+
+    // charAt(count) -> pega uma letra da frase.
+    // setInterval() -> repete ate terminar o texto.
+    // $(this).index() -> descobre qual estrela foi clicada.
+    // .each() -> passa por cada estrela.
+    // .attr('data-point') -> pega o valor de ponto do botao.
+    // .addClass() / .removeClass() -> muda o visual da opcao selecionada.

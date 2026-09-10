@@ -61,6 +61,53 @@
         </div>
     </main>
     
+    <!-- 送信確認モーダル -->
+    <div id="sendconfirmmodal">
+        <div id="sendconfirmwindow">
+            <button id="sendconfirmclose" type="button">×</button>
+
+            <div class="send-confirm-icon">✉️</div>
+
+            <p class="send-step-label">REVIEW CONFIRMATION</p>
+            <h2>この内容で送信しますか？</h2>
+
+            <div class="send-confirm-summary">
+                        <p class="send-summary-label">送信するチップ</p>
+
+                <p class="send-tip-point">
+                    <strong><span id="confirmTipPoint">100</span>pt</strong>
+                </p>
+
+                <div class="send-point-change">
+                    <div>
+                        <span>現在のポイント</span>
+                        <strong id="sendBeforePoint">230pt</strong>
+                    </div>
+
+                    <span class="send-point-arrow">▶</span>
+
+                    <div>
+                        <span>送信後</span>
+                        <strong id="sendAfterPoint">130pt</strong>
+                    </div>
+                </div>
+            </div>
+
+            <p id="sendConfirmMessage">
+                レビューとチップを相手に送信します。
+            </p>
+
+            <div class="send-confirm-buttons">
+                <button id="sendCancelButton" type="button">
+                    キャンセル
+                </button>
+
+                <button id="sendConfirmButton" type="button">
+                    送信を確定する
+                </button>
+            </div>
+        </div>
+</div>
     <div id="pointgoat">
         <img src="images/pointsgoat.png" alt="ヤギ">
         <span id="userpoint">230pt</span>
