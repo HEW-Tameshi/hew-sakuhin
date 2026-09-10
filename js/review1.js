@@ -65,4 +65,14 @@ $(document).ready(function(){
         // 次のレビュー画面へ移動
         window.location.href = 'review2.html';
     });
+    $("#closebutton").click(function(){
+        window.location.href = 'index.html';
+    });
 });
+
+// charAt(count) -> pega uma letra da frase.
+// setInterval() -> repete ate terminar o texto.
+// $(this).index() -> descobre qual estrela foi clicada.
+// .each() -> passa por cada estrela.
+// .attr('data-point') -> pega o valor de ponto do botao.
+// .addClass() / .removeClass() -> muda o visual da opcao selecionada.

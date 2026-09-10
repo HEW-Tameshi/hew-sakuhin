@@ -160,25 +160,25 @@ main {
 
 /* 速達 */
 .letter.express {
-    border:4px solid #e45f6f;
+    border:5px solid #e45f6f;
     background-color:#fff7f7;
 }
 
 /* 感情の影 */
 .letter.joy {
-    box-shadow:0 0 15px #e6a23c;
+    box-shadow:0 0 25px #e6a23c;
 }
 
 .letter.fun {
-    box-shadow:0 0 15px #65a765;
+    box-shadow:0 0 25px #65a765;
 }
 
 .letter.sad {
-    box-shadow:0 0 15px #7772c9;
+    box-shadow:0 0 25px #7772c9;
 }
 
 .letter.angry {
-    box-shadow:0 0 15px #d85c5c;
+    box-shadow:0 0 25px #d85c5c;
 }
 
 /* 感情カラー */

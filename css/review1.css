@@ -33,6 +33,7 @@ header {
 
 /* レビュー全体 */
 #reviewbox {
+    position:relative;
     width:720px;
     background-color:#fffafa;
     border:2px solid #777;
@@ -40,6 +41,25 @@ header {
     padding:35px 55px 45px;
     box-sizing:border-box;
     box-shadow:0 0 18px rgba(230,150,160,0.35);
+}
+
+/* 閉じる */
+#closebutton {
+    position:absolute;
+    top:20px;
+    right:22px;
+    width:45px;
+    height:45px;
+    border:3px solid #777;
+    border-radius:50%;
+    background-color:white;
+    color:#555;
+    font-size:28px;
+    cursor:pointer;
+}
+
+#closebutton:hover {
+    background-color:#f7caca;
 }
 
 /* レビュータイトル */

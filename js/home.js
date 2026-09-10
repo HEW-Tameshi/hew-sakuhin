@@ -53,7 +53,7 @@ $(document).ready(function () {
             $('#new-letter').prepend(
                 '<div class="letter ' + post.emotion + expressClass + '">' +
                     '<div class="emotion-color" style="background-color:' + emotionColor + ';\"></div>' +
-                    '<p class="category">日常・雑談</p>' +
+                    '<p class="category">'+ post.category+'</p>' +
                     '<div class="letter-title">' +
                         '<h2>' + post.title + '</h2>' +
                         callIcon +
@@ -69,6 +69,24 @@ $(document).ready(function () {
             );
         });
     }
+
+    $('#newtab').click(function(){
+        // 全部の出品を表示
+        $('.letter').show();
+        // ボタンの色を変更
+        $('#newtab').addClass('active');
+        $('#expresstab').removeClass('active');
+    });
+
+    // 速達
+    $('#expresstab').click(function(){
+        $('.letter').hide();
+        $('.letter.express').show();
+        // ボタンの色を変更
+        $('#expresstab').addClass('active');
+        $('#newtab').removeClass('active');
+
+    });
 
 });
 

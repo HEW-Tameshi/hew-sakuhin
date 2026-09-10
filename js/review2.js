@@ -75,3 +75,8 @@ $(document).ready(function(){
         window.location.href = 'index.html';
     });
 });
+
+// .animate() -> aumenta a barra.
+// setInterval() -> faz o numero subir de 0 ate a nota.
+// setTimeout() -> mostra as partes depois de alguns segundos.
+// .fadeIn() -> faz aparecer suavemente.

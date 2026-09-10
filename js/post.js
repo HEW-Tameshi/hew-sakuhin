@@ -74,6 +74,7 @@ $(document).ready(function () {
     let selectedColor =  '#b9b5ee';
     let selectedImage =  'images/happy.jpg';
     let selectedEmotion = '';
+    
 
     $('#emotion-options button').mouseenter(function(){
 
@@ -164,7 +165,6 @@ $(document).ready(function () {
         $('#goat').attr('src', selectedImage);
     });
 
-
     // 通話
     // 有・無を変更した時
     $('input[name="call"]').on('change', function () {
@@ -196,24 +196,18 @@ $(document).ready(function () {
     });
 
 
-    // 出品ボタンをクリック
+
     $('#post-button').on('click', function () {
 
-        // 入力された見出しを取得
         let title = $('#post-title').val();
-        // 入力された内容を取得
         let text = $('#post-description').val();
-        // 入力された希望時間
+        let category = $('#post-category').val();
         let time = $('#post-time').val();
-        //入力されたポイント
         let point = $('#post-point').val();
-        // 選択された通話
         let call = $('input[name="call"]:checked').val();
-        // そくたつ
         let express = $('input[name="express"]:checked').val();
-        // 注意事項
         let agreement = $('#agreement').is(':checked');
-        // 見出しが入力されていない場合
+
         if (title === '') {
             alert('見出しを入力してください。');
         }
@@ -238,6 +232,9 @@ $(document).ready(function () {
         else if (selectedEmotion === '') {
             alert('感情を選択してください。');
         }
+        else if (category === '') {
+            alert('カテゴリーを選択してください。');
+        }
         else if (agreement === false) {
             alert('注意事項に同意してください。');
         } 
@@ -250,7 +247,8 @@ $(document).ready(function () {
                 point: point,
                 call: call,
                 express: express,
-                emotion: selectedEmotion
+                emotion: selectedEmotion,
+                category: category 
             };
 
             console.log(post);
@@ -273,17 +271,11 @@ $(document).ready(function () {
 
             // '' nome pra guardar
             localStorage.setItem('postTitle', title);
-            // 内容
             localStorage.setItem('postDescription', text);
-            // 希望時間
             localStorage.setItem('postTime', time);
-            // ポイント
             localStorage.setItem('postPoint', point);
-            // 通話
             localStorage.setItem('postCall', call);
-            // 速達
             localStorage.setItem('postExpress', express);
-            // 感情
             localStorage.setItem('postEmotion', selectedEmotion);
 
             alert('出品できます。');
