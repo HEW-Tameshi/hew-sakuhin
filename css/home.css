@@ -166,19 +166,19 @@ main {
 
 /* 感情の影 */
 .letter.joy {
-    box-shadow:0 0 25px #e6a23c;
+    box-shadow:0 0 12px rgba(255,180,55,0.65);
 }
 
 .letter.fun {
-    box-shadow:0 0 25px #65a765;
+    box-shadow:0 0 12px rgba(90,205,105,0.65);
 }
 
 .letter.sad {
-    box-shadow:0 0 25px #7772c9;
+    box-shadow:0 0 12px rgba(125,115,230,0.65);
 }
 
 .letter.angry {
-    box-shadow:0 0 25px #d85c5c;
+    box-shadow:0 0 12px rgba(245,90,100,0.65);
 }
 
 /* 感情カラー */
@@ -378,9 +378,10 @@ main {
 /* 感情・カテゴリー・速達 */
 #modaltop {
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    gap:15px;
     margin-bottom:15px;
+    padding-right:65px;
 }
 
 #modalcategory {
@@ -388,6 +389,7 @@ main {
     align-items:center;
     gap:10px;
     font-size:15px;
+    min-width:0;
 }
 
 /* 感情カラー */
@@ -400,6 +402,7 @@ main {
 
 /* 速達 */
 #modalexpress {
+    margin-left:auto;
     padding:5px 15px;
     border:2px solid #e45f6f;
     border-radius:15px;
@@ -407,6 +410,7 @@ main {
     color:#d85c5c;
     font-size:14px;
     font-weight:bold;
+    white-space:nowrap;
 }
 
 /* 見出し */
@@ -419,10 +423,17 @@ main {
 #modal-info {
     display:flex;
     align-items:center;
-    gap:5px;
+    gap:7px;
     margin-bottom:25px;
     font-size:20px;
     font-weight:bold;
+    line-height:1;
+}
+
+#modal-info span {
+    display:inline-flex;
+    align-items:center;
+    height:24px;
 }
 
 /* 内容 */
@@ -440,19 +451,27 @@ main {
 #modal-rating {
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
     margin-top:20px;
+    height:40px;
 }
 
 #modal-rating span {
+    display:flex;
+    align-items:center;
     color:#f5b82e;
     font-size:32px;
     letter-spacing:2px;
+    line-height:1;
 }
 
 #modal-rating strong {
+    display:flex;
+    align-items:center;
     color:#333;
     font-size:18px;
+    line-height:1;
+    padding-top:3px;
 }
 
 /* 購入 */
