@@ -88,6 +88,61 @@ $(document).ready(function () {
 
     });
 
+    // 出品をクリック
+    $(document).on('click', '.letter', function(){
+
+        // 見出し
+        let title = $(this).find('h2').text();
+
+        // 内容
+        let description = $(this).find('.description').text();
+
+        // カテゴリー
+        let category = $(this).find('.category').text();
+
+        // ポイント
+        let point = $(this).find('.letter-info span').eq(0).text();
+
+        // 時間
+        let time = $(this).find('.letter-info span').eq(2).text();
+
+        // 商品詳細に表示
+        $('#modal-title').text(title);
+        $('#modal-description').text(description);
+        $('#modal-category').text(category);
+        $('#modal-point').text(point);
+        $('#modal-time').text(time);
+
+        // 感情
+        if($(this).hasClass('joy')){
+            $('#modalemotion').css('background-color','#e6a23c');
+        }
+        else if($(this).hasClass('fun')){
+            $('#modalemotion').css('background-color','#65a765');
+        }
+        else if($(this).hasClass('sad')){
+            $('#modalemotion').css('background-color','#7772c9');
+        }
+        else if($(this).hasClass('angry')){
+            $('#modalemotion').css('background-color','#d85c5c');
+        }
+
+        // 速達
+        if($(this).hasClass('express')){
+            $('#modalexpress').show();
+        }
+        else{
+            $('#modalexpress').hide();
+        }
+
+        // 商品詳細を表示
+        $('#detailmodal').fadeIn();
+    });
+
+    $('#detailclose').click(function(){
+        $('#detailmodal').fadeOut();
+    });
+
 });
 
 
