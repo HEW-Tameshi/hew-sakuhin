@@ -233,22 +233,22 @@
         });
 
         // Googleログイン処理（プロトタイプ用）
-        googleAuthBtn.addEventListener('click', () => {
-            localStorage.setItem('loggedInUsername', 'Googleユーザー');
-            alert(isLoginMode ? 'Googleでログインしました！' : 'Googleでアカウントを登録しました！');
-            window.location.href = ''; // ホーム画面へのパス
+        document.getElementById('emailForm').addEventListener('submit', (e) => {
+            e.preventDefault(); // フォーム送信による画面再読み込みを止める
+
+            window.location.href = './index.html';
         });
 
-        // フォーム送信処理
-        document.getElementById('emailForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (isLoginMode) {
-                alert('ログインしました！');
-            } else {
-                alert('アカウントを登録しました！');
-            }
-            window.location.href = ''; // ホーム画面へのパス
-        });
+        // // フォーム送信処理
+        // document.getElementById('emailForm').addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     if (isLoginMode) {
+        //         alert('ログインしました！');
+        //     } else {
+        //         alert('アカウントを登録しました！');
+        //     }
+        //     window.location.href = ''; // ホーム画面へのパス
+        // });
     </script>
 </body>
 </html>

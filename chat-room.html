@@ -1,0 +1,90 @@
+<!-- 購入ボタンが押された後に表示するようにしてほしい。 -->
+ <!-- 購入者側から見たチャット欄 -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リアルタイムチャット</title>
+    <link rel="stylesheet" href="./css/chat-room.css" />
+</head>
+  <body>
+
+    <main class="chat-page">
+      <section class="chat-card" aria-labelledby="chat-title">
+        <header class="chat-header">
+          <div class="chat-heading">
+            <p class="category">恋愛・悩み</p>
+            <h1 id="chat-title">ちょっとだけ話を聞いてほしい</h1>
+          </div>
+          <button class="call-button" id="callButton" type="button" aria-label="音声通話を始める">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.89.69 2.78a2 2 0 0 1-.45 2.11L8.09 9.87a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.89.33 1.82.56 2.78.69A2 2 0 0 1 22 16.92Z" />
+            </svg>
+            <span>通話する</span>
+          </button>
+        </header>
+
+        <div class="message-list" id="messageList" aria-live="polite">
+          <div class="day-label"><span>今日</span></div>
+
+          <article class="message-row message-row--other">
+            <div class="speaker" aria-hidden="true">相手</div>
+            <div>
+              <div class="bubble bubble--other">最近、少し気持ちが落ち込んでいて……。</div>
+              <time>15:02</time>
+            </div>
+          </article>
+
+          <article class="message-row message-row--me">
+            <div>
+              <div class="bubble bubble--me">何があったんですか、？ゆっくりで大丈夫なので教えてください。</div>
+              <time>15:03</time>
+            </div>
+          </article>
+
+          <article class="message-row message-row--other">
+            <div class="speaker" aria-hidden="true">相手</div>
+            <div>
+              <div class="bubble bubble--other">会社でうまくいっていなくて。</div>
+              <time>15:04</time>
+            </div>
+          </article>
+        </div>
+        <div class="goat-notice" aria-hidden="true">
+        <img src="./images/chat.png" alt="">
+        <p>あと<span>5</span>分です</p>
+        </div>
+        <footer class="composer">
+          <div class="moderation-status" role="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            AI検閲 稼働中
+          </div>
+          <form class="message-form" id="messageForm">
+            <label class="sr-only" for="messageInput">メッセージ</label>
+            <textarea id="messageInput" rows="1" maxlength="500" placeholder="メッセージを入力" required></textarea>
+            <button class="send-button" type="submit">送信</button>
+          </form>
+          <p class="input-hint">Enterで送信・Shift + Enterで改行</p>
+        </footer>
+      </section>
+    </main>
+
+    <dialog class="call-dialog" id="callDialog">
+      <button class="dialog-close" id="closeDialog" type="button" aria-label="閉じる">×</button>
+      <div class="call-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.89.69 2.78a2 2 0 0 1-.45 2.11L8.09 9.87a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.89.33 1.82.56 2.78.69A2 2 0 0 1 22 16.92Z" /></svg>
+      </div>
+      <h2>音声通話を申請しますか？</h2>
+      <p>通話を開始するには、相手の了承と、追加ポイントが必要です。</p>
+      <div class="dialog-actions">
+        <button class="secondary-button" id="cancelCall" type="button">キャンセル</button>
+        <button class="primary-button" id="startCall" type="button">通話を申請</button>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./js/chat-room.js"></script>
+  </body>
+</html>
