@@ -468,3 +468,185 @@ main {
     font-weight:bold;
     cursor:pointer;
 }
+
+.purchase-step {
+    display: none;
+}
+
+.purchase-step.is-active {
+    display: block;
+}
+
+#confirmStep,
+#completeStep {
+    text-align: center;
+    padding: 15px 10px 5px;
+}
+
+.purchase-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background-color: #fff0f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    box-shadow: 0 4px 12px rgba(232, 106, 122, 0.25);
+}
+
+.step-label {
+    margin: 0 0 5px;
+    color: #e86f7d;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#confirmStep h2,
+#completeStep h2 {
+    margin: 5px 0 20px;
+    font-size: 26px;
+}
+
+.purchase-summary {
+    padding: 20px;
+    background-color: #fff7f8;
+    border: 2px solid #f3c3c9;
+    border-radius: 15px;
+}
+
+.summary-label {
+    margin: 0 0 8px;
+    color: #888;
+    font-size: 13px;
+}
+
+#confirmTitle {
+    display: block;
+    font-size: 18px;
+}
+
+.point-change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.point-change div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.point-change div span {
+    color: #777;
+    font-size: 13px;
+}
+
+.point-change strong {
+    color: #817fd1;
+    font-size: 24px;
+}
+
+.point-arrow {
+    color: #e86f7d;
+}
+
+.purchase-price {
+    margin: 18px 0 0;
+    padding-top: 15px;
+    border-top: 1px dashed #e5aeb5;
+}
+
+.purchase-price strong {
+    color: #e86f7d;
+    font-size: 22px;
+}
+
+.purchase-note {
+    color: #777;
+    font-size: 14px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.confirm-buttons button {
+    min-width: 180px;
+    padding: 14px 20px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cancelBuyBtn {
+    background-color: white;
+    color: #555;
+}
+
+#confirmBuyBtn {
+    background-color: #f7caca;
+    color: #333;
+}
+
+.complete-icon {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: #e86f7d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    box-shadow: 0 5px 18px rgba(232, 106, 122, 0.35);
+}
+
+.complete-message {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.complete-point {
+    width: 280px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fff7f8;
+    border-radius: 12px;
+    color: #777;
+}
+
+.complete-point strong {
+    display: block;
+    margin-top: 4px;
+    color: #817fd1;
+    font-size: 25px;
+}
+
+#startChatBtn {
+    width: 280px;
+    padding: 15px 22px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    background-color: #f7caca;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#startChatBtn span {
+    margin-left: 20px;
+}

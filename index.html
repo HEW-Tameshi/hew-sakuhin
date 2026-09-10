@@ -101,44 +101,104 @@
     <div id="detailmodal">
 
         <div id="detailwindow">
+            <button id="detailclose" type="button">×</button>
 
-            <!-- 閉じる -->
-            <button id="detailclose">×</button>
-
-            <!-- 感情・カテゴリー・速達 -->
-            <div id="modaltop">
-                <div id="modalcategory">
-                    <span id="modalemotion"></span>
-                    <span id="modal-category">カテゴリー</span>
+            <!-- ① 詳細 -->
+            <div class="purchase-step is-active" id="detailStep">
+                <div id="modaltop">
+                    <div id="modalcategory">
+                        <span id="modalemotion"></span>
+                        <span id="modal-category">カテゴリー</span>
+                    </div>
+                    <span id="modalexpress">速達</span>
                 </div>
 
-                <span id="modalexpress">速達</span>
+                <h2 id="modal-title">見出し</h2>
+
+                <div id="modal-info">
+                    <span id="modal-point">---pt</span>
+                    <span>/</span>
+                    <span id="modal-time">--分</span>
+                </div>
+
+                <div id="modal-description">
+                    内容がここに表示されます。
+                </div>
+
+                <div id="modal-rating">
+                    <span>★★★★☆</span>
+                    <strong>4.5</strong>
+                </div>
+
+                <button id="buybutton" type="button">購入する</button>
             </div>
 
-            <h2 id="modal-title">見出し</h2>
-            <div id="modal-info">
-                <span id="modal-point">---pt</span>
-                <span>/</span>
-                <span id="modal-time">--分</span>
+            <!-- ② 購入確認 -->
+            <div class="purchase-step" id="confirmStep">
+                <div class="purchase-icon">✉️</div>
+
+                <p class="step-label">PURCHASE CONFIRMATION</p>
+                <h2>この手紙を購入しますか？</h2>
+
+                <div class="purchase-summary">
+                    <p class="summary-label">購入する手紙</p>
+                    <strong id="confirmTitle">手紙のタイトル</strong>
+
+                    <div class="point-change">
+                        <div>
+                            <span>現在のポイント</span>
+                            <strong id="beforePoint">230pt</strong>
+                        </div>
+
+                        <span class="point-arrow">▶</span>
+
+                        <div>
+                            <span>購入後</span>
+                            <strong id="afterPoint">95pt</strong>
+                        </div>
+                    </div>
+
+                    <p class="purchase-price">
+                        必要ポイント：
+                        <strong><span id="confirmPoint">135</span>pt</strong>
+                    </p>
+                </div>
+
+                <p class="purchase-note">
+                    購入を確定すると、チャットを開始できます。
+                </p>
+
+                <div class="confirm-buttons">
+                    <button id="cancelBuyBtn" type="button">キャンセル</button>
+                    <button id="confirmBuyBtn" type="button">購入を確定する</button>
+                </div>
             </div>
 
-            <div id="modal-description">
-                内容がここに表示されます。
-            </div>
+            <!-- ③ 購入完了 -->
+            <div class="purchase-step" id="completeStep">
+                <div class="complete-icon">✓</div>
 
-            <div id="modal-rating">
-                <span>★★★★☆</span>
-                <strong>4.5</strong>
-            </div>
+                <p class="step-label">PURCHASE COMPLETE</p>
+                <h2>購入が完了しました！</h2>
 
-            <button id="buybutton" onclick="location.href='chat-room.html'">購入する</button>
+                <p class="complete-message">
+                    手紙の購入が完了しました。<br>
+                    チャットを開始して、相手の話を聞いてみましょう。
+                </p>
+
+                <div class="complete-point">
+                    残りのポイント
+                    <strong id="remainingPoint">95pt</strong>
+                </div>
+
+                <button id="startChatBtn" type="button">
+                    チャットを開始する
+                    <span>▶</span>
+                </button>
+            </div>
         </div>
     </div>
-
-    <div id="pointgoat">
-        <img src="images/pointsgoat.png" alt="ヤギ">
-        <span id="userpoint">230pt</span>
-    </div>
+    
 
     <nav class="bottommenu">
         <a href="index.html">

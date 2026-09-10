@@ -170,3 +170,43 @@ $(document).ready(function () {
 // 1つ目 → 0
 // 2つ目 → 1
 // 3つ目 → 2
+
+const detailStep = document.getElementById('detailStep');
+const confirmStep = document.getElementById('confirmStep');
+const completeStep = document.getElementById('completeStep');
+
+const buybutton = document.getElementById('buybutton');
+const cancelBuyBtn = document.getElementById('cancelBuyBtn');
+const confirmBuyBtn = document.getElementById('confirmBuyBtn');
+const startChatBtn = document.getElementById('startChatBtn');
+
+function showPurchaseStep(step) {
+    detailStep.classList.remove('is-active');
+    confirmStep.classList.remove('is-active');
+    completeStep.classList.remove('is-active');
+
+    step.classList.add('is-active');
+}
+
+/* 詳細 → 購入確認 */
+buybutton.addEventListener('click', () => {
+    const point = document.getElementById('modal-point').textContent;
+    document.getElementById('confirmPoint').textContent = point.replace('pt', '');
+
+    showPurchaseStep(confirmStep);
+});
+
+/* 購入確認 → 詳細 */
+cancelBuyBtn.addEventListener('click', () => {
+    showPurchaseStep(detailStep);
+});
+
+/* 購入確認 → 購入完了 */
+confirmBuyBtn.addEventListener('click', () => {
+    showPurchaseStep(completeStep);
+});
+
+/* 購入完了 → チャット画面 */
+startChatBtn.addEventListener('click', () => {
+    location.href = 'chat-room.html';
+});
