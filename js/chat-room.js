@@ -49,9 +49,14 @@ function sendMessage() {
   input.focus();
 }
 
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault();
+//   sendMessage();
+// });
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  sendMessage();
+  window.location.href = 'review1.html';
 });
 
 input.addEventListener('input', resizeInput);
