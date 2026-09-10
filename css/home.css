@@ -334,10 +334,7 @@ main {
     transform:rotate(-3deg);
 }
 
-
-
 /* 詳細ページ */
-
 #detailmodal {
     display:none;
     position:fixed;
@@ -668,4 +665,27 @@ main {
 
 #startChatBtn span {
     margin-left: 20px;
+}
+
+.tabs button,
+.user,
+.bottommenu a {
+    transition:0.2s;
+}
+.tabs button:hover {
+    color:#e86f7d;
+    transform:scale(1.08);
+}
+.user:hover {
+    transform:scale(1.08);
+}
+.bottommenu a:hover {
+    transform:translateY(-4px);
+}
+.letter {
+    cursor:pointer;
+    transition:0.2s;
+}
+.letter:hover {
+    transform:translateY(-5px);
 }
