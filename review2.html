@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レビュー結果 - ココロのメール便</title>
+    <link rel="stylesheet" href="css/review2.css">
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo">ココロのメール便</div>
+    </header>
+
+    <!-- 分析結果 -->
+    <main id="resultpage">
+
+        <div id="resultbox">
+
+            <!-- 閉じる -->
+            <button id="closebutton">×</button>
+
+            <!-- タイトル -->
+            <div id="resulttop">
+                <h1>今日のあなたの分析</h1>
+                <p>今回の会話の結果です</p>
+            </div>
+
+            <!-- 総合評価 -->
+            <div id="todayresult">
+                <p>今回の総合評価</p>
+                <h2>とても良い</h2>
+            </div>
+
+            <!-- コミュニケーション分析 -->
+            <section id="analysisarea">
+
+                <h2 class="sectiontitle">― コミュニケーション分析 ―</h2>
+
+                <!-- 包容力 -->
+                <div class="analysisitem">
+
+                    <div class="analysisicon">♡</div>
+
+                    <div class="analysiscontent">
+
+                        <div class="analysistitle">
+                            <div>
+                                <strong>包容力</strong>
+                                <span>相手を受け止める力</span>
+                            </div>
+
+                            <span class="score">
+                                <span id="score1">0</span>
+                                <small>/100</small>
+                            </span>
+                        </div>
+
+                        <div class="bar">
+                            <div id="bar1" class="barinside"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- 共感力 -->
+                <div class="analysisitem">
+
+                    <div class="analysisicon">✿</div>
+
+                    <div class="analysiscontent">
+
+                        <div class="analysistitle">
+                            <div>
+                                <strong>共感力</strong>
+                                <span>気持ちに寄りそう力</span>
+                            </div>
+
+                            <span class="score">
+                                <span id="score2">0</span>
+                                <small>/100</small>
+                            </span>
+                        </div>
+
+                        <div class="bar">
+                            <div id="bar2" class="barinside"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- 論理性 -->
+                <div class="analysisitem">
+
+                    <div class="analysisicon">◇</div>
+
+                    <div class="analysiscontent">
+
+                        <div class="analysistitle">
+                            <div>
+                                <strong>論理性</strong>
+                                <span>考えを整理して伝える力</span>
+                            </div>
+
+                            <span class="score">
+                                <span id="score3">0</span>
+                                <small>/100</small>
+                            </span>
+                        </div>
+
+                        <div class="bar">
+                            <div id="bar3" class="barinside"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ランク -->
+            <section id="rankarea">
+
+                <h2 class="sectiontitle">― ランク ―</h2>
+
+                <div id="rankline">
+                    <span>Lv1</span>
+
+                    <div id="rankbar">
+                        <div id="rankpoint"></div>
+                    </div>
+
+                    <span>Lv2</span>
+                </div>
+
+                <p id="ranktext">あと65ptでLv2</p>
+
+            </section>
+
+            <!-- タイプ -->
+            <section id="personalityarea">
+
+                <h2 class="sectiontitle">― 今日のあなたのタイプ ―</h2>
+
+                <div id="personalitybox">
+                    <h2 id="personalitytext"></h2>
+                </div>
+
+            </section>
+
+            <!-- 肩書き -->
+            <section id="titlearea">
+
+                <h2 class="sectiontitle">― 肩書き ―</h2>
+
+                <div id="titlebox">
+                    <span>✦</span>
+                    <h2 id="titlename"></h2>
+                    <span>✦</span>
+                </div>
+
+                <button id="profilebutton">プロフィールに追加</button>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ポイントやぎ -->
+    <div id="pointgoat">
+        <img src="images/pointsgoat.png" alt="ヤギ">
+        <span id="userpoint">230pt</span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/review2.js"></script>
+
+</body>
+</html>
