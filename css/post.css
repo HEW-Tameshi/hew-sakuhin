@@ -5,6 +5,7 @@
 
 body {
     margin:0;
+    padding-bottom:90px;
     font-family:Arial, sans-serif;
     background-image:url('../images/background.png');
     background-size:cover;
@@ -365,15 +366,15 @@ header {
     cursor:pointer;
 }
 
-/* 下メニュー */
-#bottom-menu {
+/* 下のメニュー */
+.bottommenu {
     position:fixed;
     bottom:0;
     left:0;
     width:100%;
     height:75px;
     background-color:#f7caca;
-    border-top:1px solid #ddd;
+    border-top:1px solid #aaa;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -381,13 +382,27 @@ header {
     z-index:100;
 }
 
-#bottom-menu button {
-    border:none;
-    background:none;
-    padding:12px 15px;
-    font-size:18px;
-    font-weight:bold;
+.bottommenu a {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:0 15px;
     cursor:pointer;
+    color:inherit;
+    text-decoration:none;
+}
+
+.bottommenu img {
+    width:38px;
+    height:38px;
+    object-fit:contain;
+}
+
+.bottommenu span {
+    margin-top:-2px;
+    font-size:13px;
+    font-weight:bold;
 }
 
 /* 小さい画面 */
