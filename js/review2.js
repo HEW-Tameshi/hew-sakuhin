@@ -6,8 +6,8 @@ $(document).ready(function(){
     let score3 = 72;
 
     // 最初は非表示
-    $('#personalityarea').hide();
-    $('#titlearea').hide();
+    // $('#personalityarea').hide();
+    // $('#titlearea').hide();
 
     // 包容力のバー
     $('#bar1').animate({width:score1 + '%'
@@ -54,16 +54,20 @@ $(document).ready(function(){
     },1500);
 
     // タイプを表示
-    setTimeout(function(){
-        $('#personalitytext').text('相手を安心させるタイプ');
-        $('#personalityarea').fadeIn();
-    },1600);
+    // setTimeout(function(){
+    //     $('#personalitytext').text('相手を安心させるタイプ');
+    //     $('#personalityarea').fadeIn();
+    // },1600);
 
     // 肩書きを表示
-    setTimeout(function(){
-        $('#titlename').text('言語化の神');
-        $('#titlearea').fadeIn();
-    },2200);
+    // setTimeout(function(){
+    //     $('#titlename').text('言語化の神');
+    //     $('#titlearea').fadeIn();
+    // },2200);
+
+    // 最初から表示に変更
+    $('#personalitytext').text('相手を安心させるタイプ');
+    $('#titlename').text('言語化の神');
 
     // プロフィールに追加
     $('#profilebutton').click(function(){

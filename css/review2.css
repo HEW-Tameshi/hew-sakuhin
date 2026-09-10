@@ -263,6 +263,11 @@ header {
     color:#5f858b;
 }
 
+
+
+/* ーーー変更ーーー */
+
+
 /* 肩書き */
 #titlearea {
     margin-top:40px;
@@ -340,4 +345,368 @@ header {
     font-family:"Segoe Print","Comic Sans MS",cursive;
     color:#5a4035;
     transform:rotate(-3deg);
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ヘッダーを除いた表示領域 */
+#resultpage {
+    width: 100%;
+    height: calc(100vh - 70px);
+    padding: 18px 24px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+/* 横長の結果画面 */
+#resultbox {
+    width: min(1150px, calc(100vw - 48px));
+    height: 100%;
+    padding: 22px 45px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows:
+        auto
+        minmax(110px, 0.8fr)
+        minmax(95px, 0.7fr)
+        minmax(145px, 1fr);
+    grid-template-areas:
+        "resulttop resulttop"
+        "today analysis"
+        "rank analysis"
+        "personality title";
+    column-gap: 45px;
+    row-gap: 12px;
+}
+
+/* 上部タイトル */
+#resulttop {
+    grid-area: resulttop;
+}
+
+#resulttop h1 {
+    font-size: 28px;
+}
+
+#resulttop p {
+    margin: 5px 0 0;
+}
+
+/* 総合評価 */
+#todayresult {
+    grid-area: today;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#todayresult h2 {
+    font-size: 24px;
+}
+
+/* コミュニケーション分析 */
+#analysisarea {
+    grid-area: analysis;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.sectiontitle {
+    height: 30px;
+    margin: 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.analysisitem {
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-width: 2px;
+}
+
+.analysisitem:last-child {
+    margin-bottom: 0;
+}
+
+.analysisicon {
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
+}
+
+.analysistitle {
+    margin-bottom: 7px;
+}
+
+.analysistitle strong {
+    font-size: 17px;
+}
+
+.score {
+    font-size: 22px;
+}
+
+.bar {
+    height: 15px;
+}
+
+/* ランク */
+#rankarea {
+    grid-area: rank;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#rankarea .sectiontitle {
+    width: 100%;
+}
+
+#rankbar {
+    width: min(300px, 70%);
+}
+
+#ranktext {
+    margin: 10px 0 0;
+}
+
+/* 今日のタイプ */
+#personalityarea {
+    grid-area: personality;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#personalityarea .sectiontitle {
+    width: 100%;
+}
+
+#personalitybox {
+    height: calc(100% - 40px);
+    min-height: 85px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#personalitytext {
+    font-size: 22px;
+}
+
+/* 肩書き */
+#titlearea {
+    grid-area: title;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#titlearea .sectiontitle {
+    width: 100%;
+}
+
+#titlebox {
+    width: 75%;
+    padding: 14px;
+}
+
+#titlebox span {
+    font-size: 25px;
+}
+
+#titlename {
+    font-size: 23px;
+}
+
+#profilebutton {
+    width: 210px;
+    height: 44px;
+    margin: 12px auto 0;
+}
+
+/* 右下のポイントヤギ */
+#pointgoat {
+    right: 10px;
+    bottom: 5px;
+    width: 16vw;
+    max-width: 250px;
+    min-width: 170px;
+}
+
+/* 変更２ */
+
+/* ========================================
+   review2 レイアウト再調整
+======================================== */
+
+#resultbox {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows:
+        auto
+        130px
+        170px
+        155px;
+    grid-template-areas:
+        "resulttop resulttop"
+        "today analysis"
+        "rank analysis"
+        "personality title";
+    column-gap: 45px;
+    row-gap: 12px;
+    align-content: center;
+}
+
+/* 総合評価を小さくする */
+#todayresult {
+    width: 85%;
+    height: 110px;
+    margin: auto;
+    padding: 12px;
+    align-self: center;
+    justify-self: center;
+}
+
+#todayresult p {
+    margin: 0 0 5px;
+}
+
+#todayresult h2 {
+    font-size: 23px;
+}
+
+/* 分析エリアの重なりを防ぐ */
+#analysisarea {
+    height: 100%;
+    min-height: 0;
+    overflow: visible;
+}
+
+#analysisarea .sectiontitle {
+    height: 28px;
+    margin: 0 0 8px;
+}
+
+.analysisitem {
+    min-height: 0;
+    margin-bottom: 7px;
+    padding: 9px 14px;
+}
+
+.analysisicon {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+}
+
+.analysistitle {
+    margin-bottom: 5px;
+}
+
+.analysistitle strong {
+    font-size: 16px;
+}
+
+.score {
+    font-size: 20px;
+}
+
+.bar {
+    height: 14px;
+}
+
+/* ランク */
+#rankarea {
+    width: 85%;
+    height: 130px;
+    margin: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+#rankline {
+    width: 100%;
+    gap: 15px;
+}
+
+/* 横ラインが縮まないようにする */
+#rankbar {
+    display: block;
+    width: 300px;
+    min-width: 260px;
+    height: 9px;
+    flex: 0 0 300px;
+    background-color: #777;
+}
+
+/* 今日のあなたのタイプを小さくする */
+#personalityarea {
+    width: 85%;
+    height: 135px;
+    margin: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+#personalitybox {
+    width: 100%;
+    height: 90px;
+    min-height: 0;
+    margin: 0;
+    padding: 12px;
+}
+
+#personalitytext {
+    font-size: 21px;
+}
+
+/* 肩書きが分析部分と重ならないようにする */
+#titlearea {
+    height: 145px;
+    align-self: center;
+}
+
+#titlebox {
+    width: 75%;
+    padding: 11px;
+}
+
+#titlename {
+    font-size: 22px;
+}
+
+#profilebutton {
+    height: 42px;
+    margin-top: 9px;
 }
