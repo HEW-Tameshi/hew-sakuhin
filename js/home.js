@@ -51,7 +51,7 @@ $(document).ready(function () {
 
             // 出品をホームに表示
             $('#new-letter').prepend(
-                '<div class="letter' + expressClass + '">' +
+                '<div class="letter ' + post.emotion + expressClass + '">' +
                     '<div class="emotion-color" style="background-color:' + emotionColor + ';\"></div>' +
                     '<p class="category">日常・雑談</p>' +
                     '<div class="letter-title">' +
