@@ -132,13 +132,13 @@ main {
 
 /* レター */
 .letter {
-    position: relative;
-    background-color: white;
-    margin-bottom: 45px;
-    padding: 25px 120px 25px 25px;
-    border: 2px solid #666;
-    border-radius: 12px;
-    min-height: 180px;
+    position:relative;
+    background-color:white;
+    margin-bottom:35px;
+    padding:20px 120px 20px 25px;
+    border:2px solid #666;
+    border-radius:12px;
+    min-height:150px;
 }
 
 .letter h2 {
@@ -297,22 +297,22 @@ main {
 /* 感情キャラクター */
 
 .goat {
-    position: absolute;
-    right: -45px;
-    bottom: -50px;
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
+    position:absolute;
+    right:-35px;
+    bottom:-40px;
+    width:160px;
+    height:160px;
+    object-fit:contain;
 }
 
 /* ポイントやぎ */
 #pointgoat {
     position:fixed;
-    right:20px;
+    right:15px;
     bottom:65px;
-    width:20vw;
-    max-width:350px;
-    min-width:220px;
+    width:17vw;
+    max-width:290px;
+    min-width:190px;
     z-index:90;
 }
 
