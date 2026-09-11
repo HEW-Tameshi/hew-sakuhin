@@ -96,6 +96,18 @@
                     </div>
                 </div>
 
+                <!-- カテゴリー -->
+                <div class="form-group">
+                    <label for="post-category">カテゴリー：</label>
+                    <select id="post-category">
+                        <option value="">選択してください</option>
+                        <option value="日常・雑談">日常・雑談</option>
+                        <option value="趣味">趣味</option>
+                        <option value="恋愛・悩み">恋愛・悩み</option>
+                        <option value="愚痴・ストレス">愚痴・ストレス</option>
+                    </select>
+                </div>
+
                 <!-- 希望時間 -->
                 <div class="form-group">
                     <label for="post-time">希望時間：</label>
@@ -107,7 +119,7 @@
 
                 <!-- POINT -->
                 <div class="form-group">
-                    <label for="post-point">POINT：</label>
+                    <label for="post-point">ポイント：</label>
                     <div class="input-unit">
                         <input type="number" id="post-point" min="0">
                         <span>pt</span>
@@ -127,14 +139,34 @@
         </section>
     </main>
 
+
     <!-- 下メニュー -->
-    <nav id="bottom-menu">
-        <button>ホーム</button>
-        <button>AI分析</button>
-        <button>チャット</button>
-        <button>出品</button>
-        <button>プロフィール</button>
+    <nav class="bottommenu">
+        <a href="index.html">
+            <img src="images/home.png" alt="ホーム">
+            <span>ホーム</span>
+        </a>
+
+        <a href="#">
+            <img src="images/ai.png" alt="AI分析">
+            <span>AI分析</span>
+        </a>
+
+        <a href="#">
+            <img src="images/chat.png" alt="チャット">
+            <span>チャット</span>
+        </a>
+
+        <a href="post.html">
+            <img src="images/post.png" alt="出品">
+            <span>出品</span>
+        </a>
     </nav>
+    <div id="pointgoat">
+        <img src="images/pointsgoat.png" alt="ヤギ">
+        <span id="userpoint">230pt</span>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/post.js"></script>
