@@ -93,16 +93,12 @@ $(document).ready(function () {
 
         // 見出し
         let title = $(this).find('h2').text();
-
         // 内容
         let description = $(this).find('.description').text();
-
         // カテゴリー
         let category = $(this).find('.category').text();
-
         // ポイント
         let point = $(this).find('.letter-info span').eq(0).text();
-
         // 時間
         let time = $(this).find('.letter-info span').eq(2).text();
 
