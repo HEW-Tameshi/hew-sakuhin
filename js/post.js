@@ -240,44 +240,6 @@ $(document).ready(function () {
         } 
         // すべて入力されている場合
         else{
-            let post = {
-                title: title,
-                description: text,
-                time: time,
-                point: point,
-                call: call,
-                express: express,
-                emotion: selectedEmotion,
-                category: category 
-            };
-
-            console.log(post);
-            // 保存されている出品データを取得
-            let posts = localStorage.getItem('posts');
-            // まだ出品データがない場合
-            if(posts === null){
-                // 新しい空の配列を作る
-                posts = [];
-            }
-            // すでに出品データがある場合
-            else{
-                // localStorageの文字列を配列に戻す
-                posts = JSON.parse(posts);
-            }
-            //新しい出品データを配列に追加
-            posts.push(post);
-            // 配列を文字列にしてlocalstorageに保存
-            localStorage.setItem('posts', JSON.stringify(posts));
-
-            // '' nome pra guardar
-            localStorage.setItem('postTitle', title);
-            localStorage.setItem('postDescription', text);
-            localStorage.setItem('postTime', time);
-            localStorage.setItem('postPoint', point);
-            localStorage.setItem('postCall', call);
-            localStorage.setItem('postExpress', express);
-            localStorage.setItem('postEmotion', selectedEmotion);
-
             alert('出品できます。');
             // ホーム画面に移動(index.html)
             window.location.href = 'index.html';
@@ -298,37 +260,3 @@ $(document).ready(function () {
 // addClass() = classを追加
 // removeClass() = classを削除
 // this = 今操作している要素
-// push() = 配列にデータを追加
-// JSON.parse() = 文字列を配列に戻す
-// JSON.stringify() = 配列を文字列にする
-
-
-// 複数の出品を保存する方法
-
-// post = 今入力した出品の情報
-
-// localStorageから今までのpostsを取得
-// まだ何もない場合は [] を作る
-
-// JSON.parse()
-// localStorageのデータは文字列なので配列に戻す
-
-// push()
-// 今のpostを配列に追加する
-// 例 [post1, post2] → [post1, post2, post3]
-
-// JSON.stringify()
-// 配列をlocalStorageに保存できる文字列にする
-
-// 最後にpostsをlocalStorageに保存
-
-// 流れ
-// 今までのpostsを取得
-// ↓
-// 配列に戻す
-// ↓
-// 新しいpostを追加
-// ↓
-// 文字列にする
-// ↓
-// localStorageに保存
