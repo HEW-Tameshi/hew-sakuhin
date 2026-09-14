@@ -111,7 +111,6 @@ header {
 }
 
 .tabs button.active {
-    color: #e86f7d;
     border-bottom: 3px solid #e86f7d;
 }
 
@@ -667,25 +666,54 @@ main {
     margin-left: 20px;
 }
 
-.tabs button,
-.user,
-.bottommenu a {
-    transition:0.2s;
+/* 新着・速達：カーソルを合わせると下線を表示 */
+.tabs button {
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
 }
-.tabs button:hover {
-    color:#e86f7d;
-    transform:scale(1.08);
+
+.tabs button:hover,
+.tabs button.active {
+    color: #e86f7d;
+    border-bottom-color: #e86f7d;
 }
+
+/* 検索バー左のアイコン：少し拡大＋薄いピンクの光 */
+.user {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
 .user:hover {
-    transform:scale(1.08);
+    transform: scale(1.01);
+    box-shadow: 0 0 22px rgba(232, 111, 125, 0.4);
 }
-.bottommenu a:hover {
-    transform:translateY(-4px);
+
+/* 下部ナビゲーションの画像 */
+.bottommenu img {
+    transition: transform 0.2s;
 }
+
+.bottommenu a:hover img {
+    transform: scale(1.15);
+}
+
+/* 投稿カード内の画像 */
+.call-icon,
+.goat {
+    transition: transform 0.2s;
+}
+
+.call-icon:hover,
+.goat:hover {
+    transform: scale(1.08);
+}
+
+/* 投稿カード全体 */
 .letter {
-    cursor:pointer;
-    transition:0.2s;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+
 .letter:hover {
-    transform:translateY(-5px);
+    transform: scale(1.01);
 }
