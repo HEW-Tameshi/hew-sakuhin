@@ -166,17 +166,21 @@ $(document).ready(function () {
     });
 
     // 通話
-    // 有・無を変更した時
     $('input[name="call"]').on('change', function () {
+
         // 有の場合
         if ($(this).val() === 'yes') {
-            // 電話アイコンを表示
-            $('#call-icon').show();
+
+            // 通話の吹き出しを表示
+            $('#call-bubble').show();
+
         // 無の場合
         } else {
-            // 電話アイコンを非表示
-            $('#call-icon').hide();
+
+            // 通話の吹き出しを非表示
+            $('#call-bubble').hide();
         }
+
     });
 
 
