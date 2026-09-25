@@ -2,14 +2,60 @@ name: CI
 
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
-  check-readme:
+  frontend-check:
+    name: Frontend Check
     runs-on: ubuntu-latest
-    steps:
-      - name: リポジトリの内容を取得
-        uses: actions/checkout@v6
 
-      - name: READMEを確認
-        run: test -s README.md
+    steps:
+      - name: コードを取得
+        uses: actions/checkout@v5
+
+      - name: Node.jsを準備
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: HTMLをチェック
+        run: npx --yes htmlhint "**/*.html"
+
+      - name: CSSをチェック
+        run: npx --yes stylelint "**/*.css"
+
+      - name: JavaScriptをチェック
+        run: npx --yes eslint "**/*.js"
+
+  python-check:
+    name: Python Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: コードを取得
+        uses: actions/checkout@v5
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: 必要なパッケージをインストール
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install ruff pytest
+
+      - name: Pythonをチェック
+        run: ruff check .
+
+      - name: Pythonのテスト
+        run: pytest
