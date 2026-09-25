@@ -44,8 +44,9 @@ header {
 #preview {
     padding:25px;
     background-color:#fffafa;
-    border:2px solid #555;
+    border:1px solid #d8caca;
     border-radius:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
 .preview-box {
@@ -253,8 +254,9 @@ header {
 #form-area {
     padding:25px 35px 40px;
     background-color:#f8dddd;
-    border:2px solid #555;
+    border:1px solid #d8caca;
     border-radius:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
 #post-form {
@@ -264,7 +266,7 @@ header {
 
 /* フォーム */
 .form-group {
-    margin-bottom:12px;
+    margin-bottom:16px;
 }
 
 .form-group > label {
@@ -309,15 +311,35 @@ header {
     text-align:center;
 }
 
+/* 入力欄のデザイン */
+#post-title,
+#post-description,
+#post-time,
+#post-point {
+    border:1px solid #aaa;
+    border-radius:8px;
+    outline:none;
+    background-color:white;
+    transition:0.2s;
+}
+
+/* 入力中ピンクになる */
+#post-title:focus,
+#post-description:focus,
+#post-time:focus,
+#post-point:focus {
+    border-color:#d77f89;
+    box-shadow:0 0 5px rgba(215,127,137,0.3);
+}
+
 /* 通話・速達 */
 .option-group {
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:10px;
     margin-bottom:10px;
     font-size:20px;
 }
-
 .option-group span {
     font-weight:bold;
 }
@@ -326,6 +348,18 @@ header {
     display:flex;
     align-items:center;
     gap:5px;
+    padding:6px 14px;
+    border:1px solid #d3a9ad;
+    border-radius:15px;
+    background-color:white;
+    cursor:pointer;
+    transition:0.2s;
+}
+/* 選択中 */
+.option-group label.selected {
+    background-color:#e9aeb5;
+    border-color:#d77f89;
+    font-weight:bold;
 }
 
 /* 感情 */
@@ -333,7 +367,7 @@ header {
     display:flex;
     align-items:center;
     gap:20px;
-    margin-bottom:12px;
+    margin-bottom:16px;
 }
 
 #emotion-area > label {
@@ -381,7 +415,7 @@ header {
     width:100%;
     height:45px;
     padding:0 15px;
-    border:2px solid #555;
+    border:1px solid #aaa;
     border-radius:10px;
     background-color:white;
     color:#333;
@@ -426,15 +460,24 @@ header {
 /* 出品ボタン */
 #post-button {
     display:block;
-    width:150px;
-    margin:15px auto 0;
+    width:180px;
+    margin:20px auto 0;
     padding:12px 20px;
-    border:2px solid #555;
-    border-radius:15px;
-    background-color:#f1bfc1;
-    font-size:24px;
+    border:1px solid #d58e96;
+    border-radius:20px;
+    background-color:#ebaeb5;
+    box-shadow:0 3px 8px rgba(0,0,0,0.12);
+    font-size:22px;
     font-weight:bold;
+    color:#4d3b3b;
     cursor:pointer;
+    transition:0.2s;
+}
+
+#post-button:hover {
+    background-color:#e59ca5;
+    transform:translateY(-2px);
+    box-shadow:0 5px 10px rgba(0,0,0,0.15);
 }
 
 /* 下のメニュー */

@@ -166,17 +166,21 @@ $(document).ready(function () {
     });
     // 通話
     $('input[name="call"]').on('change', function () {
+        // すべての選択を消す
+        $('input[name="call"]').parent().removeClass('selected');
+        // 選択したところにselectedを付ける
+        $(this).parent().addClass('selected');
         if ($(this).val() === 'yes') {
             // 通話アイコンを表示
             $('#phone-option').addClass('selected');
             $('#call-icon').attr('src', 'images/telefone.png');
-            // 吹き出しを表示
             $('#call-bubble').show();
-        } else {
+        }
+        // 無の場合
+        else {
             // 通話アイコンを薄くする
             $('#phone-option').removeClass('selected');
             $('#call-icon').attr('src', 'images/chat.png');
-            // 吹き出しを表示
             $('#call-bubble').show();
         }
     });
@@ -185,6 +189,11 @@ $(document).ready(function () {
     // 速達
     // 有・無を変更した時
     $('input[name="express"]').on('change', function () {
+        // すべての選択を消す
+        $('input[name="express"]').parent().removeClass('selected');
+        // 選択したところにselectedを付ける
+        $(this).parent().addClass('selected');
+
         // 有の場合
         if ($(this).val() === 'yes') {
             // expressというclassを追加
