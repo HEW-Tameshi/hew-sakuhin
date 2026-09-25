@@ -164,23 +164,21 @@ $(document).ready(function () {
         // 八木の画像を変更
         $('#goat').attr('src', selectedImage);
     });
-
     // 通話
     $('input[name="call"]').on('change', function () {
-
-        // 有の場合
         if ($(this).val() === 'yes') {
-
-            // 通話の吹き出しを表示
+            // 通話アイコンを表示
+            $('#phone-option').addClass('selected');
+            $('#call-icon').attr('src', 'images/telefone.png');
+            // 吹き出しを表示
             $('#call-bubble').show();
-
-        // 無の場合
         } else {
-
-            // 通話の吹き出しを非表示
-            $('#call-bubble').hide();
+            // 通話アイコンを薄くする
+            $('#phone-option').removeClass('selected');
+            $('#call-icon').attr('src', 'images/chat.png');
+            // 吹き出しを表示
+            $('#call-bubble').show();
         }
-
     });
 
 

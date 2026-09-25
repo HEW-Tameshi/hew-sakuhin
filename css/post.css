@@ -108,6 +108,34 @@ header {
     white-space:nowrap;
 }
 
+/* 見出しの下のアイコン */
+/* 通話方法 */
+#talk-icons {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+}
+
+#talk-icons img {
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    opacity:0.3;
+}
+/* o.3=消してる
+    selected = opacity:1 ちょっと大きくなる
+*/
+#talk-icons img.selected {
+    opacity:1;
+    transform:scale(1.1);
+}
+
+#talk-icons span {
+    font-size:20px;
+    color:#777;
+}
+
 /* 通話の吹き出し */
 #call-bubble {
     display:none;
