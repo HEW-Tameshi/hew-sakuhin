@@ -65,7 +65,7 @@ header {
 #home-preview {
     position:relative;
     min-height:170px;
-    padding:20px 110px 20px 20px;
+    padding:15px 20px 20px 20px;
     background-color:white;
     border:2px solid #555;
     border-radius:20px;
@@ -82,11 +82,19 @@ header {
     height:10px;
     background-color:#b9b5ee;
     border-radius:10px;
-    margin-bottom:20px;
+    margin-bottom:10px;
+    margin: -3px 0 10px 0;
+}
+
+#home-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 #home-title {
-    margin:0 0 30px;
+    margin:0;
     font-size:26px;
 }
 
@@ -94,19 +102,66 @@ header {
     display:flex;
     align-items:center;
     gap:5px;
+    margin-right:5px;
     font-size:24px;
     font-weight:bold;
+    white-space:nowrap;
+}
+
+/* 見出しの下のアイコン */
+/* 通話方法 */
+#talk-icons {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+}
+
+#talk-icons img {
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    opacity:0.3;
+}
+/* o.3=消してる
+    selected = opacity:1 ちょっと大きくなる
+*/
+#talk-icons img.selected {
+    opacity:1;
+    transform:scale(1.1);
+}
+
+#talk-icons span {
+    font-size:20px;
+    color:#777;
+}
+
+/* 通話の吹き出し */
+#call-bubble {
+    display:none;
+    position:absolute;
+    right:85px;
+    bottom:-20px;
+    width:150px;
+    height:120px;
+}
+
+#bubble-image {
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
 #call-icon {
-    display:none;
     position:absolute;
-    right:20px;
+    left:39px;
     top:20px;
-    width:60px;
-    height:60px;
+    width:45px;
+    height:45px;
     object-fit:contain;
 }
+
+/* 感情のヤギ */
 #goat {
     position:absolute;
     right:-35px;
