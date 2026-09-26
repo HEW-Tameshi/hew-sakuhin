@@ -483,13 +483,24 @@ header {
     display:flex;
     align-items:center;
     gap:10px;
-    margin:15px 0;
-    padding:10px;
-    background-color:#c77f7f;
-    color:white;
-    font-size:12px;
+    margin:18px 0;
+    padding:12px 15px;
+    background-color:#fff3f3;
+    border:1px solid #e5b5b9;
+    border-radius:10px;
+    color:#6b4b4b;
+    font-size:13px;
 }
 
+#agreement {
+    width:18px;
+    height:18px;
+    cursor:pointer;
+}
+
+#agreement-area label {
+    cursor:pointer;
+}
 /* 出品ボタン */
 #post-button {
     display:block;
