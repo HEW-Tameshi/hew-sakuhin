@@ -105,7 +105,9 @@ $(document).ready(function () {
 
             $(this).css('color', color);
             $('#emotion-color').css('background-color', color);
+            $('#detail-emotion-color').css('background-color', color);
             $('#home-preview').css('box-shadow', '0 5px 15px ' + color);
+            $('#detail-preview').css('box-shadow', '0 5px 15px ' + color);
             $('#goat').attr('src', image);
         });
         $('#emotion-options button').mouseleave(function(){
@@ -115,7 +117,9 @@ $(document).ready(function () {
             }
             // 選択した感情の色に戻す
             $('#emotion-color').css('background-color', selectedColor);
+            $('#detail-emotion-color').css('background-color', selectedColor);
             $('#home-preview').css('box-shadow', '0 5px 15px ' + selectedColor);
+            $('#detail-preview').css('box-shadow', '0 5px 15px ' + selectedColor);
             $('#goat').attr('src', selectedImage); 
         });   
 
@@ -159,8 +163,10 @@ $(document).ready(function () {
         $(this).css('color', selectedColor);
         // 感情ラインの色を変更
         $('#emotion-color').css('background-color', selectedColor);
+        $('#detail-emotion-color').css('background-color', selectedColor);
         // カードの影を変更
         $('#home-preview').css('box-shadow', '0 5px 15px ' + selectedColor);
+        $('#detail-preview').css('box-shadow', '0 5px 15px ' + selectedColor);
         // 八木の画像を変更
         $('#goat').attr('src', selectedImage);
     });
@@ -173,6 +179,7 @@ $(document).ready(function () {
         if ($(this).val() === 'yes') {
             // 通話アイコンを表示
             $('#phone-option').addClass('selected');
+            $('#detail-phone-option').addClass('selected');
             $('#call-icon').attr('src', 'images/telefone.png');
             $('#call-bubble').show();
         }
@@ -180,6 +187,7 @@ $(document).ready(function () {
         else {
             // 通話アイコンを薄くする
             $('#phone-option').removeClass('selected');
+            $('#detail-phone-option').removeClass('selected');
             $('#call-icon').attr('src', 'images/chat.png');
             $('#call-bubble').show();
         }

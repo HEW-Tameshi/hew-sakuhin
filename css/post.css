@@ -180,6 +180,14 @@ header {
     border-radius:20px;
 }
 
+#detail-emotion-color {
+    width:70px;
+    height:10px;
+    background-color:#b9b5ee;
+    border-radius:10px;
+    margin:-3px 0 10px 0;
+}
+
 #detail-header {
     display:flex;
     align-items:center;
@@ -201,6 +209,31 @@ header {
     font-weight:bold;
     color:#333;
     white-space:nowrap;
+}
+
+/* 見出しの下のアイコン */
+#detail-talk-icons {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:-5px 0 12px;
+}
+
+#detail-talk-icons img {
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    opacity:0.3;
+}
+
+#detail-talk-icons img.selected {
+    opacity:1;
+    transform:scale(1.1);
+}
+
+#detail-talk-icons span {
+    font-size:20px;
+    color:#777;
 }
 
 #detail-text {
