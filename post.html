@@ -79,78 +79,86 @@
         <!-- 出品フォーム -->
         <section id="form-area">
             <div id="post-form">
-                <!-- 見出し -->
-                <div class="form-group">
-                    <label for="post-title">見出し：</label>
-                    <input type="text" id="post-title" placeholder="見出しを入力">
-                </div>
+                <div class="form-card">
+                    <h3 class="form-section-title">基本情報</h3>
 
-                <!-- 内容 -->
-                <div class="form-group">
-                    <label for="post-description">内容：</label>
-                    <textarea id="post-description" placeholder="話したい内容を入力"></textarea>
-                </div>
+                    <!-- 見出し -->
+                    <div class="form-group">
+                        <label for="post-title">見出し：</label>
+                        <input type="text" id="post-title" maxlength="40" placeholder="見出しを入力（最大40文字）">
+                    </div>
 
-                <!-- 通話 -->
-                <div class="form-group option-group">
-                    <span>通話：</span>
-                    <label><input type="radio" name="call" value="yes"> 有</label>
-                    <label><input type="radio" name="call" value="no"> 無</label>
-                </div>
-
-                <!-- 速達 -->
-                <div class="form-group option-group">
-                    <span>速達：</span>
-                    <label><input type="radio" name="express" value="yes"> 有</label>
-                    <label><input type="radio" name="express" value="no"> 無</label>
-                </div>
-
-                <!-- 感情 -->
-                <div id="emotion-area">
-                    <label>感情：</label>
-                    <div id="emotion-options">
-                        <button type="button" id="joy">喜</button>
-                        <button type="button" id="fun">楽</button>
-                        <button type="button" id="sad">悲</button>
-                        <button type="button" id="angry">怒</button>
+                    <!-- 内容 -->
+                    <div class="form-group">
+                        <label for="post-description">内容：</label>
+                        <textarea id="post-description" maxlength="300" placeholder="話したい内容を入力（最大300文字）"></textarea>
                     </div>
                 </div>
 
-                <!-- カテゴリー -->
-                <div class="form-group">
-                    <label for="post-category">カテゴリー：</label>
-                    <select id="post-category">
-                        <option value="">選択してください</option>
-                        <option value="日常・雑談">日常・雑談</option>
-                        <option value="趣味">趣味</option>
-                        <option value="恋愛・悩み">恋愛・悩み</option>
-                        <option value="愚痴・ストレス">愚痴・ストレス</option>
-                    </select>
-                </div>
+                <div class="form-card">
+                    <h3 class="form-section-title">詳細設定</h3>
 
-                <!-- 希望時間 -->
-                <div class="form-group">
-                    <label for="post-time">希望時間：</label>
-                    <div class="input-unit">
-                        <input type="number" id="post-time" min="1">
-                        <span>分</span>
+                    <!-- 通話 -->
+                    <div class="form-group option-group">
+                        <span>通話：</span>
+                        <label><input type="radio" name="call" value="yes"> 有</label>
+                        <label><input type="radio" name="call" value="no"> 無</label>
                     </div>
-                </div>
 
-                <!-- POINT -->
-                <div class="form-group">
-                    <label for="post-point">ポイント：</label>
-                    <div class="input-unit">
-                        <input type="number" id="post-point" min="0">
-                        <span>pt</span>
+                    <!-- 速達 -->
+                    <div class="form-group option-group">
+                        <span>速達：</span>
+                        <label><input type="radio" name="express" value="yes"> 有</label>
+                        <label><input type="radio" name="express" value="no"> 無</label>
                     </div>
-                    <p id="point-note">ポイントの追加購入はこちら</p>
-                </div>
 
-                <!-- 注意事項 -->
-                <div id="agreement-area">
-                    <input type="checkbox" id="agreement">
-                    <label for="agreement">相手は医療専門家ではありません。</label>
+                    <!-- 感情 -->
+                    <div id="emotion-area">
+                        <label>感情：</label>
+                        <div id="emotion-options">
+                            <button type="button" id="joy">喜</button>
+                            <button type="button" id="fun">楽</button>
+                            <button type="button" id="sad">悲</button>
+                            <button type="button" id="angry">怒</button>
+                        </div>
+                    </div>
+
+                    <!-- カテゴリー -->
+                    <div class="form-group">
+                        <label for="post-category">カテゴリー：</label>
+                        <select id="post-category">
+                            <option value="">選択してください</option>
+                            <option value="日常・雑談">日常・雑談</option>
+                            <option value="趣味">趣味</option>
+                            <option value="恋愛・悩み">恋愛・悩み</option>
+                            <option value="愚痴・ストレス">愚痴・ストレス</option>
+                        </select>
+                    </div>
+                    <!-- 希望時間 -->
+                    <div class="form-group">
+                        <label for="post-time">希望時間：</label>
+                        <div class="input-unit">
+                            <input type="number" id="post-time" min="1" max="60">
+                            <span>分</span>
+                        </div>
+                    </div>
+
+                    <!-- POINT -->
+                    <div class="form-group">
+                        <label for="post-point">ポイント：</label>
+                        <div class="input-unit">
+                            <input type="number" id="post-point" min="0" max="9999">
+                            <span>pt</span>
+                        </div>
+                        <p id="point-note">ポイントの追加購入はこちら</p>
+                    </div>
+
+                    <!-- 注意事項 -->
+                    <div id="agreement-area">
+                        <input type="checkbox" id="agreement">
+                        <label for="agreement">相手は医療専門家ではありません。</label>
+                    </div>
+
                 </div>
 
                 <!-- 出品 -->
