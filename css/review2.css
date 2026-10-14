@@ -1,13 +1,24 @@
+
 /* 全体 */
-body {
+* {
+    box-sizing:border-box;
+}
+
+html, body {
+    width:100%;
+    height:100%;
     margin:0;
+    overflow:hidden;
+}
+
+body {
     font-family:Arial,sans-serif;
     background-image:url('../images/background.png');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
     background-attachment:fixed;
-    color:#443b3b;
+    color:#4f4141;
 }
 
 /* ヘッダー */
@@ -26,35 +37,51 @@ header {
 
 /* 結果画面 */
 #resultpage {
+    width:100%;
+    height:calc(100vh - 70px);
+    padding:15px 25px;
     display:flex;
+    align-items:center;
     justify-content:center;
-    padding:45px 20px 100px;
 }
 
 /* 結果全体 */
 #resultbox {
     position:relative;
-    width:780px;
+    width:1100px;
+    max-width:100%;
+    height:100%;
+    padding:20px 40px;
     background-color:#fffafa;
-    border:3px solid #777;
+    border:2px solid #e5bfc4;
     border-radius:25px;
-    padding:45px 60px 55px;
-    box-sizing:border-box;
-    box-shadow:0 0 20px rgba(230,150,160,0.4);
+    box-shadow:0 5px 20px rgba(180,100,120,0.15);
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:65px 145px 150px 150px;
+    grid-template-areas:
+        "resulttop resulttop"
+        "today analysis"
+        "rank analysis"
+        "personality title";
+    column-gap:35px;
+    row-gap:8px;
+    align-content:space-evenly;
 }
 
-/* 閉じる */
+/* 閉じるボタン */
 #closebutton {
     position:absolute;
-    top:20px;
-    right:22px;
-    width:45px;
-    height:45px;
-    border:3px solid #777;
+    top:15px;
+    right:18px;
+    width:36px;
+    height:36px;
+    border:1px solid #e0b6bc;
     border-radius:50%;
     background-color:white;
-    color:#555;
-    font-size:28px;
+    color:#b77882;
+    font-size:25px;
     cursor:pointer;
 }
 
@@ -64,86 +91,186 @@ header {
 
 /* タイトル */
 #resulttop {
+    grid-area:resulttop;
+    position:relative;
     text-align:center;
+}
+
+/* 左の封筒 */
+#resulttop::before {
+    content:"";
+    position:absolute;
+    width:110px;
+    height:80px;
+    left:250px;
+    top:-10px;
+    /* background-image:url('../images/envelope.png'); */
+    background-image:url('../images/sakura.png');
+    transform:scaleX(-1);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+/* 右の桜 */
+#resulttop::after {
+    content:"";
+    position:absolute;
+    width:110px;
+    height:80px;
+    right:250px;
+    top:-10px;
+    background-image:url('../images/sakura.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
 }
 
 #resulttop h1 {
     margin:0;
-    font-size:31px;
+    font-size:27px;
+    color:#6b4b4b;
 }
 
 #resulttop p {
-    margin:8px 0 0;
-    color:#777;
-    font-size:15px;
+    margin:6px auto 0;
+    font-size:14px;
+    color:#9a7478;
 }
 
 /* 総合評価 */
 #todayresult {
-    margin:30px 0;
-    padding:20px;
-    background-color:#fff1f2;
-    border:3px solid #777;
+    grid-area:today;
+    position:relative;
+    width:90%;
+    height:125px;
+    margin:auto;
+    padding:10px;
+    background-color:#fff0f3;
+    border:2px solid #f4aab9;
     border-radius:18px;
+    box-shadow:0 4px 12px rgba(220,110,140,0.12);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
     text-align:center;
 }
 
 #todayresult p {
-    margin:0 0 5px;
-    color:#9a7478;
-    font-size:14px;
+    margin:0;
+    color:#d16b83;
+    font-size:16px;
+    font-weight:bold;
+}
+
+#resulticon {
+    margin:0;
+    color:#ed8fa5;
+    font-size:24px;
+    line-height:1;
+    letter-spacing:8px;
 }
 
 #todayresult h2 {
     margin:0;
-    font-size:25px;
+    color:#cf526f;
+    font-size:34px;
+    line-height:1.2;
+    font-weight:bold;
+}
+
+/* 評価のハート */
+#todayresult::before {
+    content:"♥";
+    position:absolute;
+    left:18px;
+    top:35px;
+    font-size:40px;
+    color:#f8cdd6;
+    opacity:0.6;
+}
+
+#todayresult::after {
+    content:"♥";
+    position:absolute;
+    right:18px;
+    bottom:20px;
+    font-size:35px;
+    color:#f8cdd6;
+    opacity:0.6;
 }
 
 /* セクションタイトル */
 .sectiontitle {
+    height:30px;
+    margin:0 0 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    line-height:1;
+    color:#6b4b4b;
     text-align:center;
-    margin:35px 0 20px;
-    font-size:21px;
 }
 
-/* 分析 */
+/* コミュニケーション分析 */
+#analysisarea {
+    grid-area:analysis;
+    width:100%;
+    min-width:0;
+}
+
+#analysisarea .sectiontitle {
+    height:28px;
+    margin:0 0 8px;
+}
+
+/* 分析の項目 */
 .analysisitem {
     display:flex;
     align-items:center;
-    gap:18px;
-    margin-bottom:18px;
-    padding:20px 22px;
+    gap:12px;
+    margin-bottom:8px;
+    padding:9px 13px;
     background-color:white;
-    border:3px solid #777;
-    border-radius:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    border:2px solid #f0d5dc;
+    border-radius:13px;
+    box-shadow:0 3px 8px rgba(150,90,110,0.08);
+}
+
+.analysisitem:last-child {
+    margin-bottom:0;
 }
 
 /* 分析アイコン */
 .analysisicon {
-    width:50px;
-    height:50px;
+    width:39px;
+    height:39px;
     flex-shrink:0;
-    border:2px solid #d9a0a7;
-    border-radius:50%;
-    background-color:#fff0f1;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:25px;
-    color:#c77983;
+    justify-content:center;
+    background-color:#fff0f3;
+    border:1px solid #edc7cf;
+    border-radius:50%;
+    color:#d08092;
+    font-size:23px;
 }
 
 /* 分析内容 */
 .analysiscontent {
     width:100%;
+    min-width:0;
 }
 
 .analysistitle {
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    margin-bottom:10px;
+    justify-content:space-between;
+    margin-bottom:6px;
 }
 
 .analysistitle div {
@@ -152,39 +279,52 @@ header {
 }
 
 .analysistitle strong {
-    font-size:19px;
+    font-size:16px;
 }
 
 .analysistitle div span {
-    margin-top:3px;
-    color:#777;
-    font-size:12px;
+    margin-top:2px;
+    color:#999;
+    font-size:11px;
 }
 
+/* 点数 */
 .score {
-    font-size:25px;
+    font-size:21px;
     font-weight:bold;
+    color:#6b4b4b;
 }
 
 .score small {
-    color:#777;
-    font-size:12px;
+    color:#999;
+    font-size:11px;
+}
+
+#score1 {
+    color:#d66c83;
+}
+
+#score2 {
+    color:#8872ce;
+}
+
+#score3 {
+    color:#db7d98;
 }
 
 /* 分析バー */
 .bar {
     width:100%;
-    height:18px;
-    background-color:#eee;
-    border:2px solid #777;
+    height:12px;
+    background-color:#f0eeee;
     border-radius:12px;
     overflow:hidden;
-    box-sizing:border-box;
 }
 
 .barinside {
     width:0;
     height:100%;
+    border-radius:10px;
 }
 
 /* 包容力 */
@@ -204,128 +344,182 @@ header {
 
 /* ランク */
 #rankarea {
-    margin-top:40px;
+    grid-area:rank;
+    width:90%;
+    height:130px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     text-align:center;
 }
 
+#rankarea .sectiontitle {
+    width:100%;
+}
+
 #rankline {
+    width:100%;
     display:flex;
-    justify-content:center;
     align-items:center;
-    gap:15px;
-    font-size:18px;
+    justify-content:center;
+    gap:12px;
+    font-size:16px;
     font-weight:bold;
 }
 
 #rankbar {
     position:relative;
     width:300px;
-    height:9px;
-    background-color:#777;
+    height:10px;
+    flex:0 0 300px;
     border-radius:10px;
+    background:linear-gradient(to right,#d76d85 35%,#dddddd 35%);
 }
 
 #rankpoint {
     position:absolute;
     top:50%;
     left:0;
-    width:20px;
-    height:20px;
+    width:19px;
+    height:19px;
     background-color:white;
-    border:3px solid #555;
+    border:3px solid #c95873;
+    border-radius:4px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.15);
     transform:translate(-50%,-50%) rotate(45deg);
 }
 
 #ranktext {
-    margin-top:15px;
+    margin:14px 0 0;
     color:#c97b85;
     font-size:14px;
     font-weight:bold;
 }
 
-/* タイプ */
+/* 今日のあなたのタイプ */
 #personalityarea {
-    margin-top:40px;
+    grid-area:personality;
+    width:90%;
+    height:135px;
+    margin:auto;
+}
+
+#personalityarea .sectiontitle {
+    width:100%;
 }
 
 #personalitybox {
-    padding:27px;
-    background-color:#f7fbfc;
-    border:3px solid #777;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 4px 10px rgba(0,0,0,0.06);
+    width:100%;
+    height:90px;
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    background-color:#f0faff;
+    border:2px solid #abd5e3;
+    border-radius:16px;
+    box-shadow:0 3px 10px rgba(100,150,180,0.1);
+    text-align:left;
+}
+
+#personality-icon {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    color:#83b8c7;
+    font-size:34px;
 }
 
 #personalitytext {
-    margin:0;
-    font-size:25px;
-    color:#5f858b;
+    margin:0 0 6px;
+    font-size:22px;
+    color:#4d8796;
 }
 
-
-
-/* ーーー変更ーーー */
-
+#personality-description {
+    margin:0;
+    font-size:12px;
+    line-height:1.5;
+    color:#718d96;
+}
 
 /* 肩書き */
 #titlearea {
-    margin-top:40px;
+    grid-area:title;
+    width:100%;
+    text-align:center;
+    align-self:start;
+    margin-top:-10px;
+}
+
+#titlearea .sectiontitle {
+    width:100%;
 }
 
 #titlebox {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:25px;
-    width:70%;
+    width:85%;
+    min-height:85px;
     margin:auto;
-    padding:22px;
-    background-color:#f4effa;
-    border:3px solid #777;
-    border-radius:18px;
-    box-sizing:border-box;
-    box-shadow:0 4px 10px rgba(0,0,0,0.06);
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    background-color:#f5ebff;
+    border:2px solid #dcb8f3;
+    border-radius:16px;
+    box-shadow:0 3px 10px rgba(140,100,180,0.1);
 }
 
 #titlebox span {
-    font-size:30px;
-    color:#a77ac2;
+    font-size:23px;
+    color:#b59acb;
+}
+
+#title-crown {
+    color:#e4aa45;
+    font-size:29px;
 }
 
 #titlename {
     margin:0;
-    font-size:28px;
-    color:#705387;
+    font-size:26px;
+    color:#75439b;
 }
 
-/* プロフィール追加 */
+/* プロフィールに追加 */
 #profilebutton {
     display:block;
-    width:220px;
-    height:50px;
-    margin:20px auto 0;
-    border:3px solid #777;
+    width:200px;
+    height:42px;
+    margin:8px auto 0;
+    background-color:#f6b6c3;
+    border:2px solid #e58fa3;
     border-radius:25px;
-    background-color:#f7caca;
-    color:#443b3b;
-    font-size:16px;
+    color:#633b48;
+    font-size:15px;
     font-weight:bold;
     cursor:pointer;
+    box-shadow:0 3px 8px rgba(200,100,130,0.12);
 }
 
 #profilebutton:hover {
-    background-color:#f2b5b5;
+    background-color:#e9aab5;
+    transform:translateY(-2px);
 }
 
 /* ポイントやぎ */
 #pointgoat {
     position:fixed;
-    right:20px;
-    bottom:20px;
-    width:20vw;
-    max-width:350px;
-    min-width:220px;
+    right:10px;
+    bottom:5px;
+    width:16vw;
+    max-width:250px;
+    min-width:170px;
     z-index:90;
 }
 
@@ -348,365 +542,36 @@ header {
 }
 
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+/* 画面が小さいとき */
+@media (max-width:1100px) {
 
-/* ヘッダーを除いた表示領域 */
-#resultpage {
-    width: 100%;
-    height: calc(100vh - 70px);
-    padding: 18px 24px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-}
+    #resultbox {
+        padding:20px 25px;
+        column-gap:20px;
+    }
 
-/* 横長の結果画面 */
-#resultbox {
-    width: min(1150px, calc(100vw - 48px));
-    height: 100%;
-    padding: 22px 45px;
-    box-sizing: border-box;
-    overflow: hidden;
+    #resulttop::before {
+        left:calc(50% - 230px);
+        width:80px;
+    }
 
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows:
-        auto
-        minmax(110px, 0.8fr)
-        minmax(95px, 0.7fr)
-        minmax(145px, 1fr);
-    grid-template-areas:
-        "resulttop resulttop"
-        "today analysis"
-        "rank analysis"
-        "personality title";
-    column-gap: 45px;
-    row-gap: 12px;
-}
+    #resulttop::after {
+        right:calc(50% - 230px);
+        width:80px;
+    }
 
-/* 上部タイトル */
-#resulttop {
-    grid-area: resulttop;
-}
+    #rankbar {
+        width:100%;
+        min-width:0;
+        flex:1;
+    }
 
-#resulttop h1 {
-    font-size: 28px;
-}
+    #rankline {
+        gap:10px;
+    }
 
-#resulttop p {
-    margin: 5px 0 0;
-}
-
-/* 総合評価 */
-#todayresult {
-    grid-area: today;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 15px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#todayresult h2 {
-    font-size: 24px;
-}
-
-/* コミュニケーション分析 */
-#analysisarea {
-    grid-area: analysis;
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
-}
-
-.sectiontitle {
-    height: 30px;
-    margin: 0 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 19px;
-    line-height: 1;
-}
-
-.analysisitem {
-    gap: 12px;
-    margin-bottom: 10px;
-    padding: 12px 15px;
-    border-width: 2px;
-}
-
-.analysisitem:last-child {
-    margin-bottom: 0;
-}
-
-.analysisicon {
-    width: 42px;
-    height: 42px;
-    font-size: 21px;
-}
-
-.analysistitle {
-    margin-bottom: 7px;
-}
-
-.analysistitle strong {
-    font-size: 17px;
-}
-
-.score {
-    font-size: 22px;
-}
-
-.bar {
-    height: 15px;
-}
-
-/* ランク */
-#rankarea {
-    grid-area: rank;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#rankarea .sectiontitle {
-    width: 100%;
-}
-
-#rankbar {
-    width: min(300px, 70%);
-}
-
-#ranktext {
-    margin: 10px 0 0;
-}
-
-/* 今日のタイプ */
-#personalityarea {
-    grid-area: personality;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-
-#personalityarea .sectiontitle {
-    width: 100%;
-}
-
-#personalitybox {
-    height: calc(100% - 40px);
-    min-height: 85px;
-    padding: 15px;
-    box-sizing: border-box;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#personalitytext {
-    font-size: 22px;
-}
-
-/* 肩書き */
-#titlearea {
-    grid-area: title;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-
-#titlearea .sectiontitle {
-    width: 100%;
-}
-
-#titlebox {
-    width: 75%;
-    padding: 14px;
-}
-
-#titlebox span {
-    font-size: 25px;
-}
-
-#titlename {
-    font-size: 23px;
-}
-
-#profilebutton {
-    width: 210px;
-    height: 44px;
-    margin: 12px auto 0;
-}
-
-/* 右下のポイントヤギ */
-#pointgoat {
-    right: 10px;
-    bottom: 5px;
-    width: 16vw;
-    max-width: 250px;
-    min-width: 170px;
-}
-
-/* 変更２ */
-
-/* ========================================
-   review2 レイアウト再調整
-======================================== */
-
-#resultbox {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows:
-        auto
-        130px
-        170px
-        155px;
-    grid-template-areas:
-        "resulttop resulttop"
-        "today analysis"
-        "rank analysis"
-        "personality title";
-    column-gap: 45px;
-    row-gap: 12px;
-    align-content: center;
-}
-
-/* 総合評価を小さくする */
-#todayresult {
-    width: 85%;
-    height: 110px;
-    margin: auto;
-    padding: 12px;
-    align-self: center;
-    justify-self: center;
-}
-
-#todayresult p {
-    margin: 0 0 5px;
-}
-
-#todayresult h2 {
-    font-size: 23px;
-}
-
-/* 分析エリアの重なりを防ぐ */
-#analysisarea {
-    height: 100%;
-    min-height: 0;
-    overflow: visible;
-}
-
-#analysisarea .sectiontitle {
-    height: 28px;
-    margin: 0 0 8px;
-}
-
-.analysisitem {
-    min-height: 0;
-    margin-bottom: 7px;
-    padding: 9px 14px;
-}
-
-.analysisicon {
-    width: 38px;
-    height: 38px;
-    font-size: 19px;
-}
-
-.analysistitle {
-    margin-bottom: 5px;
-}
-
-.analysistitle strong {
-    font-size: 16px;
-}
-
-.score {
-    font-size: 20px;
-}
-
-.bar {
-    height: 14px;
-}
-
-/* ランク */
-#rankarea {
-    width: 85%;
-    height: 130px;
-    margin: auto;
-    align-self: center;
-    justify-self: center;
-}
-
-#rankline {
-    width: 100%;
-    gap: 15px;
-}
-
-/* 横ラインが縮まないようにする */
-#rankbar {
-    display: block;
-    width: 300px;
-    min-width: 260px;
-    height: 9px;
-    flex: 0 0 300px;
-    background-color: #777;
-}
-
-/* 今日のあなたのタイプを小さくする */
-#personalityarea {
-    width: 85%;
-    height: 135px;
-    margin: auto;
-    align-self: center;
-    justify-self: center;
-}
-
-#personalitybox {
-    width: 100%;
-    height: 90px;
-    min-height: 0;
-    margin: 0;
-    padding: 12px;
-}
-
-#personalitytext {
-    font-size: 21px;
-}
-
-/* 肩書きが分析部分と重ならないようにする */
-#titlearea {
-    height: 145px;
-    align-self: center;
-}
-
-#titlebox {
-    width: 75%;
-    padding: 11px;
-}
-
-#titlename {
-    font-size: 22px;
-}
-
-#profilebutton {
-    height: 42px;
-    margin-top: 9px;
+    #pointgoat {
+        width:130px;
+        min-width:0;
+    }
 }
