@@ -67,7 +67,7 @@ header {
         "personality title";
     column-gap:35px;
     row-gap:8px;
-    align-content:center;
+    align-content:space-evenly;
 }
 
 /* 閉じるボタン */
@@ -104,7 +104,9 @@ header {
     height:80px;
     left:250px;
     top:-10px;
-    background-image:url('../images/envelope.png');
+    /* background-image:url('../images/envelope.png'); */
+    background-image:url('../images/sakura.png');
+    transform:scaleX(-1);
     background-size:contain;
     background-repeat:no-repeat;
     background-position:center;
