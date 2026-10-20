@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>購入履歴｜ココロのメール便</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/purchase-history.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="back-button" href="profile.html" aria-label="プロフィールに戻る">‹</a>
+    <div id="logo">ココロのメール便</div><div></div>
+  </header>
+
+  <main class="purchase-page">
+    <section class="page-heading">
+      <div class="heading-icon">♡</div>
+      <div><p class="eyebrow">MY PAGE</p><h1>購入履歴</h1><p class="heading-description">お買い物の記録をチェックしよう</p></div>
+    </section>
+
+    <section class="summary-card">
+      <div class="summary-heart">♡</div>
+      <div><p>これまでの購入</p><strong><span id="purchase-count">3</span><small> 件</small></strong></div>
+      <div class="summary-total"><p>購入合計</p><strong>¥4,200</strong></div>
+    </section>
+
+    <div class="history-heading"><h2>購入した商品</h2><span>新しい順</span></div>
+    <div class="filter-tabs" aria-label="取引状況で絞り込む">
+      <button class="filter-button active" data-filter="all">すべて</button>
+      <button class="filter-button" data-filter="shipping">発送待ち</button>
+      <button class="filter-button" data-filter="sent">発送済み</button>
+      <button class="filter-button" data-filter="done">取引完了</button>
+    </div>
+
+    <section class="purchase-list" id="purchase-list" aria-live="polite">
+      <article class="purchase-card" data-status="done">
+        <div class="product-art art-pink" aria-hidden="true">🎀</div>
+        <div class="product-details"><div class="product-topline"><span class="status status-done">取引完了</span><span class="purchase-date">2026/10/10</span></div><h3>リボンのアクセサリー</h3><p class="seller">出品者：momo さん</p><div class="product-bottom"><strong>¥1,800</strong><button class="detail-button" onclick="showDetails('リボンのアクセサリー','2026/10/10','¥1,800','取引完了')">詳細を見る ›</button></div></div>
+      </article>
+      <article class="purchase-card" data-status="sent">
+        <div class="product-art art-purple" aria-hidden="true">🌷</div>
+        <div class="product-details"><div class="product-topline"><span class="status status-sent">発送済み</span><span class="purchase-date">2026/10/06</span></div><h3>お花の小物入れ</h3><p class="seller">出品者：hana さん</p><div class="product-bottom"><strong>¥1,500</strong><button class="detail-button" onclick="showDetails('お花の小物入れ','2026/10/06','¥1,500','発送済み')">詳細を見る ›</button></div></div>
+      </article>
+      <article class="purchase-card" data-status="shipping">
+        <div class="product-art art-yellow" aria-hidden="true">🐻</div>
+        <div class="product-details"><div class="product-topline"><span class="status status-shipping">発送待ち</span><span class="purchase-date">2026/10/15</span></div><h3>くまさんのキーホルダー</h3><p class="seller">出品者：kuma さん</p><div class="product-bottom"><strong>¥900</strong><button class="detail-button" onclick="showDetails('くまさんのキーホルダー','2026/10/15','¥900','発送待ち')">詳細を見る ›</button></div></div>
+      </article>
+    </section>
+    <p id="empty-message" class="empty-message" hidden>この状況の商品はまだありません ♡</p>
+    <p class="demo-note">※ 商品名・金額・日付はプロトタイプ用のサンプルです。</p>
+  </main>
+
+  <nav class="bottommenu" aria-label="メインメニュー">
+    <a href="index.html"><img src="images/home.png" alt=""><span>ホーム</span></a>
+    <a href="ai-analysis.html"><img src="images/ai.png" alt=""><span>AI分析</span></a>
+    <a href="chat.html"><img src="images/chat.png" alt=""><span>チャット</span></a>
+    <a href="post.html"><img src="images/post.png" alt=""><span>出品</span></a>
+  </nav>
+
+  <dialog id="detail-dialog" class="detail-dialog">
+    <button class="dialog-close" onclick="document.getElementById('detail-dialog').close()" aria-label="閉じる">×</button>
+    <div class="dialog-heart">♡</div><h2 id="dialog-name">商品名</h2>
+    <div class="dialog-info"><p><span>購入日</span><strong id="dialog-date"></strong></p><p><span>購入金額</span><strong id="dialog-price"></strong></p><p><span>取引状況</span><strong id="dialog-status"></strong></p></div>
+    <button class="close-button" onclick="document.getElementById('detail-dialog').close()">閉じる</button>
+  </dialog>
+
+  
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const cards = document.querySelectorAll('.purchase-card');
+    const emptyMessage = document.getElementById('empty-message');
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      let count = 0;
+      cards.forEach(card => {
+        const visible = button.dataset.filter === 'all' || card.dataset.status === button.dataset.filter;
+        card.hidden = !visible;
+        if (visible) count++;
+      });
+      emptyMessage.hidden = count !== 0;
+    }));
+    function showDetails(name, date, price, status) {
+      document.getElementById('dialog-name').textContent = name;
+      document.getElementById('dialog-date').textContent = date;
+      document.getElementById('dialog-price').textContent = price;
+      document.getElementById('dialog-status').textContent = status;
+      document.getElementById('detail-dialog').showModal();
+    }
+  </script>
+</body>
+</html>

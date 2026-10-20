@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>設定｜ココロのメール便</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/Settings.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="site-header">
+        <a class="back-button" href="profile.html" aria-label="プロフィールに戻る">‹</a>
+        <div id="logo">ココロのメール便</div>
+        <div class="header-space"></div>
+    </header>
+
+    <main class="settings">
+        <div class="page-heading">
+            <div class="heading-icon" aria-hidden="true">♡</div>
+            <div>
+                <p class="eyebrow">MY PAGE</p>
+                <h1>設定</h1>
+                <p class="heading-description">自分好みにカスタマイズしよう</p>
+            </div>
+        </div>
+
+        <!-- アカウント設定 -->
+        <section class="settings-section">
+            <h2><span class="section-icon">✿</span> アカウント</h2>
+            <div class="settings-card">
+                <label class="form-row" for="username">
+                    <span class="field-copy">
+                        <strong>ユーザー名</strong>
+                        <small>アプリ内で表示される名前</small>
+                    </span>
+                    <input id="username" name="username" type="text" value="user name" maxlength="30">
+                </label>
+                <div class="soft-divider"></div>
+                <label class="form-row" for="email">
+                    <span class="field-copy">
+                        <strong>メールアドレス</strong>
+                        <small>登録メールアドレス</small>
+                    </span>
+                    <input id="email" name="email" type="email" placeholder="example@mail.com">
+                </label>
+                <div class="soft-divider"></div>
+                <a class="settings-link" href="#" onclick="showMessage('パスワード変更画面は今後追加予定です。'); return false;">
+                    <span class="field-copy">
+                        <strong>パスワード変更</strong>
+                        <small>アカウントの安全を守ろう</small>
+                    </span>
+                    <span class="chevron">›</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 通知設定 -->
+        <section class="settings-section">
+            <h2><span class="section-icon">♡</span> 通知</h2>
+            <div class="settings-card">
+                <div class="setting-toggle-row">
+                    <span class="field-copy">
+                        <strong>お知らせ通知</strong>
+                        <small>取引やお知らせを受け取る</small>
+                    </span>
+                    <label class="switch" for="notice-toggle">
+                        <input id="notice-toggle" type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="soft-divider"></div>
+                <div class="setting-toggle-row">
+                    <span class="field-copy">
+                        <strong>メール通知</strong>
+                        <small>メールでお知らせを受け取る</small>
+                    </span>
+                    <label class="switch" for="mail-toggle">
+                        <input id="mail-toggle" type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- その他 -->
+        <section class="settings-section">
+            <h2><span class="section-icon">୨୧</span> その他</h2>
+            <div class="settings-card">
+                <a class="settings-link" href="#" onclick="showMessage('利用規約ページは今後追加予定です。'); return false;">
+                    <span class="field-copy"><strong>利用規約</strong><small>サービスの利用について</small></span>
+                    <span class="chevron">›</span>
+                </a>
+                <div class="soft-divider"></div>
+                <a class="settings-link" href="#" onclick="showMessage('お問い合わせページは今後追加予定です。'); return false;">
+                    <span class="field-copy"><strong>お問い合わせ</strong><small>困ったときはこちら</small></span>
+                    <span class="chevron">›</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="save-area">
+            <button class="save-button" type="button" onclick="saveSettings()">変更を保存する <span>♡</span></button>
+            <p id="save-message" class="save-message" role="status" aria-live="polite"></p>
+            <a class="logout-link" href="#" onclick="showMessage('ログアウトはプロトタイプ上の動作です。'); return false;">ログアウト</a>
+        </div>
+    </main>
+
+
+    <!-- ナビ -->
+    <nav class="bottommenu">
+        <a href="index.html">
+            <img src="images/home.png" alt="ホーム">
+            <span>ホーム</span>
+        </a>
+        <a href="review1.html">
+
+            <img src="images/ai.png" alt="AI分析">
+            <span>AI分析</span>
+        </a>
+        <a href="#">
+            <img src="images/chat.png" alt="チャット">
+            <span>チャット</span>
+        </a>
+        <a href="post.html">
+            <img src="images/post.png" alt="出品">
+            <span>出品</span>
+        </a>
+    </nav>  
+
+    <script>
+        function saveSettings() {
+            const name = document.getElementById('username').value.trim();
+            const message = document.getElementById('save-message');
+            if (!name) {
+                message.textContent = 'ユーザー名を入力してください。';
+                document.getElementById('username').focus();
+                return;
+            }
+            message.textContent = '設定を保存しました ♡（デモ表示）';
+        }
+
+        function showMessage(text) {
+            document.getElementById('save-message').textContent = text;
+        }
+    </script>
+</body>
+</html>
