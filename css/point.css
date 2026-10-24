@@ -1,0 +1,543 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding-bottom: 100px;
+  font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: #55505a;
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ヘッダー */
+header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7caca;
+}
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* メイン */
+.point-page {
+  width: min(760px, calc(100% - 32px));
+  margin: 35px auto 0;
+  padding: 32px;
+  border: 2px solid #f3d5d8;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 25px rgba(225, 130, 155, 0.32);
+}
+
+.point-card {
+  width: min(100%, 420px);
+  margin-left: 0;
+  padding: 9px 0 14px;
+  border-bottom: 3px solid #c85f76;
+}
+
+.card-label {
+  margin: 0 0 8px;
+  color: #e87892;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 90px;
+}
+
+.balance span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.balance strong {
+  color: #e87892;
+  font-size: 42px;
+  text-shadow: 1px 2px 0 #eeeefe;
+}
+
+/* 購入リスト */
+.purchase-section {
+  margin-top: 36px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title span {
+  color: #e87892;
+  font-size: 25px;
+}
+
+.section-title h1 {
+  margin: 0;
+  font-size: 27px;
+}
+
+.section-text {
+  margin: 8px 0 17px;
+  color: #777;
+  font-size: 15px;
+}
+
+.point-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.point-plan {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 83px;
+  padding: 15px 18px 15px 24px;
+  border: 2px solid #777;
+  border-radius: 15px;
+  background: #fff;
+}
+
+.point-plan > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.point-plan strong {
+  font-size: 26px;
+}
+
+.point-plan span {
+  color: #777;
+  font-size: 13px;
+}
+
+.point-plan.recommend {
+  border-color: #e87892;
+  background: #fff8fa;
+}
+
+.badge {
+  position: absolute;
+  top: -13px;
+  right: 15px;
+  margin: 0;
+  padding: 4px 11px;
+  border-radius: 20px;
+  color: #fff;
+  background: #f27c5f;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.buy-button,
+#subscription-button {
+  min-width: 130px;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  background: #e87892;
+  box-shadow: 0 3px 0 #c85f76;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s, background-color 0.15s;
+}
+
+.buy-button:hover,
+#subscription-button:hover {
+  background: #d9657f;
+  transform: translateY(-1px);
+}
+
+.buy-button:active,
+#subscription-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #c85f76;
+}
+
+/* サブスク */
+.subscription {
+  margin-top: 36px;
+  overflow: hidden;
+  border: 3px solid #f29b4b;
+  border-radius: 18px;
+  background: #fff7e9;
+}
+
+.subscription-heading {
+  padding: 12px 20px;
+  color: #88511d;
+  background: #ffe2b9;
+}
+
+.subscription-heading span {
+  color: #e77854;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.subscription-heading h2 {
+  margin: 3px 0 0;
+  font-size: 21px;
+}
+
+.subscription-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 20px;
+}
+
+.subscription-main {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.subscription ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #765f4b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+#subscription-button {
+  flex-shrink: 0;
+  background: #e8aa50;
+  box-shadow: 0 3px 0 #b9792f;
+  font-size: 16px;
+}
+
+#subscription-button:hover {
+  background: #da9740;
+}
+
+#subscription-button:active {
+  box-shadow: 0 1px 0 #b9792f;
+}
+
+.history-link {
+  margin: 26px 0 0;
+  text-align: center;
+}
+
+.history-link a {
+  color: #b56e7c;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.history-link span {
+  margin-left: 7px;
+}
+
+/* PC */
+@media (min-width: 601px) {
+  body {
+    padding-bottom: 0;
+  }
+
+  .point-page {
+    width: min(1100px, calc(100% - 32px));
+    margin-top: 8px;
+    padding: 24px;
+  }
+
+  .purchase-section,
+  .subscription {
+    margin-top: 22px;
+  }
+
+  .point-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .point-plan {
+    min-height: 76px;
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .point-plan > div {
+    min-width: 0;
+  }
+
+  .point-plan strong {
+    font-size: 20px;
+  }
+
+  .point-plan span {
+    font-size: 11px;
+  }
+
+  .buy-button {
+    min-width: 76px;
+    padding: 10px 8px;
+    font-size: 15px;
+  }
+
+  .subscription-heading {
+    padding: 8px 16px;
+  }
+
+  .subscription-content {
+    padding: 12px 16px;
+  }
+
+  .history-link {
+    margin-top: 14px;
+  }
+}
+
+/* 下メニュー */
+.bottommenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  width: 100%;
+  height: 75px;
+  border-top: 1px solid #aaa;
+  background-color: #f7caca;
+}
+
+.bottommenu a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.bottommenu img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.bottommenu span {
+  margin-top: -2px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* モーダル */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(71, 49, 58, 0.55);
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal-window {
+  position: relative;
+  width: min(420px, 100%);
+  padding: 38px 30px 30px;
+  border: 3px solid #55505a;
+  border-radius: 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #777;
+  border-radius: 50%;
+  background: #fff;
+  color: #555;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-label {
+  margin: 0;
+  color: #e87892;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.modal-window h2 {
+  margin: 7px 0 22px;
+  font-size: 23px;
+}
+
+.modal-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px 20px;
+  padding: 19px;
+  border-radius: 12px;
+  background: #fff1f4;
+  text-align: left;
+}
+
+.modal-detail p {
+  margin: 0;
+  color: #777;
+}
+
+.modal-detail strong {
+  color: #817fd1;
+  font-size: 20px;
+  text-align: right;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel-button {
+  border: 2px solid #aaa;
+  background: #fff;
+  color: #666;
+}
+
+.confirm-button {
+  border: 2px solid #dc6f88;
+  background: #e87892;
+  color: #fff;
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 78px;
+  }
+
+  header {
+    height: 60px;
+  }
+
+  #logo {
+    font-size: 20px;
+  }
+
+  .point-page {
+    width: calc(100% - 20px);
+    margin-top: 12px;
+    padding: 20px 15px;
+    border-radius: 20px;
+  }
+
+  .balance span {
+    font-size: 19px;
+  }
+
+  .balance strong {
+    font-size: 35px;
+  }
+
+  .section-title h1 {
+    font-size: 23px;
+  }
+
+  .point-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .point-plan {
+    min-height: 70px;
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .point-plan > div {
+    min-width: 0;
+  }
+
+  .point-plan strong {
+    font-size: 19px;
+  }
+
+  .point-plan span {
+    font-size: 11px;
+  }
+
+  .buy-button {
+    min-width: 76px;
+    padding: 10px 8px;
+    font-size: 15px;
+  }
+
+  .subscription-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bottommenu {
+    gap: 4px;
+    height: 66px;
+  }
+
+  .bottommenu a {
+    min-width: 25%;
+    padding: 0;
+  }
+
+  .bottommenu img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .bottommenu span {
+    font-size: 11px;
+  }
+}

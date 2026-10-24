@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ポイント購入 - ココロのメール便</title>
+  <link rel="stylesheet" href="css/point.css">
+</head>
+
+<body>
+  <header>
+    <div id="logo">ココロのメール便</div>
+  </header>
+
+  <main class="point-page">
+    <section class="point-card">
+      <p class="card-label">POINT BALANCE</p>
+      <div class="balance">
+        <span>残高</span>
+        <strong id="current-point">130pt</strong>
+      </div>
+    </section>
+
+    <section class="purchase-section">
+      <div class="section-title">
+        <span>✦</span>
+        <h1>ポイント購入</h1>
+      </div>
+
+      <p class="section-text">ポイントを購入すると、手紙の購入に利用できます。</p>
+
+      <div class="point-list">
+        <article class="point-plan">
+          <div>
+            <strong>100pt</strong>
+            <span>まずは気軽に試したい方へ</span>
+          </div>
+          <button type="button" class="buy-button" data-point="100" data-price="100">
+            100円
+          </button>
+        </article>
+
+        <article class="point-plan">
+          <div>
+            <strong>500pt</strong>
+            <span>少しずつ利用したい方へ</span>
+          </div>
+          <button type="button" class="buy-button" data-point="500" data-price="500">
+            500円
+          </button>
+        </article>
+
+        <article class="point-plan recommend">
+          <p class="badge">50円お得</p>
+          <div>
+            <strong>1,000pt</strong>
+            <span>たくさん話したい方におすすめ</span>
+          </div>
+          <button type="button" class="buy-button" data-point="1000" data-price="950">
+            950円
+          </button>
+        </article>
+
+        <article class="point-plan recommend">
+          <p class="badge">200円お得</p>
+          <div>
+            <strong>5,000pt</strong>
+            <span>長くサービスを利用したい方へ</span>
+          </div>
+          <button type="button" class="buy-button" data-point="5000" data-price="4800">
+            4,800円
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="subscription">
+      <div class="subscription-heading">
+        <span>PREMIUM</span>
+        <h2>プレミアムポイントサブスク</h2>
+      </div>
+
+      <div class="subscription-content">
+        <div>
+          <p class="subscription-main">毎月700ptを受け取れる、お得なプランです。</p>
+          <ul>
+            <li>毎月、自動で700ptを付与</li>
+            <li>いつでも解約できます</li>
+          </ul>
+        </div>
+
+        <button type="button" id="subscription-button">月額 700円で購入</button>
+      </div>
+    </section>
+
+    <p class="history-link">
+      <a href="#">ポイント購入履歴を見る <span>▶</span></a>
+    </p>
+  </main>
+
+  <nav class="bottommenu">
+    <a href="index.html">
+      <img src="images/home.png" alt="ホーム">
+      <span>ホーム</span>
+    </a>
+
+    <a href="review1.html">
+      <img src="images/ai.png" alt="AI分析">
+      <span>AI分析</span>
+    </a>
+
+    <a href="#">
+      <img src="images/chat.png" alt="チャット">
+      <span>チャット</span>
+    </a>
+
+    <a href="post.html">
+      <img src="images/post.png" alt="出品">
+      <span>出品</span>
+    </a>
+  </nav>
+
+  <div id="purchase-modal" class="modal" aria-hidden="true">
+    <div class="modal-window">
+      <button type="button" id="modal-close" class="modal-close" aria-label="閉じる">×</button>
+      <p class="modal-label">POINT PURCHASE</p>
+      <h2 id="modal-title">ポイントを購入しますか？</h2>
+
+      <div class="modal-detail">
+        <p>追加ポイント</p>
+        <strong id="modal-point">100pt</strong>
+        <p>お支払い金額</p>
+        <strong id="modal-price">100円</strong>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" id="cancel-button" class="cancel-button">キャンセル</button>
+        <button type="button" id="confirm-button" class="confirm-button">購入する</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/point.js"></script>
+</body>
+</html>
