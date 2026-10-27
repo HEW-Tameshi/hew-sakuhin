@@ -8,6 +8,9 @@ body {
     background-repeat:no-repeat;
     background-attachment:fixed;
     color: #333;
+    /* ナビゲーションで隠れる部分を見えるようにする */
+    padding-bottom: 400px;
+    box-sizing: border-box;
 }
 
 /* header */
@@ -122,22 +125,29 @@ header {
 
 }
 
+
 /* レター一覧 */
-main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 20px 100px;
+#letter-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 100px 50px;
+    width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* レター */
 .letter {
-    position:relative;
-    background-color:white;
-    margin-bottom:35px;
-    padding:20px 120px 20px 25px;
-    border:2px solid #666;
-    border-radius:12px;
-    min-height:150px;
+    position: relative;
+    background-color: white;
+    margin-bottom: 35px;
+    padding: 20px 120px 20px 25px;
+    border: 2px solid #666;
+    border-radius: 12px;
+    min-height: 150px;
+    width: auto;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .letter h2 {
@@ -297,8 +307,8 @@ main {
 
 .goat {
     position:absolute;
-    right:-35px;
-    bottom:-40px;
+    top: 250px;
+    right: -40px;
     width:160px;
     height:160px;
     object-fit:contain;
