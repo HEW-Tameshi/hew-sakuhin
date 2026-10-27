@@ -1,709 +1,621 @@
-/* ページ全体 */
+
+:root {
+  --pink: #f5c7cc;
+  --pink-deep: #e76f83;
+  --pink-soft: #fff3f5;
+  --paper: #fffdfb;
+  --ink: #5b4549;
+  --muted: #927f83;
+  --line: #efd9dd;
+}
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
 body {
-    margin: 0;
-    font-family: Arial, "Yu Gothic", "Meiryo", sans-serif;
-    color: #55505A;
-    background: #fffafa;
+  margin: 0;
+  color: var(--ink);
+  font-family: "Yu Gothic", "Meiryo", sans-serif;
+  background:
+    radial-gradient(ellipse at 8% 18%, rgba(255, 222, 226, .65), transparent 28%),
+    radial-gradient(ellipse at 92% 38%, rgba(255, 231, 225, .7), transparent 25%),
+    #fff9f8;
+  padding-bottom: 100px;
 }
-
-/* ヘッダー */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
 .site-header {
-    height: 70px;
-    padding: 0 22px;
-    background-color: #f7caca;
-    display: grid;
-    grid-template-columns: 44px 1fr 44px;
-    align-items: center;
-    text-align: center;
+  min-height: 68px;
+  padding: 10px 24px;
+  background: var(--pink);
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid #e8b4bc;
 }
-
-#logo {
-    font-size: 24px;
-    font-weight: bold;
+.logo {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: .04em;
 }
-
+.logo span {
+  color: #b85d6f;
+}
 .back-button {
-    width: 38px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, .55);
-    color: #55505A;
-    font-size: 34px;
-    line-height: 1;
-    text-decoration: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.65);
+  color: var(--ink);
+  font-size: 32px;
+  line-height: 1;
+  text-decoration: none;
 }
-
-/* 購入履歴ページの外枠 */
+.header-stamp {
+  color: #b85d6f;
+  font-size: 25px;
+}
 .purchase-page {
-    width: min(900px, 90%);
-    margin: 28px auto 170px;
-    padding: 30px 34px 70px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, .82);
-    border: 1px solid #f1dfe2;
-    border-radius: 26px;
-    box-shadow: 0 5px 20px rgba(190, 130, 145, .09);
+  width: min(980px, 92%);
+  margin: 30px auto 40px;
+  padding: 30px 34px 38px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: 0 8px 28px rgba(190,130,145,.09);
 }
-
-/* ページ見出し */
 .page-heading {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding-bottom: 24px;
-    margin-bottom: 22px;
-    border-bottom: 1px dashed #e8bfc5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 24px;
+  margin-bottom: 22px;
+  border-bottom: 1px dashed #e8bfc5;
 }
-
 .heading-icon {
-    width: 72px;
-    height: 72px;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: #fff0f2;
-    border: 2px solid #f3d5d8;
-    color: #d98e9c;
-    font-size: 36px;
-    box-shadow: 0 4px 12px rgba(220, 170, 175, .18);
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: #fff0f2;
+  border: 1px solid #f3d5d8;
+  font-size: 34px;
+  box-shadow: 0 5px 13px rgba(220,170,175,.18);
 }
-
 .eyebrow {
-    margin: 0 0 3px;
-    color: #b98291;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: .18em;
+  margin: 0 0 4px;
+  color: #bd7889;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .2em;
 }
-
 h1 {
-    margin: 0;
-    font-size: 31px;
-    line-height: 1.3;
+  margin: 0;
+  font-size: clamp(25px, 3vw, 32px);
+  line-height: 1.35;
 }
-
 .heading-description {
-    margin: 5px 0 0;
-    font-size: 14px;
-    color: #8a818b;
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--muted);
 }
-
-/* 購入数と使用ポイント */
 .summary-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 17px 21px;
-    margin-bottom: 30px;
-    border: 1.5px solid #f0dadd;
-    border-radius: 17px;
-    background: #fff3f5;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 21px;
+  margin-bottom: 30px;
+  border: 1.5px solid #f0dadd;
+  border-radius: 18px;
+  background: linear-gradient(110deg, #fff1f3, #fffaf7);
 }
-
-.summary-icon {
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: #fff;
-    color: #cf8d9d;
-    font-size: 29px;
+.summary-mascot {
+  font-size: 42px;
+  width: 54px;
+  text-align: center;
 }
-
-.summary-copy p,
-.summary-total p {
-    margin: 0 0 3px;
-    color: #8a818b;
-    font-size: 13px;
+.summary-copy p, .summary-total p {
+  margin: 0 0 3px;
+  color: var(--muted);
+  font-size: 13px;
 }
-
-.summary-copy strong,
-.summary-total strong {
-    font-size: 25px;
-    color: #55505A;
+.summary-copy strong, .summary-total strong {
+  font-size: 26px;
+  color: #a9576b;
 }
-
-.summary-copy small,
-.summary-total small {
-    font-size: 13px;
+.summary-copy small, .summary-total small {
+  font-size: 13px;
 }
-
 .summary-total {
-    margin-left: auto;
-    padding-left: 20px;
-    border-left: 1px dashed #e5c4ca;
+  margin-left: auto;
+  padding-left: 24px;
+  border-left: 1px dashed #e5c4ca;
 }
-
-/* 一覧の見出し */
 .history-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
 }
-
 .history-heading h2 {
-    margin: 0;
-    font-size: 20px;
+  margin: 0;
+  font-size: 20px;
 }
-
-.history-heading span {
-    color: #a58d97;
-    font-size: 12px;
+.history-heading h2 span {
+  font-size: 19px;
 }
-
-/* 絞り込みボタン */
+.history-heading > span {
+  color: #a58d97;
+  font-size: 12px;
+}
 .filter-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 18px;
 }
-
 .filter-button {
-    padding: 9px 19px;
-    border: 1px solid #e8cbd1;
-    border-radius: 22px;
-    background: #fff;
-    color: #8b7580;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background .2s, color .2s, border-color .2s;
+  padding: 9px 18px;
+  border: 1px solid #e8cbd1;
+  border-radius: 22px;
+  background: #fff;
+  color: #8b7580;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .2s, transform .2s, color .2s;
 }
-
-.filter-button:hover,
+.filter-button:hover {
+  transform: translateY(-1px);
+}
 .filter-button.active {
-    background: #f7caca;
-    border-color: #e8b5bf;
-    color: #65505a;
-    font-weight: bold;
+  background: var(--pink-deep);
+  border-color: var(--pink-deep);
+  color: white;
+  font-weight: 700;
 }
-
-/* 購入したお手紙一覧 */
 .purchase-list {
-    display: grid;
-    gap: 16px;
+  display: grid;
+  gap: 16px;
 }
-
-/* お手紙カード */
 .purchase-card {
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    gap: 17px;
-    padding: 18px 18px 17px 24px;
-    overflow: hidden;
-    border: 1.5px solid #f0dadd;
-    border-radius: 17px;
-    background: rgba(255, 250, 250, .96);
-    box-shadow: 0 4px 12px rgba(225, 160, 175, .08);
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  padding: 19px 20px 18px;
+  overflow: hidden;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: 0 4px 13px rgba(225,160,175,.09);
+  transition: transform .2s, box-shadow .2s;
 }
-
-.emotion-color {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 6px;
-    background: #e8b6c2;
+.purchase-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(190,130,145,.15);
 }
-
-.purchase-card.fun .emotion-color {
-    background: #a8c9a1;
+.purchase-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: #e8b6c2;
 }
-
-.purchase-card.angry .emotion-color {
-    background: #e7a19d;
+.letter-seal {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  align-self: flex-start;
+  border: 1px solid rgba(180,120,135,.25);
+  border-radius: 14px 14px 14px 4px;
+  font-size: 27px;
+  color: #b66d7c;
+  position: relative;
 }
-
-.purchase-card.sad .emotion-color {
-    background: #aeb6df;
+.letter-seal::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 7px;
+  width: 42px;
+  height: 1px;
+  background: rgba(180,120,135,.35);
 }
-
+.seal-peach {
+  background: #fff0e9;
+}
+.seal-lilac {
+  background: #f1efff;
+  color: #8277bd;
+}
+.seal-blue {
+  background: #edf6fa;
+  color: #6c9bb0;
+}
 .letter-content {
-    min-width: 0;
-    flex: 1;
+  min-width: 0;
+  flex: 1;
 }
-
 .letter-topline {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
 }
-
 .category {
-    color: #b98291;
-    font-size: 12px;
-    font-weight: bold;
+  font-size: 12px;
+  font-weight: 700;
 }
-
+.category-fun {
+  color: #67945e;
+}
+.category-worry {
+  color: #8277bd;
+}
+.category-stress {
+  color: #bd7889;
+}
 .status {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: bold;
-    white-space: nowrap;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
 }
-
-.status-chatting {
-    background: #e8f3e5;
-    color: #62855d;
-}
-
 .status-done {
-    background: #efedf9;
-    color: #8176b0;
+  background: #f0edf9;
+  color: #8176b0;
 }
-
+.status-chatting {
+  background: #e8f3e5;
+  color: #62855d;
+}
+.status-waiting {
+  background: #fff0e4;
+  color: #b77947;
+}
 .letter-content h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
-
 .description {
-    margin: 0 0 12px;
-    color: #827985;
-    font-size: 13px;
-    line-height: 1.7;
+  margin: 0 0 12px;
+  color: #827985;
+  font-size: 13px;
+  line-height: 1.8;
 }
-
-.letter-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #8b7c88;
-    font-size: 13px;
-}
-
-.letter-info strong {
-    color: #bd7889;
-    font-size: 17px;
-}
-
 .letter-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding-top: 13px;
-    margin-top: 12px;
-    border-top: 1px dashed #ecdde0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px dashed #ecdde0;
 }
-
+.letter-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #8b7c88;
+  font-size: 13px;
+}
+.letter-info strong {
+  color: #bd7889;
+  font-size: 17px;
+}
 .purchase-date {
-    color: #9b9099;
-    font-size: 11px;
+  color: #9b9099;
+  font-size: 11px;
 }
-
 .detail-button {
-    padding: 7px 12px;
-    border: 1px solid #e8c2ca;
-    border-radius: 9px;
-    background: #fff;
-    color: #b87587;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background .2s;
+  margin-top: 12px;
+  padding: 8px 13px;
+  border: 1px solid #e8c2ca;
+  border-radius: 10px;
+  background: #fff5f6;
+  color: #a95f70;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
 }
-
 .detail-button:hover {
-    background: #fff0f2;
+  background: #ffe8ec;
 }
-
-/* 手紙カード右側のヤギ画像 */
+.detail-button span {
+  padding-left: 6px;
+  font-size: 16px;
+}
 .goat {
-    width: 76px;
-    height: 76px;
-    flex-shrink: 0;
-    align-self: center;
-    object-fit: contain;
-    border-radius: 50%;
-    background: #fff0f2;
+  width: 64px;
+  flex-shrink: 0;
+  align-self: center;
+  position: relative;
+  font-size: 43px;
+  text-align: center;
+  filter: drop-shadow(0 3px 2px rgba(150,100,100,.1));
 }
-
-/* 絞り込み結果がない場合 */
+.goat span {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  font-size: 18px;
+}
 .empty-message {
-    padding: 28px 10px;
-    text-align: center;
-    color: #a78390;
-    font-size: 14px;
+  padding: 28px 10px;
+  text-align: center;
+  color: #a78390;
+  font-size: 14px;
+  line-height: 1.9;
 }
-
-/* サンプルデータの注記 */
 .demo-note {
-    margin: 20px 0 0;
-    color: #a99ca4;
-    font-size: 11px;
-    line-height: 1.6;
+  margin: 20px 0 0;
+  color: #a99ca4;
+  font-size: 11px;
+  line-height: 1.6;
 }
-
-/* 手紙カードを押せるようにする */
-.purchase-card.is-clickable {
-    cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-}
-
-.purchase-card.is-clickable:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(190, 130, 145, .18);
-}
-
-.purchase-card.is-clickable:focus-visible {
-    outline: 3px solid #b9b5f0;
-    outline-offset: 3px;
-}
-
-/* 手紙の詳細ダイアログ：ホーム画面の詳細表示に合わせたデザイン */
-.detail-dialog {
-    position: fixed;
-    width: min(800px, calc(100% - 32px));
-    max-width: none;
-    max-height: 88vh;
-    padding: 44px 42px 38px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    border: 1.5px solid #777;
-    border-radius: 22px;
-    background: #fff;
-    color: #383838;
-    box-shadow: 0 12px 40px rgba(60, 45, 55, .25);
-}
-
-.detail-dialog::backdrop {
-    background: rgba(73, 58, 68, .42);
-    backdrop-filter: blur(2px);
-}
-
-.dialog-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 46px;
-    height: 46px;
-    border: 2px solid #666;
-    border-radius: 50%;
-    background: #fff;
-    color: #222;
-    font-size: 28px;
-    line-height: 1;
-    cursor: pointer;
-}
-
-.dialog-topline {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-right: 54px;
-    margin-bottom: 24px;
-}
-
-.dialog-color-line {
-    display: inline-block;
-    width: 68px;
-    height: 10px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background: #817fd1;
-}
-
-.dialog-category {
-    font-size: 17px;
-}
-
-.dialog-status {
-    margin-left: auto;
-    padding: 5px 10px;
-    border-radius: 20px;
-    background: #efedf9;
-    color: #8176b0;
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-.detail-dialog h2 {
-    margin: 0 0 14px;
-    font-size: clamp(22px, 3vw, 31px);
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-}
-
-.dialog-point-time {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    margin: 0 0 28px;
-    font-size: 22px;
-}
-
-.dialog-point-time strong:first-child {
-    color: #383838;
-}
-
-.dialog-description {
-    min-height: 130px;
-    padding: 24px;
-    box-sizing: border-box;
-    border: 2px solid #888;
-    border-radius: 13px;
-    background: #edf7fa;
-    color: #414141;
-    font-size: 18px;
-    line-height: 1.8;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-}
-
-.dialog-rating {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 22px;
-}
-
-.dialog-rating span {
-    color: #ffb323;
-    font-size: 36px;
-    letter-spacing: 1px;
-    line-height: 1.2;
-}
-
-.dialog-rating strong {
-    font-size: 20px;
-}
-
-.dialog-purchased-date {
-    margin: 18px 0 0;
-    color: #817985;
-    font-size: 13px;
-}
-
-.close-button {
-    display: block;
-    min-width: 220px;
-    margin: 26px auto 0;
-    padding: 15px 25px;
-    border: 2px solid #777;
-    border-radius: 18px;
-    background: #f7caca;
-    color: #222;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* 下部ナビ */
 .bottommenu {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
-    background-color: #f7caca;
-    border-top: 1px solid #d8aeb5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(16px, 7vw, 90px);
-    z-index: 100;
-    box-shadow: 0 -4px 14px rgba(190, 130, 145, .10);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background: var(--pink);
+  border-top: 1px solid #d8aeb5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(16px, 7vw, 90px);
+  z-index: 100;
+  box-shadow: 0 -4px 14px rgba(190,130,145,.10);
 }
-
 .bottommenu a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 12px;
-    color: inherit;
-    text-decoration: none;
-    transition: transform .2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .2s;
 }
-
 .bottommenu a:hover {
-    transform: translateY(-3px);
+  transform: translateY(-3px);
 }
-
 .bottommenu img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
-
 .bottommenu span {
-    margin-top: -2px;
-    font-size: 13px;
-    font-weight: bold;
+  margin-top: 1px;
+  font-size: 12px;
+  font-weight: 700;
 }
-
-/* スマホ表示 */
+.detail-dialog {
+  position: fixed;
+  width: min(600px, calc(100% - 30px));
+  max-width: none;
+  max-height: 88vh;
+  padding: 34px 34px 28px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border: 1.5px solid #edcbd1;
+  border-radius: 24px;
+  background: #fffdfb;
+  color: var(--ink);
+  box-shadow: 0 12px 40px rgba(100,65,75,.22);
+}
+.detail-dialog::backdrop {
+  background: rgba(73,58,68,.42);
+  backdrop-filter: blur(3px);
+}
+.dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ead0d5;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  font-size: 24px;
+  cursor: pointer;
+}
+.dialog-envelope {
+  text-align: center;
+  font-size: 42px;
+}
+.dialog-eyebrow {
+  text-align: center;
+  margin: 4px 0 8px;
+  color: #bd7889;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+.detail-dialog h2 {
+  margin: 0 20px 16px;
+  text-align: center;
+  font-size: 23px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.dialog-description {
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #eadce0;
+  border-radius: 14px;
+  background: #fff5f6;
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+.dialog-info {
+  margin-top: 18px;
+}
+.dialog-info p {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 12px 2px;
+  border-bottom: 1px dashed #eadce0;
+  font-size: 14px;
+}
+.dialog-info span {
+  color: var(--muted);
+}
+.dialog-info strong {
+  text-align: right;
+}
+.close-button {
+  display: block;
+  min-width: 190px;
+  margin: 24px auto 0;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 22px;
+  background: var(--pink);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.close-button:hover {
+  background: #f0b5bf;
+}
 @media (max-width: 650px) {
-    .site-header {
-        height: 62px;
-        padding: 0 12px;
-    }
-
-    #logo {
-        font-size: 19px;
-    }
-
-    .purchase-page {
-        width: 94%;
-        margin: 16px auto 145px;
-        padding: 22px 15px 55px;
-        border-radius: 22px;
-    }
-
-    .page-heading {
-        gap: 12px;
-        padding-bottom: 18px;
-    }
-
-    .heading-icon {
-        width: 58px;
-        height: 58px;
-        font-size: 30px;
-    }
-
-    h1 {
-        font-size: 27px;
-    }
-
-    .heading-description {
-        font-size: 12px;
-    }
-
-    .summary-card {
-        gap: 10px;
-        padding: 13px 12px;
-    }
-
-    .summary-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 24px;
-    }
-
-    .summary-copy strong,
-    .summary-total strong {
-        font-size: 21px;
-    }
-
-    .summary-total {
-        padding-left: 12px;
-    }
-
-    .filter-tabs {
-        gap: 6px;
-    }
-
-    .filter-button {
-        padding: 8px 14px;
-        font-size: 12px;
-    }
-
-    .purchase-card {
-        gap: 10px;
-        padding: 14px 11px 13px 17px;
-    }
-
-    .letter-content h3 {
-        font-size: 16px;
-    }
-
-    .description {
-        font-size: 12px;
-    }
-
-    .goat {
-        width: 48px;
-        height: 48px;
-    }
-
-    .letter-bottom {
-        align-items: flex-start;
-    }
-
-    .purchase-date {
-        width: 100%;
-    }
-
-    .bottommenu {
-        height: 70px;
-        gap: 5px;
-        justify-content: space-around;
-    }
-
-    .bottommenu a {
-        padding: 0 7px;
-    }
-
-    .bottommenu img {
-        width: 31px;
-        height: 31px;
-    }
-
-    .bottommenu span {
-        font-size: 11px;
-    }
-
-    .detail-dialog {
-        padding: 42px 20px 24px;
-        border-radius: 18px;
-    }
-
-    .dialog-close {
-        top: 10px;
-        right: 10px;
-        width: 38px;
-        height: 38px;
-        font-size: 23px;
-    }
-
-    .dialog-topline {
-        gap: 8px;
-        margin-bottom: 18px;
-    }
-
-    .dialog-color-line {
-        width: 42px;
-        height: 8px;
-    }
-
-    .dialog-category {
-        font-size: 13px;
-    }
-
-    .dialog-point-time {
-        margin-bottom: 18px;
-        font-size: 19px;
-    }
-
-    .dialog-description {
-        min-height: 120px;
-        padding: 16px;
-        font-size: 15px;
-    }
-
-    .dialog-rating span {
-        font-size: 29px;
-    }
-
-    .close-button {
-        min-width: 180px;
-        padding: 12px 18px;
-    }
+  body {
+    padding-bottom: 90px;
+  }
+  .site-header {
+    min-height: 60px;
+    padding: 8px 12px;
+    grid-template-columns: 36px 1fr 36px;
+  }
+  .logo {
+    font-size: 17px;
+  }
+  .purchase-page {
+    width: 94%;
+    margin: 16px auto 24px;
+    padding: 21px 14px 28px;
+    border-radius: 21px;
+  }
+  .page-heading {
+    gap: 12px;
+    padding-bottom: 18px;
+  }
+  .heading-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    font-size: 27px;
+  }
+  .heading-description {
+    font-size: 12px;
+  }
+  .summary-card {
+    gap: 9px;
+    padding: 13px 11px;
+  }
+  .summary-mascot {
+    width: 40px;
+    font-size: 31px;
+  }
+  .summary-copy p, .summary-total p {
+    font-size: 11px;
+  }
+  .summary-copy strong, .summary-total strong {
+    font-size: 21px;
+  }
+  .summary-total {
+    padding-left: 11px;
+  }
+  .filter-tabs {
+    gap: 6px;
+  }
+  .filter-button {
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+  .purchase-card {
+    gap: 10px;
+    padding: 14px 10px 13px 15px;
+  }
+  .letter-seal {
+    width: 42px;
+    height: 46px;
+    font-size: 21px;
+    border-radius: 11px 11px 11px 3px;
+  }
+  .letter-seal::after {
+    width: 30px;
+  }
+  .letter-content h3 {
+    font-size: 15px;
+  }
+  .description {
+    font-size: 12px;
+  }
+  .goat {
+    width: 38px;
+    font-size: 29px;
+  }
+  .goat span {
+    font-size: 13px;
+  }
+  .letter-bottom {
+    align-items: flex-start;
+  }
+  .purchase-date {
+    width: 100%;
+  }
+  .bottommenu {
+    height: 66px;
+    gap: 3px;
+    justify-content: space-around;
+  }
+  .bottommenu a {
+    padding: 0 5px;
+  }
+  .bottommenu img {
+    width: 28px;
+    height: 28px;
+  }
+  .bottommenu span {
+    font-size: 10px;
+  }
+  .detail-dialog {
+    padding: 32px 17px 22px;
+    border-radius: 19px;
+  }
+  .detail-dialog h2 {
+    font-size: 20px;
+  }
+  .dialog-description {
+    padding: 15px;
+    font-size: 14px;
+  }
 }
