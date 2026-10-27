@@ -1,4 +1,12 @@
 /* 全体 */
+html {
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
