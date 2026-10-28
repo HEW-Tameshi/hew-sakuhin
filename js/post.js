@@ -259,14 +259,15 @@ $(document).ready(function () {
         } 
         // すべて入力されている場合
         else{
-            alert('出品できます。');
-            // ホーム画面に移動(index.html)
-            window.location.href = 'index.html';
-        }
-        
-    });
+            $.ajax({url: '/post', type: 'POST', data: {
+                title: title
+            },
+            success: function(response){
+                alert(response)
+            }   
+        });
 
-});
+    };
 
 
 
