@@ -1,93 +1,366 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>購入履歴｜ココロのメール便</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/purchase-history.css">
-</head>
-<body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   お手紙の購入履歴｜こころのメェ～る便
+  </title>
+  <link href="css/reset.css" rel="stylesheet"/>
+  <link href="css/purchase-history.css" rel="stylesheet"/>
+ </head>
+ <body>
   <header class="site-header">
-    <a class="back-button" href="profile.html" aria-label="プロフィールに戻る">‹</a>
-    <div id="logo">ココロのメール便</div><div></div>
+   <a aria-label="プロフィールに戻る" class="back-button" href="profile.html">
+    ‹
+   </a>
+   <a class="logo" href="index.html">
+    こころのメェ～る便
+    <span>
+     ✉
+    </span>
+   </a>
+   <div aria-hidden="true" class="header-stamp">
+    ♡
+   </div>
   </header>
-
   <main class="purchase-page">
-    <section class="page-heading">
-      <div class="heading-icon">♡</div>
-      <div><p class="eyebrow">MY PAGE</p><h1>購入履歴</h1><p class="heading-description">お買い物の記録をチェックしよう</p></div>
-    </section>
-
-    <section class="summary-card">
-      <div class="summary-heart">♡</div>
-      <div><p>これまでの購入</p><strong><span id="purchase-count">3</span><small> 件</small></strong></div>
-      <div class="summary-total"><p>購入合計</p><strong>¥4,200</strong></div>
-    </section>
-
-    <div class="history-heading"><h2>購入した商品</h2><span>新しい順</span></div>
-    <div class="filter-tabs" aria-label="取引状況で絞り込む">
-      <button class="filter-button active" data-filter="all">すべて</button>
-      <button class="filter-button" data-filter="shipping">発送待ち</button>
-      <button class="filter-button" data-filter="sent">発送済み</button>
-      <button class="filter-button" data-filter="done">取引完了</button>
+   <section class="page-heading">
+    <div aria-hidden="true" class="heading-icon">
+     ✉️
     </div>
-
-    <section class="purchase-list" id="purchase-list" aria-live="polite">
-      <article class="purchase-card" data-status="done">
-        <div class="product-art art-pink" aria-hidden="true">🎀</div>
-        <div class="product-details"><div class="product-topline"><span class="status status-done">取引完了</span><span class="purchase-date">2026/10/10</span></div><h3>リボンのアクセサリー</h3><p class="seller">出品者：momo さん</p><div class="product-bottom"><strong>¥1,800</strong><button class="detail-button" onclick="showDetails('リボンのアクセサリー','2026/10/10','¥1,800','取引完了')">詳細を見る ›</button></div></div>
-      </article>
-      <article class="purchase-card" data-status="sent">
-        <div class="product-art art-purple" aria-hidden="true">🌷</div>
-        <div class="product-details"><div class="product-topline"><span class="status status-sent">発送済み</span><span class="purchase-date">2026/10/06</span></div><h3>お花の小物入れ</h3><p class="seller">出品者：hana さん</p><div class="product-bottom"><strong>¥1,500</strong><button class="detail-button" onclick="showDetails('お花の小物入れ','2026/10/06','¥1,500','発送済み')">詳細を見る ›</button></div></div>
-      </article>
-      <article class="purchase-card" data-status="shipping">
-        <div class="product-art art-yellow" aria-hidden="true">🐻</div>
-        <div class="product-details"><div class="product-topline"><span class="status status-shipping">発送待ち</span><span class="purchase-date">2026/10/15</span></div><h3>くまさんのキーホルダー</h3><p class="seller">出品者：kuma さん</p><div class="product-bottom"><strong>¥900</strong><button class="detail-button" onclick="showDetails('くまさんのキーホルダー','2026/10/15','¥900','発送待ち')">詳細を見る ›</button></div></div>
-      </article>
-    </section>
-    <p id="empty-message" class="empty-message" hidden>この状況の商品はまだありません ♡</p>
-    <p class="demo-note">※ 商品名・金額・日付はプロトタイプ用のサンプルです。</p>
+    <div>
+     <p class="eyebrow">
+      MY LETTER BOX
+     </p>
+     <h1>
+      購入したお手紙
+     </h1>
+     <p class="heading-description">
+      あなたが受け取った、こころの記録。
+     </p>
+    </div>
+   </section>
+   <section aria-label="購入履歴のまとめ" class="summary-card">
+    <div aria-hidden="true" class="summary-mascot">
+     🐐
+    </div>
+    <div class="summary-copy">
+     <p>
+      これまでに受け取ったお手紙
+     </p>
+     <strong>
+      <span id="purchase-count">
+       3
+      </span>
+      <small>
+       通
+      </small>
+     </strong>
+    </div>
+    <div class="summary-total">
+     <p>
+      使用ポイント
+     </p>
+     <strong>
+      <span id="points-total">
+       265
+      </span>
+      <small>
+       pt
+      </small>
+     </strong>
+    </div>
+   </section>
+   <div class="history-heading">
+    <h2>
+     <span aria-hidden="true">
+      💌
+     </span>
+     お手紙の記録
+    </h2>
+    <span>
+     新しい順
+    </span>
+   </div>
+   <div aria-label="取引状況で絞り込む" class="filter-tabs">
+    <button class="filter-button active" data-filter="all">
+     すべて
+    </button>
+    <button class="filter-button" data-filter="waiting">
+     お返事待ち
+    </button>
+    <button class="filter-button" data-filter="chatting">
+     お話し中
+    </button>
+    <button class="filter-button" data-filter="done">
+     取引完了
+    </button>
+   </div>
+   <section aria-live="polite" class="purchase-list" id="purchase-list">
+    <article class="purchase-card" data-points="60" data-status="done">
+     <div aria-hidden="true" class="letter-seal seal-peach">
+      <span>
+       ♡
+      </span>
+     </div>
+     <div class="letter-content">
+      <div class="letter-topline">
+       <span class="category category-fun">
+        趣味・よろこび
+       </span>
+       <span class="status status-done">
+        取引完了
+       </span>
+      </div>
+      <h3>
+       最近ハマっていることを話したい！
+      </h3>
+      <p class="description">
+       最近すごくハマっている趣味があります！誰かと楽しく話したいです。
+      </p>
+      <div class="letter-bottom">
+       <div class="letter-info">
+        <strong>
+         60 pt
+        </strong>
+        <span>
+         ／15分
+        </span>
+       </div>
+       <span class="purchase-date">
+        購入日：2026/10/20
+       </span>
+      </div>
+      <button class="detail-button" data-date="2026/10/20" data-description="最近すごくハマっている趣味があります！誰かと楽しく話したいです。" data-name="最近ハマっていることを話したい！" data-points="60 pt" data-status="取引完了">
+       お手紙を確認する
+       <span>
+        ›
+       </span>
+      </button>
+     </div>
+     <div aria-hidden="true" class="goat">
+      🐐
+      <span>
+       💌
+      </span>
+     </div>
+    </article>
+    <article class="purchase-card" data-points="120" data-status="chatting">
+     <div aria-hidden="true" class="letter-seal seal-lilac">
+      <span>
+       ✉
+      </span>
+     </div>
+     <div class="letter-content">
+      <div class="letter-topline">
+       <span class="category category-worry">
+        悩み・相談
+       </span>
+       <span class="status status-chatting">
+        お話し中
+       </span>
+      </div>
+      <h3>
+       学校が忙しいけど、少し相談したい…
+      </h3>
+      <p class="description">
+       学校でいろいろ忙しくて、これからのことを誰かに聞いてほしいです。
+      </p>
+      <div class="letter-bottom">
+       <div class="letter-info">
+        <strong>
+         120 pt
+        </strong>
+        <span>
+         ／20分
+        </span>
+       </div>
+       <span class="purchase-date">
+        購入日：2026/10/18
+       </span>
+      </div>
+      <button class="detail-button" data-date="2026/10/18" data-description="学校でいろいろ忙しくて、これからのことを誰かに聞いてほしいです。" data-name="学校が忙しいけど、少し相談したい…" data-points="120 pt" data-status="お話し中">
+       お手紙を確認する
+       <span>
+        ›
+       </span>
+      </button>
+     </div>
+     <div aria-hidden="true" class="goat">
+      🐐
+      <span>
+       💗
+      </span>
+     </div>
+    </article>
+    <article class="purchase-card" data-points="85" data-status="waiting">
+     <div aria-hidden="true" class="letter-seal seal-blue">
+      <span>
+       ♡
+      </span>
+     </div>
+     <div class="letter-content">
+      <div class="letter-topline">
+       <span class="category category-stress">
+        愚痴・ストレス
+       </span>
+       <span class="status status-waiting">
+        お返事待ち
+       </span>
+      </div>
+      <h3>
+       今日はちょっと愚痴を聞いてほしい
+      </h3>
+      <p class="description">
+       今日はいろいろあって疲れちゃいました。少しだけ話を聞いてほしいです。
+      </p>
+      <div class="letter-bottom">
+       <div class="letter-info">
+        <strong>
+         85 pt
+        </strong>
+        <span>
+         ／15分
+        </span>
+       </div>
+       <span class="purchase-date">
+        購入日：2026/10/15
+       </span>
+      </div>
+      <button class="detail-button" data-date="2026/10/15" data-description="今日はいろいろあって疲れちゃいました。少しだけ話を聞いてほしいです。" data-name="今日はちょっと愚痴を聞いてほしい" data-points="85 pt" data-status="お返事待ち">
+       お手紙を確認する
+       <span>
+        ›
+       </span>
+      </button>
+     </div>
+     <div aria-hidden="true" class="goat">
+      🐐
+      <span>
+       💌
+      </span>
+     </div>
+    </article>
+   </section>
+   <p class="empty-message" hidden="" id="empty-message">
+    このお手紙はまだないみたい。
+    <br/>
+    ほかのお手紙ものぞいてみよう ♡
+   </p>
+   <p class="demo-note">
+    ※ 表示されているお手紙・ポイント・日付はプロトタイプ用のサンプルです。
+   </p>
   </main>
-
-  <nav class="bottommenu" aria-label="メインメニュー">
-    <a href="index.html"><img src="images/home.png" alt=""><span>ホーム</span></a>
-    <a href="ai-analysis.html"><img src="images/ai.png" alt=""><span>AI分析</span></a>
-    <a href="chat.html"><img src="images/chat.png" alt=""><span>チャット</span></a>
-    <a href="post.html"><img src="images/post.png" alt=""><span>出品</span></a>
+  <nav aria-label="メインメニュー" class="bottommenu">
+   <a href="index.html">
+    <img alt="" src="images/home.png"/>
+    <span>
+     ホーム
+    </span>
+   </a>
+   <a href="ai-analysis.html">
+    <img alt="" src="images/ai.png"/>
+    <span>
+     AI分析
+    </span>
+   </a>
+   <a href="chat.html">
+    <img alt="" src="images/chat.png"/>
+    <span>
+     チャット
+    </span>
+   </a>
+   <a href="post.html">
+    <img alt="" src="images/post.png"/>
+    <span>
+     出品
+    </span>
+   </a>
   </nav>
-
-  <dialog id="detail-dialog" class="detail-dialog">
-    <button class="dialog-close" onclick="document.getElementById('detail-dialog').close()" aria-label="閉じる">×</button>
-    <div class="dialog-heart">♡</div><h2 id="dialog-name">商品名</h2>
-    <div class="dialog-info"><p><span>購入日</span><strong id="dialog-date"></strong></p><p><span>購入金額</span><strong id="dialog-price"></strong></p><p><span>取引状況</span><strong id="dialog-status"></strong></p></div>
-    <button class="close-button" onclick="document.getElementById('detail-dialog').close()">閉じる</button>
+  <dialog class="detail-dialog" id="detail-dialog">
+   <button aria-label="閉じる" class="dialog-close" id="dialog-close">
+    ×
+   </button>
+   <div aria-hidden="true" class="dialog-envelope">
+    💌
+   </div>
+   <p class="dialog-eyebrow">
+    YOUR LETTER
+   </p>
+   <h2 id="dialog-name">
+    お手紙のタイトル
+   </h2>
+   <p class="dialog-description" id="dialog-description">
+   </p>
+   <div class="dialog-info">
+    <p>
+     <span>
+      購入日
+     </span>
+     <strong id="dialog-date">
+     </strong>
+    </p>
+    <p>
+     <span>
+      使用ポイント
+     </span>
+     <strong id="dialog-points">
+     </strong>
+    </p>
+    <p>
+     <span>
+      取引状況
+     </span>
+     <strong id="dialog-status">
+     </strong>
+    </p>
+   </div>
+   <button class="close-button" id="dialog-done">
+    お手紙を閉じる
+   </button>
   </dialog>
-
-  
   <script>
-    const filterButtons = document.querySelectorAll('.filter-button');
+   const filterButtons = document.querySelectorAll('.filter-button');
     const cards = document.querySelectorAll('.purchase-card');
     const emptyMessage = document.getElementById('empty-message');
-    filterButtons.forEach(button => button.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
-      let count = 0;
-      cards.forEach(card => {
-        const visible = button.dataset.filter === 'all' || card.dataset.status === button.dataset.filter;
-        card.hidden = !visible;
-        if (visible) count++;
+    const dialog = document.getElementById('detail-dialog');
+
+    // サンプルカードから件数と使用ポイント合計を表示
+    document.getElementById('purchase-count').textContent = cards.length;
+    const totalPoints = [...cards].reduce((sum, card) => sum + Number(card.dataset.points), 0);
+    document.getElementById('points-total').textContent = totalPoints;
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const visible = button.dataset.filter === 'all' || card.dataset.status === button.dataset.filter;
+          card.hidden = !visible;
+          if (visible) visibleCount++;
+        });
+        emptyMessage.hidden = visibleCount !== 0;
       });
-      emptyMessage.hidden = count !== 0;
-    }));
-    function showDetails(name, date, price, status) {
-      document.getElementById('dialog-name').textContent = name;
-      document.getElementById('dialog-date').textContent = date;
-      document.getElementById('dialog-price').textContent = price;
-      document.getElementById('dialog-status').textContent = status;
-      document.getElementById('detail-dialog').showModal();
-    }
+    });
+
+    document.querySelectorAll('.detail-button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.getElementById('dialog-name').textContent = button.dataset.name;
+        document.getElementById('dialog-date').textContent = button.dataset.date;
+        document.getElementById('dialog-points').textContent = button.dataset.points;
+        document.getElementById('dialog-status').textContent = button.dataset.status;
+        document.getElementById('dialog-description').textContent = button.dataset.description;
+        dialog.showModal();
+      });
+    });
+
+    document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
+    document.getElementById('dialog-done').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) dialog.close();
+    });
   </script>
-</body>
+ </body>
 </html>
