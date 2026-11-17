@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+}
+
+.site-header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 70px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7caca;
+}
+
+.site-logo {
+  margin: 0;
+  color: #4B3B40;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.site-header--with-back {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  padding: 0 24px;
+}
+
+.site-header--with-back .back-button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .65);
+  color: #55505A;
+  font: 32px/1 Arial, sans-serif;
+  text-decoration: none;
+}
+
+@media (max-width: 650px) {
+  .site-header {
+    height: 62px;
+  }
+
+  .site-logo {
+    font-size: 19px;
+  }
+
+  .site-header--with-back {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    padding: 0 12px;
+  }
+
+  .site-header--with-back .back-button {
+    width: 34px;
+    height: 34px;
+    font-size: 30px;
+  }
+}

@@ -21,11 +21,6 @@ header {
     padding: 0 30px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
 /* 検索エリア */
 .top-menu {
     max-width: 900px;
@@ -253,10 +248,11 @@ main {
     height:75px;
     background-color:#f7caca;
     border-top:1px solid #aaa;
-    display:flex;
-    justify-content:center;
+    display:grid;
+    grid-template-columns:repeat(4, 70px);
+    column-gap:90px;
     align-items:center;
-    gap:90px;
+    justify-content:center;
     z-index:100;
 }
 
@@ -265,7 +261,7 @@ main {
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:0 15px;
+    padding:0;
     cursor:pointer;
     color:inherit;
     text-decoration:none;
@@ -281,6 +277,29 @@ main {
     margin-top:-2px;
     font-size:13px;
     font-weight:bold;
+}
+
+@media (max-width:650px) {
+    .bottommenu {
+        display:grid;
+        height:70px;
+        grid-template-columns:repeat(4, minmax(0, 1fr));
+        column-gap:0;
+        justify-content:stretch;
+    }
+
+    .bottommenu a {
+        padding:0 7px;
+    }
+
+    .bottommenu img {
+        width:31px;
+        height:31px;
+    }
+
+    .bottommenu span {
+        font-size:11px;
+    }
 }
 /* 表情のアイコン */
 .call-icon {
