@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI分析｜こころのメェ～る便</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <a href="#" class="back-btn" id="backBtn">‹</a>
+    <div class="header-title">こころのメェ～る便</div>
+    <div class="header-spacer"></div>
+  </header>
+
+  <div class="container">
+    <!-- タイトルエリア -->
+    <div class="page-header">
+      <div class="page-badge">TOTAL AI ANALYSIS</div>
+      <h1>AI分析</h1>
+      <p>これまでのレビューを総合した「今のあなた」</p>
+    </div>
+
+    <!-- 今のあなた（総合タイプ・肩書き） -->
+    <div class="card">
+      <div class="section-title">
+        今のあなたの総合タイプ
+        <span class="total-count-badge" id="totalCountBadge">全4回の分析から算出</span>
+      </div>
+      <div class="type-box">
+        <div class="type-label">現在のコミュニケーションタイプ</div>
+        <div class="type-name" id="userType">やさしく包み込む癒やしヤギ</div>
+        <div class="title-badge" id="userTitle">共感のスペシャリスト</div>
+      </div>
+      <button type="button" class="action-btn" id="applyProfileBtn">
+        プロフィールに肩書きを追加
+      </button>
+    </div>
+
+    <!-- 総合コミュニケーション分析（平均スコア） -->
+    <div class="card">
+      <div class="section-title">総合コミュニケーション力（平均）</div>
+      
+      <div class="skill-item">
+        <div class="skill-header">
+          <div>
+            <span class="skill-name">包容力</span>
+            <span class="skill-desc">相手を受け止める力</span>
+          </div>
+          <span class="skill-score"><span id="avgEmpathy">0</span> / 100</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" id="barEmpathy"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div>
+            <span class="skill-name">共感力</span>
+            <span class="skill-desc">気持ちに寄りそう力</span>
+          </div>
+          <span class="skill-score"><span id="avgSympathy">0</span> / 100</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" id="barSympathy"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div>
+            <span class="skill-name">論理性</span>
+            <span class="skill-desc">考えを整理して伝える力</span>
+          </div>
+          <span class="skill-score"><span id="avgLogic">0</span> / 100</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" id="barLogic"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 累計ランクステータス -->
+    <div class="card">
+      <div class="section-title"><span>୨୧</span> 現在の累計ランク</div>
+      <div class="rank-info">
+        <span class="current-lv" id="currentLv">Lv.1</span>
+        <span class="next-lv-text">あと <strong id="nextLvPt">0pt</strong> で次のレベル</span>
+      </div>
+      <div class="progress-bg">
+        <div class="progress-fill purple-bar" id="barRank"></div>
+      </div>
+    </div>
+
+    <!-- 総合AIフィードバック -->
+    <div class="card">
+      <div class="section-title">今のあなたへのAIまとめ</div>
+      <p class="advice-text" id="totalAdvice">
+        読み込み中...
+      </p>
+    </div>
+
+    <!-- 日別の購入後レビュー分析履歴 -->
+    <div class="card">
+      <div class="section-header-row">
+        <div class="section-title" style="margin-bottom: 0;">これまでの分析履歴</div>
+        <select id="monthFilter" class="month-select">
+          <option value="all">すべて表示</option>
+          <option value="2026/11">2026年11月</option>
+          <option value="2026/10">2026年10月</option>
+        </select>
+      </div>
+      <p class="history-note">タップするとその日の詳しいAIレビューが見れます</p>
+
+      <!-- JSで履歴リストを自動生成 -->
+      <div class="history-list" id="historyList"></div>
+    </div>
+  </div>
+
+  <!-- 日別レビュー詳細モーダル -->
+  <div class="modal-overlay" id="historyModal">
+    <div class="modal-content">
+      <button type="button" class="modal-close" id="closeModalBtn">×</button>
+      <div class="modal-date" id="modalDate">2026/11/15</div>
+      <div class="modal-badge" id="modalEval">とても良い</div>
+      <h2 class="modal-title" id="modalTitle">タイトル</h2>
+
+      <!-- その日の3項目スコア -->
+      <div class="modal-scores">
+        <div class="m-score-item">
+          <span class="m-score-label">包容力</span>
+          <span class="m-score-val" id="modalEmpathy">85</span>
+        </div>
+        <div class="m-score-item">
+          <span class="m-score-label">共感力</span>
+          <span class="m-score-val" id="modalSympathy">92</span>
+        </div>
+        <div class="m-score-item">
+          <span class="m-score-label">論理性</span>
+          <span class="m-score-val" id="modalLogic">70</span>
+        </div>
+      </div>
+
+      <!-- その日のAIまとめ -->
+      <div class="modal-box">
+        <div class="modal-box-label">― この日のAIまとめ ―</div>
+        <p id="modalSummary">まとめテキスト</p>
+      </div>
+
+      <!-- その日に獲得した肩書き・ポイント -->
+      <div class="modal-footer-info">
+        <span class="modal-earned-title" id="modalEarnedTitle">獲得肩書き：聞き上手ヤギ</span>
+        <span class="modal-earned-pt" id="modalEarnedPt">+35pt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- トースト通知 -->
+  <div class="toast" id="toast">プロフィールに反映しました ♡</div>
+
+  <!-- ボトムナビゲーション -->
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item">
+      <span class="nav-icon">🏠</span>
+      <span>ホーム</span>
+    </a>
+    <a href="#" class="nav-item active">
+      <span class="nav-icon">📊</span>
+      <span>AI分析</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">💬</span>
+      <span>チャット</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">✉️</span>
+      <span>出品</span>
+    </a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
