@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI分析｜こころのメェ～る便</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <a href="#" class="back-btn" id="backBtn">‹</a>
+    <div class="header-title">こころのメェ～る便</div>
+    <div class="header-spacer"></div>
+  </header>
+
+  <div class="container">
+    <!-- タイトルエリア -->
+    <div class="page-header">
+      <div class="page-badge">♡ AI ANALYSIS</div>
+      <h1>AI分析</h1>
+      <p>あなたの会話の傾向と魅力をチェックしよう</p>
+    </div>
+
+    <!-- 総合タイプ・肩書き -->
+    <div class="card">
+      <div class="section-title"><span>✿</span> あなたの傾聴タイプ</div>
+      <div class="type-box">
+        <div class="type-label">現在のコミュニケーションタイプ</div>
+        <div class="type-name" id="userType">やさしく包み込む癒やしヤギ</div>
+        <div class="title-badge" id="userTitle">✦ 共感のスペシャリスト ✦</div>
+      </div>
+      <button type="button" class="action-btn" id="applyProfileBtn">
+        プロフィールに肩書きを追加 ♡
+      </button>
+    </div>
+
+    <!-- コミュニケーション分析 -->
+    <div class="card">
+      <div class="section-title"><span>♡</span> コミュニケーション分析</div>
+      
+      <div class="skill-item">
+        <div class="skill-header">
+          <div>
+            <span class="skill-name">♡ 包容力</span>
+            <span class="skill-desc">相手を受け止める力</span>
+          </div>
+          <span class="skill-score"><span class="score-num" data-target="82">0</span> / 100</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" data-width="82%"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div>
+            <span class="skill-name">✿ 共感力</span>
+            <span class="skill-desc">気持ちに寄りそう力</span>
+          </div>
+          <span class="skill-score"><span class="score-num" data-target="90">0</span> / 100</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" data-width="90%"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div>
+            <span class="skill-name">◇ 論理性</span>
+            <span class="skill-desc">考えを整理して伝える力</span>
+          </div>
+          <span class="skill-score"><span class="score-num" data-target="65">0</span> / 100</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" data-width="65%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ランクステータス -->
+    <div class="card">
+      <div class="section-title"><span>୨୧</span> 現在のランク</div>
+      <div class="rank-info">
+        <span class="current-lv">Lv.1</span>
+        <span class="next-lv-text">あと <strong>65pt</strong> で Lv.2</span>
+      </div>
+      <div class="progress-bg">
+        <div class="progress-fill purple-bar" data-width="35%"></div>
+      </div>
+    </div>
+
+    <!-- AIからのアドバイス -->
+    <div class="card">
+      <div class="section-title"><span>🐐</span> AIからのフィードバック</div>
+      <p class="advice-text">
+        相手の言葉に丁寧に相槌を打ち、気持ちに寄りそう姿勢がとても素敵です！次は「つまり〇〇ということですね」と話を整理して返してあげると、さらに相手の心が軽くなりますよ。
+      </p>
+    </div>
+
+    <!-- 過去の分析履歴 -->
+    <div class="card">
+      <div class="section-title"><span>✉</span> 最近の会話分析</div>
+      <div class="history-list">
+        <button type="button" class="history-item" 
+          data-date="2026/10/20" 
+          data-title="最近ハマっていることを話したい！" 
+          data-eval="とても良い"
+          data-summary="相手の好きなことに対して興味を持って質問できていました。テンポの良い会話で相手も楽しんでいたようです。">
+          <div class="history-left">
+            <div class="history-date">2026/10/20</div>
+            <div class="history-title">最近ハマっていることを話したい！</div>
+          </div>
+          <div class="history-eval">とても良い ›</div>
+        </button>
+
+        <button type="button" class="history-item" 
+          data-date="2026/10/18" 
+          data-title="学校が忙しいけど、少し相談したい…" 
+          data-eval="良い"
+          data-summary="忙しい相手の状況をねぎらう優しい声かけができていました。最後に励ましの言葉を添えられるとさらに良くなります。">
+          <div class="history-left">
+            <div class="history-date">2026/10/18</div>
+            <div class="history-title">学校が忙しいけど、少し相談したい…</div>
+          </div>
+          <div class="history-eval">良い ›</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 履歴詳細モーダル -->
+  <div class="modal-overlay" id="historyModal">
+    <div class="modal-content">
+      <button type="button" class="modal-close" id="closeModalBtn">×</button>
+      <div class="modal-badge" id="modalEval">とても良い</div>
+      <div class="modal-date" id="modalDate">2026/10/20</div>
+      <h2 class="modal-title" id="modalTitle">タイトル</h2>
+      <div class="modal-box">
+        <div class="modal-box-label">― AIまとめ ―</div>
+        <p id="modalSummary">まとめテキスト</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- トースト通知 -->
+  <div class="toast" id="toast">プロフィールに反映しました ♡</div>
+
+  <!-- ボトムナビゲーション -->
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item">
+      <span class="nav-icon">🏠</span>
+      <span>ホーム</span>
+    </a>
+    <a href="#" class="nav-item active">
+      <span class="nav-icon">📊</span>
+      <span>AI分析</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">💬</span>
+      <span>チャット</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">✉️</span>
+      <span>出品</span>
+    </a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
