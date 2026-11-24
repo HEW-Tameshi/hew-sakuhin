@@ -1,9 +1,8 @@
-
-# CtoC Backend
+# CtoC Backend（こころのメェ～る便）
 
 ## 開発環境
-- Python
-- FastAPI
+- Python 3.13
+- FastAPI / SQLAlchemy / Pydantic
 - MySQL 8.x
 
 ## セットアップ（Windows / PowerShell）
@@ -24,11 +23,15 @@
 
    `Copy-Item .env.example .env`
 
-5. `.env` に自分のMySQL接続情報を設定する
+5. `.env` に自分のMySQL接続情報・JWT秘密鍵・GoogleクライアントID・Gemini APIキーを設定する
 
-## 起動方法
+## 起動方法（`backend/` ディレクトリ内で実行）
 
-`uvicorn app.main:app --reload`
+`uvicorn main:app --reload`
+
+## テスト実行方法（テスト用DB `kokoro_mail_test` を使用）
+
+`pytest`
 
 ## APIドキュメント
 
