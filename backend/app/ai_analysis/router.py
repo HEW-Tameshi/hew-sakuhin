@@ -3,14 +3,15 @@ AI分析機能 APIルーター定義モジュール（app/ai_analysis/router.py�
 
 【このファイルの役割】
 - /api/ai 配下のエンドポイントを受け付け、Gemini API による分析処理を提供する：
-  1. POST /api/ai/letters/{letter_code}/analyze     : レターのリスク分析を実行し t_ai_analysis へ保存
+  1. POST /api/ai/letters/{letter_code}/analyze     : レターのリスク分析（出品者本人のみ・キャッシュ対応・レート制限付き）
   2. GET  /api/ai/letters/{letter_code}             : レターのAI分析履歴一覧を取得
-  3. POST /api/ai/matchings/{matching_code}/analyze : チャット会話のAIまとめ・コミュニケーション分析を実行
+  3. POST /api/ai/matchings/{matching_code}/analyze : チャット会話のAIまとめ・コミュニケーション分析（当事者のみ・レート制限付き）
 """
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy.orm import Session
 
+from app.ai_analysis.rate_limit import AIRateLimitError
 from app.ai_analysis.schemas import (
     ConversationAnalysisResponse,
     LetterRiskAnalysisResponse,
@@ -39,21 +40,32 @@ router = APIRouter(
 )
 def run_letter_risk_analysis(
     letter_code: str,
+    response: Response,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     """
-    指定された感情レターを Gemini API でリスク分析し、t_ai_analysis テーブルへ保存して返す（HTTP 201）。
+    指定された感情レターを Gemini API でリスク分析し、t_ai_analysis テーブルへ保存して返す。
+    - 出品者本人以外は HTTP 403 Forbidden
+    - 同じ内容で既に分析済みの場合は Gemini を再呼び出しせずキャッシュを HTTP 200 OK で返却
+    - レート制限超過時は HTTP 429 Too Many Requests
     """
     try:
-        result = analyze_letter_risk(db=db, letter_code=letter_code)
+        result = analyze_letter_risk(
+            db=db,
+            letter_code=letter_code,
+            current_user=current_user,
+        )
         if result is None:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="指定された出品が見つかりません",
             )
 
-        analysis, letter = result
+        analysis, letter, created = result
+        if not created:
+            response.status_code = status.HTTP_200_OK
+
         return LetterRiskAnalysisResponse(
             ai_analysis_code=analysis.ai_analysis_code,
             letter_code=letter.letter_code,
@@ -61,6 +73,18 @@ def run_letter_risk_analysis(
             risk_reason=analysis.risk_reason,
             analyzed_at=analysis.analyzed_at,
         )
+
+    except PermissionError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=str(exc),
+        ) from exc
+
+    except AIRateLimitError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail=str(exc),
+        ) from exc
 
     except GeminiConfigError as exc:
         raise HTTPException(
@@ -121,6 +145,8 @@ def run_conversation_analysis(
     """
     取引のチャット会話履歴を Gemini API で分析し、review1.html（AIまとめ）および
     review2.html（包容力・共感力・論理性スコア、タイプ、肩書き）用のデータを返す。
+    - 取引当事者以外は HTTP 403 Forbidden
+    - レート制限超過時は HTTP 429 Too Many Requests
     """
     try:
         result = analyze_matching_conversation(
@@ -139,6 +165,12 @@ def run_conversation_analysis(
     except PermissionError as exc:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
+            detail=str(exc),
+        ) from exc
+
+    except AIRateLimitError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
             detail=str(exc),
         ) from exc
 

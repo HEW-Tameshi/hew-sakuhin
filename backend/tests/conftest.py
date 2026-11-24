@@ -3,6 +3,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy import delete, select
 
 from app.ai_analysis.models import AiAnalysis
+from app.ai_analysis.rate_limit import ai_rate_limiter
 from app.calls.models import Call
 from app.chats.models import Chat, Message
 from app.core.database import get_db
@@ -80,8 +81,10 @@ def cleanup_test_data(test_session_factory):
         }
 
     try:
+        ai_rate_limiter.reset()
         yield
     finally:
+        ai_rate_limiter.reset()
         # Delete in foreign-key dependency order, retaining every pre-test row.
         with test_session_factory() as db:
             for model, primary_key in tracked_models:

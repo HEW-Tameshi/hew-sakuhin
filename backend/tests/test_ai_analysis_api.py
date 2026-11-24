@@ -265,3 +265,84 @@ def test_gemini_client_uses_gemini_4_hydrogen_and_interactions_api():
     assert call_args.kwargs["json"]["model"] == "gemini-4-hydrogen"
     assert call_args.kwargs["json"]["store"] is False
     assert call_args.kwargs["json"]["response_format"]["mime_type"] == "application/json"
+
+
+def test_ai_analysis_owner_only_cache_and_rate_limit(client, test_session_factory):
+    """
+    AI分析の3層制限を検証する：
+    1. レターリスク分析は出品者本人のみ実行可能（他人は 403）
+    2. 同じ内容のレターに対する2回目の分析はキャッシュ（200）が返り Gemini API を再呼び出ししない
+    3. 同一ユーザーの連打が上限を超えると HTTP 429 Too Many Requests を返す
+    """
+    from app.core.config import settings
+
+    users, letter_code, matching_code = _setup_chat_scenario(client, test_session_factory)
+
+    mock_risk_json = {
+        "risk_level": 1,
+        "risk_reason": "安全な内容です。",
+    }
+
+    with patch(
+        "app.ai_analysis.service.generate_json_with_gemini",
+        return_value=mock_risk_json,
+    ) as mock_gemini:
+        # 1. 他人（third）がレターリスク分析を実行しようとすると HTTP 403 Forbidden
+        forbidden_letter = client.post(
+            f"/api/ai/letters/{letter_code}/analyze",
+            headers=users["third"]["headers"],
+        )
+        assert forbidden_letter.status_code == 403
+        assert mock_gemini.call_count == 0
+
+        # 2. 出品者本人の1回目実行 → HTTP 201（Gemini呼び出し1回）
+        first_res = client.post(
+            f"/api/ai/letters/{letter_code}/analyze",
+            headers=users["seller"]["headers"],
+        )
+        assert first_res.status_code == 201
+        assert mock_gemini.call_count == 1
+
+        # 3. 出品者本人の2回目実行 → 同じ内容なのでキャッシュ返却（HTTP 200、Gemini呼び出し回数は1回のまま）
+        cached_res = client.post(
+            f"/api/ai/letters/{letter_code}/analyze",
+            headers=users["seller"]["headers"],
+        )
+        assert cached_res.status_code == 200
+        assert cached_res.json()["ai_analysis_code"] == first_res.json()["ai_analysis_code"]
+        assert mock_gemini.call_count == 1
+
+    # 4. レート制限テスト（上限を2回に設定し、3回目で HTTP 429 になること）
+    mock_conv_json = {
+        "summary_points": ["丁寧な対話でした"],
+        "overall_evaluation": "良い",
+        "embrace_score": 85,
+        "empathy_score": 85,
+        "logic_score": 80,
+        "personality_type": "寄り添いタイプ",
+        "personality_description": "安心感のある会話です。",
+        "title_badge": "共感の達人",
+    }
+
+    with (
+        patch.object(settings, "ai_rate_limit_max_requests", 2),
+        patch(
+            "app.ai_analysis.service.generate_json_with_gemini",
+            return_value=mock_conv_json,
+        ),
+    ):
+        res1 = client.post(
+            f"/api/ai/matchings/{matching_code}/analyze",
+            headers=users["buyer"]["headers"],
+        )
+        res2 = client.post(
+            f"/api/ai/matchings/{matching_code}/analyze",
+            headers=users["buyer"]["headers"],
+        )
+        res3 = client.post(
+            f"/api/ai/matchings/{matching_code}/analyze",
+            headers=users["buyer"]["headers"],
+        )
+        assert res1.status_code == 200
+        assert res2.status_code == 200
+        assert res3.status_code == 429

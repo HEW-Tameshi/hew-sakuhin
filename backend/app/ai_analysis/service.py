@@ -3,13 +3,13 @@ AI分析機能 ビジネスロジック（サービス層）モジュール（ap
 
 【このファイルの役割】
 1. 感情レターのリスク分析（analyze_letter_risk）:
-   - Gemini API でレターの見出し・本文の安全性リスク（1〜3）と理由を分析し、t_ai_analysis テーブルに保存する。
+   - 出品者本人確認を行い、既に最新版の分析結果が t_ai_analysis に存在する場合は
+     Gemini API を再呼び出しせずキャッシュを返す。
+   - 新規分析時はレート制限を確認したうえで Gemini API を呼び出し、t_ai_analysis へ保存する。
 2. レターAI分析履歴の取得（list_letter_analyses）:
    - 過去に t_ai_analysis に保存された分析結果を最新順で取得する。
 3. 会話AIまとめ＆コミュニケーション分析（analyze_matching_conversation）:
-   - マッチングに紐づくレター内容とチャットメッセージ履歴を Gemini API に送り、
-     review1.html / review2.html 用の「AIまとめ」「総合評価」「包容力・共感力・論理性スコア」
-     「タイプ」「肩書き」を構造化JSONで生成する。
+   - 取引当事者確認およびレート制限チェックを行い、Gemini API で分析結果を生成する。
 """
 
 import secrets
@@ -19,6 +19,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.ai_analysis.models import AiAnalysis
+from app.ai_analysis.rate_limit import ai_rate_limiter
 from app.chats.models import Chat, Message
 from app.core.gemini_client import generate_json_with_gemini
 from app.post.models import EmotionLetter
@@ -44,24 +45,49 @@ def _clamp_int(value, minimum: int, maximum: int, default: int) -> int:
 def analyze_letter_risk(
     db: Session,
     letter_code: str,
-) -> tuple[AiAnalysis, EmotionLetter] | None:
+    current_user: User,
+) -> tuple[AiAnalysis, EmotionLetter, bool] | None:
     """
     指定された感情レター（letter_code）を Gemini API でリスク分析し、t_ai_analysis テーブルへ保存する。
 
     【処理の実行順序】
     1. letter_code で t_emotion_letter を検索する（存在しなければ None）。
-    2. 見出し・本文をプロンプトに組み立て、Gemini API（generate_json_with_gemini）へ送信する。
-    3. 返却された risk_level（1〜3）と risk_reason を安全な範囲に正規化する。
-    4. ai_analysis_code（AI + 8文字）を採番して t_ai_analysis へ登録・db.commit() で確定する。
-    5. 登録した (AiAnalysis, EmotionLetter) を返す。
+    2. 出品者本人確認を行う（他人の出品なら PermissionError → HTTP 403）。
+    3. 既に最新のレター内容に対する分析結果（latest.analyzed_at >= letter.updated_at）が
+       t_ai_analysis に存在する場合は、Gemini API を呼ばずに既存結果をキャッシュ返却する（created=False）。
+    4. レート制限（1ユーザーあたりの連打制限）を確認する（超過時は AIRateLimitError → HTTP 429）。
+    5. 見出し・本文を Gemini API へ送信し、結果を t_ai_analysis へ保存・確定する（created=True）。
     """
     try:
+        # 1. 対象レターの検索
         letter = db.scalar(
             select(EmotionLetter).where(EmotionLetter.letter_code == letter_code)
         )
         if letter is None:
             return None
 
+        # 2. 出品者本人確認（他人のレターでAPIを消費されないように保護）
+        if letter.seller_id != current_user.user_id:
+            raise PermissionError("他のユーザーの出品に対してAI分析は実行できません")
+
+        # 3. 既に同じ内容で分析済みの場合はキャッシュを返す（Gemini APIの重複消費を防止）
+        latest_analysis = db.scalar(
+            select(AiAnalysis)
+            .where(AiAnalysis.letter_id == letter.letter_id)
+            .order_by(AiAnalysis.ai_analysis_id.desc())
+        )
+        if (
+            latest_analysis is not None
+            and letter.updated_at is not None
+            and latest_analysis.analyzed_at is not None
+            and latest_analysis.analyzed_at >= letter.updated_at
+        ):
+            return latest_analysis, letter, False
+
+        # 4. レート制限チェック（実際にGemini APIを呼び出す直前にカウント）
+        ai_rate_limiter.check_and_record(current_user.user_id)
+
+        # 5. Gemini API によるリスク分析実行
         system_instruction = (
             "あなたは感情をテーマにしたCtoCプラットフォーム『こころのメェ～る便』の安全管理AIです。"
             "出品された手紙の内容を確認し、以下のJSON形式のみで回答してください：\n"
@@ -105,7 +131,7 @@ def analyze_letter_risk(
         db.commit()
         db.refresh(analysis)
 
-        return analysis, letter
+        return analysis, letter, True
 
     except Exception:
         db.rollback()
@@ -144,10 +170,10 @@ def analyze_matching_conversation(
 
     【処理の実行順序】
     1. matching_code から t_matching・t_letter_purchase・t_emotion_letter を取得する（未存在は None）。
-    2. 当事者確認を行う（出品者または購入者以外は PermissionError）。
-    3. 該当マッチングに紐づく t_chat と t_message を送信順に取得し、会話ログテキストを構築する。
-    4. Gemini API を呼び出し、まとめ箇条書き・総合評価・3スコア（包容力/共感力/論理性）・タイプ・肩書きを取得する。
-    5. 各項目を安全な型・範囲に正規化して辞書として返す。
+    2. 当事者確認を行う（出品者または購入者以外は PermissionError → HTTP 403）。
+    3. レート制限チェックを行う（連打上限超過時は AIRateLimitError → HTTP 429）。
+    4. 該当マッチングに紐づく t_chat と t_message を送信順に取得し、会話ログテキストを構築する。
+    5. Gemini API を呼び出し、まとめ箇条書き・総合評価・3スコア・タイプ・肩書きを整形して返す。
     """
     row = db.execute(
         select(Matching, EmotionLetter)
@@ -164,7 +190,9 @@ def analyze_matching_conversation(
     if current_user.user_id not in (matching.seller_id, matching.buyer_id):
         raise PermissionError("この取引の当事者ではないためAI分析を実行できません")
 
-    # チャットメッセージ履歴を取得（未作成やメッセージ0件でもレター内容から分析可能にする）
+    # レート制限チェック
+    ai_rate_limiter.check_and_record(current_user.user_id)
+
     chat = db.scalar(
         select(Chat).where(Chat.matching_id == matching.matching_id)
     )

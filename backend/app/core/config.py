@@ -34,6 +34,10 @@ class Settings(BaseSettings):
     # 使用する Gemini モデル名（デフォルト: gemini-4-hydrogen）
     gemini_model: str = "gemini-4-hydrogen"
 
+    # AI分析のレート制限（1ユーザーあたりの許可回数と集計ウィンドウ秒数）
+    ai_rate_limit_max_requests: int = 5
+    ai_rate_limit_window_seconds: int = 60
+
     # CORS で許可するフロントエンドのオリジン一覧（カンマ区切り、VS Code Live Server 5501/5500 等を標準許可）
     cors_origins: str = (
         "http://127.0.0.1:5501,"
