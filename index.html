@@ -28,26 +28,35 @@
     </div>
     <!-- 新着・速達 -->
     <div class="tabs">
-        <button id="newtab" class="active">新着</button>
-        <span class="tab-line"></span>
-        <button id="expresstab">速達</button>
+        <button id="newtab" class="active" type="button">新着</button>
+        <button id="expresstab" type="button">速達</button>
     </div>
 
     <!-- レター一覧 -->
-    <main>
-        <div id="new-letter"></div>
+    <main id="letter-list">
         <!-- レター1 -->
-        <div class="letter fun">
+        <div class="letter fun" data-call="yes">
             <div class="emotion-color"></div>
-            <p class="category">趣味</p>
+            <div class="letter-top">
+                <div class="category-group">
+                    <p class="category">趣味</p>
+                </div>
+                <span class="posted-time" data-minutes-ago="5">5分前</span>
+            </div>
             <div class="letter-title">
                 <h2>最近ハマっていることを話したい！</h2>
-                <img class="call-icon" src="images/telefone.png" alt="通話">
             </div>
-            <p class="description">
-                最近すごくハマっている趣味があります！<br>
-                誰かと楽しく話したいです。
-            </p>
+            <div class="letter-content">
+                <p class="description">
+                    最近すごくハマっている趣味があります！<br>
+                    誰かと楽しく話したいです。
+                </p>
+                <div class="talk-icons">
+                    <img class="chat-option selected" src="images/chat.png" alt="チャット">
+                    <span>/</span>
+                    <img class="phone-option selected" src="images/telefone.png" alt="通話">
+                </div>
+            </div>
             <div class="letter-info">
                 <span>60pt</span>
                 <span>/</span>
@@ -57,17 +66,29 @@
         </div>
 
         <!-- レター2 -->
-        <div class="letter angry express">
+        <div class="letter angry express" data-call="no">
             <div class="emotion-color"></div>
-            <p class="category">愚痴・ストレス</p>
+            <div class="letter-top">
+                <div class="category-group">
+                    <p class="category">愚痴・ストレス</p>
+                    <span class="express-label">速達</span>
+                </div>
+                <span class="posted-time" data-minutes-ago="30">30分前</span>
+            </div>
             <div class="letter-title">
                 <h2>仕事で嫌なことがあって愚痴りたい</h2>
-                <img class="call-icon" src="images/telefone.png" alt="通話">
             </div>
-            <p class="description">
-                今日も仕事でいろいろあって…。<br>
-                少しだけ愚痴を聞いてほしいです。
-            </p>
+            <div class="letter-content">
+                <p class="description">
+                    今日も仕事でいろいろあって…。<br>
+                    少しだけ愚痴を聞いてほしいです。
+                </p>
+                <div class="talk-icons">
+                    <img class="chat-option selected" src="images/chat.png" alt="チャット">
+                    <span>/</span>
+                    <img class="phone-option" src="images/telefone.png" alt="通話">
+                </div>
+            </div>
             <div class="letter-info">
                 <span>85pt</span>
                 <span>/</span>
@@ -77,17 +98,28 @@
         </div>
 
         <!-- レター3 -->
-        <div class="letter sad">
+        <div class="letter sad" data-call="yes">
             <div class="emotion-color"></div>
-            <p class="category">恋愛・悩み</p>
+            <div class="letter-top">
+                <div class="category-group">
+                    <p class="category">恋愛・悩み</p>
+                </div>
+                <span class="posted-time" data-minutes-ago="120">2時間前</span>
+            </div>
             <div class="letter-title">
                 <h2>ちょっとだけ話を聞いてほしい</h2>
-                <img class="call-icon" src="images/telefone.png" alt="通話">
             </div>
-            <p class="description">
-                恋愛のことでモヤモヤしてて…<br>
-                誰かに話を聞いてほしいです。
-            </p>
+            <div class="letter-content">
+                <p class="description">
+                    恋愛のことでモヤモヤしてて…<br>
+                    誰かに話を聞いてほしいです。
+                </p>
+                <div class="talk-icons">
+                    <img class="chat-option selected" src="images/chat.png" alt="チャット">
+                    <span>/</span>
+                    <img class="phone-option selected" src="images/telefone.png" alt="通話">
+                </div>
+            </div>
             <div class="letter-info">
                 <span>135pt</span>
                 <span>/</span>
@@ -123,6 +155,12 @@
 
                 <div id="modal-description">
                     内容がここに表示されます。
+                </div>
+
+                <div id="modal-talk-icons" aria-label="チャット・通話の案内">
+                    <img id="modal-chat-icon" class="selected" src="images/chat.png" alt="チャット可能">
+                    <span>/</span>
+                    <img id="modal-call-icon" src="images/telefone.png" alt="通話の案内">
                 </div>
 
                 <div id="modal-rating">
