@@ -218,7 +218,11 @@ header {
     box-sizing: border-box;
     margin: 0;
     cursor:pointer;
-    transition: transform 0.2s;
+    overflow: visible;
+    transition:
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
 }
 
 .letter h2,
@@ -241,10 +245,8 @@ header {
 }
 
 .letter-content {
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:12px;
+    display:block;
+    padding-right:100px;
 }
 
 .letter button {
@@ -342,29 +344,6 @@ header {
     overflow-wrap:anywhere;
 }
 
-.talk-icons {
-    display:flex;
-    align-items:center;
-    gap:6px;
-    flex-shrink:0;
-}
-
-.talk-icons img {
-    width:30px;
-    height:30px;
-    object-fit:contain;
-    opacity:0.3;
-}
-
-.talk-icons img.selected {
-    opacity:1;
-}
-
-.talk-icons span {
-    color:#aaa;
-    font-size:14px;
-}
-
 .express-label {
     display:inline-flex;
     align-items:center;
@@ -378,24 +357,60 @@ header {
     white-space:nowrap;
 }
 
+/* カード下部 */
+.letter-footer {
+    position:absolute;
+    left:22px;
+    bottom:30px;
+    right:115px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
 /* 時間・ポイント */
 .letter-info {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-top: auto;
-    padding-top: 14px;
-    padding-right: 105px;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1;
-
+    white-space: nowrap;
 }
 
 .letter-info span {
     display: inline-flex;
     align-items: center;
     height: 20px;
+}
+
+/* 通信方法 */
+.letter-footer .talk-icons {
+    position:static;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0;
+    padding:0;
+    flex-shrink:0;
+}
+
+.letter-footer .talk-icons img {
+    position:static;
+    display:block;
+    width:23px;
+    height:23px;
+    margin:0;
+    object-fit:contain;
+    opacity:1;
+    filter:none;
+}
+
+.letter[data-call="no"] .talk-icons .call-icon {
+    display:none;
 }
 
 
@@ -441,7 +456,7 @@ header {
 
 .goat {
     position:absolute;
-    bottom:-25px;
+    bottom:-35px;
     right:-15px;
     width:115px;
     height:115px;
@@ -843,22 +858,25 @@ header {
     transform: scale(1.15);
 }
 
-/* 投稿カード内の画像 */
-.goat {
-    transition: transform 0.2s;
+/* ホバー時の色 */
+.letter.joy:not(.express):hover {
+    background-color: rgba(255, 248, 231, 0.78);
 }
 
-.goat:hover {
-    transform: scale(1.08);
+.letter.fun:not(.express):hover {
+    background-color: rgba(241, 248, 235, 0.78);
 }
 
-/* 投稿カード全体 */
-.letter {
-    transition: transform 0.2s, box-shadow 0.2s;
+.letter.sad:not(.express):hover {
+    background-color: rgba(246, 241, 252, 0.78);
 }
 
-.letter:hover {
-    transform: translateY(-2px);
+.letter.angry:not(.express):hover {
+    background-color: rgba(255, 240, 242, 0.78);
+}
+
+.letter.express:hover {
+    background-color:rgba(249,211,219,0.82);
 }
 
 @media (max-width:1100px) {
@@ -942,7 +960,31 @@ header {
         width:90%;
     }
 
+    .letter-footer {
+        right:100px;
+        gap:12px;
+    }
+
+    .letter-info {
+        font-size:14px;
+    }
+
+    .letter-footer .talk-icons {
+        gap:8px;
+    }
+
+    .letter-footer .talk-icons img {
+        width:20px;
+        height:20px;
+    }
+
     .bottommenu {
         gap:20px;
+    }
+}
+
+@media (max-width:410px) {
+    .letter {
+        min-height:240px;
     }
 }
