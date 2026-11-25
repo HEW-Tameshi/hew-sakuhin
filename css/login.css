@@ -1,0 +1,338 @@
+/* ページ全体 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial,
+        'Hiragino Kaku Gothic ProN',
+        'Hiragino Sans', sans-serif;
+    background-color: #fce9eb;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    color: #594348;
+}
+
+/* ログインカード */
+.login-container {
+    width: 100%;
+    max-width: 460px;
+    padding: 36px 38px 32px;
+    background: rgba(255, 255, 255, 0.80);
+    border: 1px solid rgba(218, 168, 177, 0.45);
+    border-radius: 26px;
+    box-shadow: 0 8px 30px rgba(160, 100, 110, 0.10);
+    text-align: center;
+}
+
+/* タイトルエリア */
+.login-brand {
+    position: relative;
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+.title-yagi {
+    display: block;
+    width: 170px;
+    height: auto;
+    margin: 0 auto -8px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+#mainTitle {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    color: #67464c;
+    margin: -15px 0 0 0 ;
+}
+
+.brand-message {
+    font-size: 13px;
+    color: #92777d;
+    letter-spacing: 0.5px;
+    margin: 8px 0 0;
+}
+
+/* ログイン・新規登録タブ */
+.auth-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 5px;
+    margin: 0 auto 22px;
+    background: rgba(249, 229, 233, 0.65);
+    border: 1px solid #eed5da;
+    border-radius: 30px;
+}
+
+.auth-tab {
+    flex: 1;
+    min-height: 42px;
+    border: none;
+    border-radius: 25px;
+    background: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    color: #91777d;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.auth-tab.active {
+    background: #efc3cd;
+    color: #a95568;
+    box-shadow: 0 2px 5px rgba(160, 100, 110, 0.08);
+}
+
+.auth-tab:hover:not(.active) {
+    background: rgba(239, 195, 205, 0.35);
+}
+
+.sub-title {
+    font-size: 13px;
+    color: #92777d;
+    margin: 0 0 20px;
+    line-height: 1.6;
+}
+
+/* 入力フォーム */
+.form-area {
+    margin-top: 0;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #74585e;
+}
+
+.form-group input {
+    width: 100%;
+    height: 46px;
+    margin: 0;
+    padding: 0 15px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #e5c5cc;
+    border-radius: 12px;
+    color: #594348;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s,
+                box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #b5a3a7;
+    font-size: 13px;
+}
+
+.form-group input:focus {
+    border-color: #d997a7;
+    box-shadow: 0 0 0 3px rgba(217, 151, 167, 0.12);
+}
+
+/* パスワード表示 */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 65px;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #a9828c;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* パスワードを忘れた場合 */
+.forgot-area {
+    text-align: right;
+    margin: -5px 0 20px;
+}
+
+.forgot-password {
+    display: inline-block;
+    margin: 0;
+    font-size: 12px;
+    color: #ad7885;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* 共通ボタン */
+.auth-btn {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s,
+                transform 0.15s,
+                box-shadow 0.2s;
+}
+
+.auth-btn:active {
+    transform: scale(0.98);
+}
+
+.btn-email {
+    background: #b75e75;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 3px 8px rgba(183, 94, 117, 0.18);
+}
+
+.btn-email:hover {
+    background: #a95066;
+}
+
+#submitBtn {
+    margin-top: 0;
+}
+
+/* 区切り線 */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    color: #ad969c;
+    font-size: 12px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ead5da;
+}
+
+/* Googleボタン */
+.btn-google {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #e5c5cc;
+    color: #74585e;
+}
+
+.btn-google:hover {
+    background: #fff2f4;
+}
+
+.auth-btn svg {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+}
+
+/* アカウント切り替え */
+.bottom-nav {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #92777d;
+    line-height: 1.8;
+}
+
+.toggle-link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+    color: #b75e75;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* 非表示 */
+.hidden {
+    display: none !important;
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+    body {
+        padding: 24px 16px;
+        background-attachment: scroll;
+    }
+
+    .login-container {
+        max-width: 400px;
+        padding: 28px 24px;
+        border-radius: 22px;
+    }
+
+    .title-yagi {
+        width: 145px;
+    }
+
+    #mainTitle {
+        font-size: 24px;
+    }
+
+    .brand-message {
+        font-size: 12px;
+    }
+}
+
+/* 高さが小さい画面 */
+@media (max-height: 800px) {
+    body {
+        align-items: flex-start;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .login-container {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .title-yagi {
+        width: 140px;
+    }
+
+    .login-brand {
+        margin-bottom: 18px;
+    }
+}
