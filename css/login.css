@@ -1,338 +1,311 @@
+/* 色 */
+:root {
+    --primary:#f7caca;
+    --primary-hover:#efb8b8;
+    --primary-text:#a95568;
+    --text-main:#403638;
+    --text-secondary:#887579;
+    --border-color:#ead1d6;
+}
+
 /* ページ全体 */
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial,
+    margin:0;
+    min-height:100vh;
+    padding:32px 20px;
+    font-family:'Helvetica Neue', Arial,
         'Hiragino Kaku Gothic ProN',
         'Hiragino Sans', sans-serif;
-    background-color: #fce9eb;
-    background-image: url('../images/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 40px 20px;
-    color: #594348;
+    color:var(--text-main);
+    background-color:#fcebec;
+    background-image:url('../images/background3.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.auth-page {
+    width:100%;
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* タイトル */
+.auth-brand {
+    width:100%;
+    margin-bottom:22px;
+    text-align:center;
+}
+
+.title-goat {
+    display:block;
+    width:170px;
+    height:auto;
+    margin:0 auto -8px;
+    object-fit:contain;
+    pointer-events:none;
+}
+
+.auth-brand h1 {
+    margin:-15px 0 0;
+    color:var(--text-main);
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    line-height:1.4;
+}
+
+.auth-brand .sub-title {
+    margin:5px 0 0;
+    color:var(--text-secondary);
+    font-size:13px;
+    letter-spacing:0.5px;
 }
 
 /* ログインカード */
 .login-container {
-    width: 100%;
-    max-width: 460px;
-    padding: 36px 38px 32px;
-    background: rgba(255, 255, 255, 0.80);
-    border: 1px solid rgba(218, 168, 177, 0.45);
-    border-radius: 26px;
-    box-shadow: 0 8px 30px rgba(160, 100, 110, 0.10);
-    text-align: center;
+    width:100%;
+    max-width:420px;
+    padding:26px 30px;
+    background-color:rgba(255,255,255,0.82);
+    border:1px solid rgba(219,174,185,0.35);
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(140,85,100,0.06);
+    text-align:center;
 }
 
-/* タイトルエリア */
-.login-brand {
-    position: relative;
-    margin-bottom: 26px;
-    text-align: center;
+#authTitle {
+    margin:0 0 18px;
+    color:var(--text-main);
+    font-size:20px;
+    font-weight:600;
+    text-align:center;
 }
 
-.title-yagi {
-    display: block;
-    width: 170px;
-    height: auto;
-    margin: 0 auto -8px;
-    object-fit: contain;
-    pointer-events: none;
-}
-
-#mainTitle {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    line-height: 1.5;
-    color: #67464c;
-    margin: -15px 0 0 0 ;
-}
-
-.brand-message {
-    font-size: 13px;
-    color: #92777d;
-    letter-spacing: 0.5px;
-    margin: 8px 0 0;
-}
-
-/* ログイン・新規登録タブ */
-.auth-tabs {
-    display: flex;
-    gap: 4px;
-    padding: 5px;
-    margin: 0 auto 22px;
-    background: rgba(249, 229, 233, 0.65);
-    border: 1px solid #eed5da;
-    border-radius: 30px;
-}
-
-.auth-tab {
-    flex: 1;
-    min-height: 42px;
-    border: none;
-    border-radius: 25px;
-    background: transparent;
-    font-size: 15px;
-    font-weight: bold;
-    color: #91777d;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.auth-tab.active {
-    background: #efc3cd;
-    color: #a95568;
-    box-shadow: 0 2px 5px rgba(160, 100, 110, 0.08);
-}
-
-.auth-tab:hover:not(.active) {
-    background: rgba(239, 195, 205, 0.35);
-}
-
-.sub-title {
-    font-size: 13px;
-    color: #92777d;
-    margin: 0 0 20px;
-    line-height: 1.6;
-}
-
-/* 入力フォーム */
-.form-area {
-    margin-top: 0;
-    text-align: left;
-}
-
-.form-group {
-    margin-bottom: 16px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 7px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #74585e;
-}
-
-.form-group input {
-    width: 100%;
-    height: 46px;
-    margin: 0;
-    padding: 0 15px;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid #e5c5cc;
-    border-radius: 12px;
-    color: #594348;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s,
-                box-shadow 0.2s;
-}
-
-.form-group input::placeholder {
-    color: #b5a3a7;
-    font-size: 13px;
-}
-
-.form-group input:focus {
-    border-color: #d997a7;
-    box-shadow: 0 0 0 3px rgba(217, 151, 167, 0.12);
-}
-
-/* パスワード表示 */
-.password-wrapper {
-    position: relative;
-}
-
-.password-wrapper input {
-    padding-right: 65px;
-}
-
-#togglePassword {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #a9828c;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-/* パスワードを忘れた場合 */
-.forgot-area {
-    text-align: right;
-    margin: -5px 0 20px;
-}
-
-.forgot-password {
-    display: inline-block;
-    margin: 0;
-    font-size: 12px;
-    color: #ad7885;
-    text-decoration: none;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
-}
-
-/* 共通ボタン */
+/* Googleボタン */
 .auth-btn {
-    width: 100%;
-    min-height: 46px;
-    padding: 12px 20px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    border-radius: 13px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s,
-                transform 0.15s,
-                box-shadow 0.2s;
+    width:100%;
+    min-height:44px;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    border-radius:10px;
+    font-size:14px;
+    cursor:pointer;
+    transition:background-color 0.2s ease;
 }
 
-.auth-btn:active {
-    transform: scale(0.98);
+.btn-google {
+    background-color:#ffffff;
+    color:var(--text-main);
+    border:1px solid var(--border-color);
+    font-weight:500;
+    box-shadow:none;
 }
 
-.btn-email {
-    background: #b75e75;
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 3px 8px rgba(183, 94, 117, 0.18);
+.btn-google:hover {
+    background-color:#fff5f7;
 }
 
-.btn-email:hover {
-    background: #a95066;
-}
-
-#submitBtn {
-    margin-top: 0;
+.btn-google svg {
+    position:absolute;
+    left:16px;
+    width:20px;
+    height:20px;
 }
 
 /* 区切り線 */
 .auth-divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 20px 0;
-    color: #ad969c;
-    font-size: 12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:16px 0;
+    color:var(--text-secondary);
+    font-size:12px;
 }
 
 .auth-divider::before,
 .auth-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #ead5da;
+    content:'';
+    flex:1;
+    height:1px;
+    background-color:var(--border-color);
 }
 
-/* Googleボタン */
-.btn-google {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid #e5c5cc;
-    color: #74585e;
+/* 入力フォーム */
+.form-area {
+    text-align:left;
 }
 
-.btn-google:hover {
-    background: #fff2f4;
+.form-group {
+    margin-bottom:14px;
 }
 
-.auth-btn svg {
-    position: absolute;
-    left: 16px;
-    width: 20px;
-    height: 20px;
+.form-group label {
+    display:block;
+    margin-bottom:6px;
+    color:var(--text-main);
+    font-size:13px;
+    font-weight:600;
+}
+
+.form-group input {
+    width:100%;
+    height:44px;
+    margin:0;
+    padding:0 14px;
+    background-color:#ffffff;
+    border:1px solid var(--border-color);
+    border-radius:10px;
+    color:var(--text-main);
+    font-size:14px;
+    outline:none;
+    transition:border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color:#d99aaa;
+}
+
+.form-group input::placeholder {
+    color:#a99da0;
+}
+
+/* パスワード表示 */
+.password-wrapper {
+    position:relative;
+}
+
+.password-wrapper input {
+    padding-right:60px;
+}
+
+#togglePassword {
+    position:absolute;
+    top:50%;
+    right:12px;
+    width:32px;
+    height:32px;
+    padding:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    color:var(--text-secondary);
+    cursor:pointer;
+}
+
+.eye-icon {
+    width:20px;
+    height:20px;
+    fill:none;
+    stroke:currentColor;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-width:1.7;
+}
+
+/* パスワード再設定 */
+.forgot-password {
+    display:block;
+    margin-top:6px;
+    margin-bottom:16px;
+    color:var(--primary-text);
+    font-size:12px;
+    text-align:right;
+    text-decoration:none;
+}
+
+.forgot-password:hover {
+    text-decoration:underline;
+}
+
+/* メールボタン */
+.btn-email {
+    min-height:44px;
+    margin:0;
+    background-color:var(--primary);
+    color:#80384d;
+    border:none;
+    font-size:14px;
+    font-weight:700;
+    box-shadow:none;
+}
+
+.btn-email:hover {
+    background-color:var(--primary-hover);
 }
 
 /* アカウント切り替え */
 .bottom-nav {
-    margin-top: 24px;
-    text-align: center;
-    font-size: 12px;
-    color: #92777d;
-    line-height: 1.8;
+    width:100%;
+    margin-top:18px;
+    color:var(--text-secondary);
+    font-size:13px;
+    text-align:center;
 }
 
 .toggle-link {
-    background: none;
-    border: none;
-    padding: 0;
-    margin-left: 4px;
-    color: #b75e75;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: underline;
+    margin-left:5px;
+    padding:0;
+    background:none;
+    border:none;
+    color:var(--primary-text);
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:underline;
 }
 
 /* 非表示 */
 .hidden {
-    display: none !important;
+    display:none !important;
 }
 
 /* スマートフォン */
-@media (max-width: 600px) {
+@media (max-width:600px) {
     body {
-        padding: 24px 16px;
-        background-attachment: scroll;
+        padding:24px 16px;
+        background-attachment:scroll;
+    }
+
+    .auth-page {
+        max-width:400px;
+    }
+
+    .auth-brand {
+        margin-bottom:18px;
+    }
+
+    .title-goat {
+        width:145px;
+    }
+
+    .auth-brand h1 {
+        font-size:25px;
     }
 
     .login-container {
-        max-width: 400px;
-        padding: 28px 24px;
-        border-radius: 22px;
+        padding:24px 22px;
+        border-radius:14px;
     }
 
-    .title-yagi {
-        width: 145px;
-    }
-
-    #mainTitle {
-        font-size: 24px;
-    }
-
-    .brand-message {
-        font-size: 12px;
-    }
-}
-
-/* 高さが小さい画面 */
-@media (max-height: 800px) {
-    body {
-        align-items: flex-start;
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
-
-    .login-container {
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
-
-    .title-yagi {
-        width: 140px;
-    }
-
-    .login-brand {
-        margin-bottom: 18px;
+    .bottom-nav {
+        margin-top:16px;
+        font-size:12px;
     }
 }
