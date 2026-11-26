@@ -8,7 +8,7 @@
     --border-color:#ead1d6;
 }
 
-/* ページ全体 */
+
 * {
     box-sizing:border-box;
 }
@@ -22,7 +22,7 @@ body {
         'Hiragino Sans', sans-serif;
     color:var(--text-main);
     background-color:#fcebec;
-    background-image:url('../images/background3.png');
+    background-image:url('../images/background4.png');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -57,7 +57,7 @@ body {
 }
 
 .auth-brand h1 {
-    margin:-15px 0 0;
+    margin:-21px 0 0;
     color:var(--text-main);
     font-size:28px;
     font-weight:700;
