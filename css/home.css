@@ -21,141 +21,232 @@ body {
 /* header */
 /* ヘッダー */
 header {
-    height: 70px;
-    background-color: #f7caca;
+    height: 60px;
+    background-color: rgba(247, 202, 202, 0.75);
+    border-bottom: 1px solid rgba(210, 150, 160, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 30px;
+    box-sizing: border-box;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+    letter-spacing: 1px;
+    color: #493b40;
 }
 
 /* 検索エリア */
 .top-menu {
-    max-width: 900px;
-    margin: 25px auto 10px;
-    padding: 0 20px;
+    width: 90%;
+    max-width: 780px;
+    margin: 24px auto 20px;
+    padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
+    box-sizing: border-box;
 }
 
 /* ユーザー */
 .user {
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background-color:#d9f1f7;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    text-decoration:none;
-    cursor:pointer;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: rgba(246, 223, 228, 0.85);
+    border: 1px solid rgba(210, 170, 180, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .user img {
-    width: 75px;
-    height: 75px;
+    width: 58px;
+    height: 58px;
     object-fit: contain;
+}
+
+.user:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 12px rgba(210, 150, 165, 0.20);
 }
 
 /* 検索 */
 .search {
-    width: 600px;
     position: relative;
+    flex: 1;
+    min-width: 0;
+    max-width: 580px;
 }
+
 .search-icon {
     position: absolute;
-    left: 25px;
-    top: 45%;
+    left: 18px;
+    top: 50%;
     transform: translateY(-50%);
-    font-size: 25px;
-    color: #222;
+    font-size: 22px;
+    color: #a87583;
     z-index: 1;
     pointer-events: none;
+    line-height: 1;
 }
 
 .search input {
     width: 100%;
-    padding: 12px 18px 12px 50px;
-    border: 2px solid #777;
-    border-radius: 20px;
+    height: 46px;
+    padding: 0 20px 0 46px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid #e3c5cb;
+    border-radius: 25px;
     box-sizing: border-box;
+    font-size: 14px;
+    color: #493b40;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(170, 120, 130, 0.06);
+    transition: border-color 0.2s,
+                box-shadow 0.2s,
+                background-color 0.2s;
+}
+
+.search input::placeholder {
+    color: #a08b91;
+}
+
+.search input:focus {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: #d69aa8;
+    box-shadow: 0 0 0 3px rgba(214, 154, 168, 0.12);
 }
 
 /* 通知 */
 .notice {
-    width:95px;
-    text-align: center;
-}
-
-.notice img {
-    width: 95px;
-    height: 95px;
-    object-fit: contain;
-}
-/* 新着・速達 */
-.tabs {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 45px;
-    margin: 15px auto 25px;
-}
-
-.tabs button {
-    border: none;
-    background: none;
-    padding: 5px 10px;
-    font-size: 25px;
-    font-weight: bold;
+    justify-content: center;
     cursor: pointer;
 }
 
-.tabs button.active {
-    border-bottom: 3px solid #e86f7d;
+.notice img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    transition: transform 0.2s;
 }
 
-.tab-line {
-    width: 1px;
-    height: 24px;
-    background-color: #aaa;
-    display:block;
+.notice:hover img {
+    transform: scale(1.07);
+}
 
+/* 新着・速達 */
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 280px;
+    max-width: 90%;
+    margin: 0 auto 24px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(210, 170, 180, 0.30);
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(170, 120, 130, 0.06);
+    box-sizing: border-box;
+}
+
+.tabs button {
+    flex: 1;
+    min-width: 0;
+    height: 40px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: transparent;
+    color: #806c73;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s,
+                color 0.2s,
+                box-shadow 0.2s;
+}
+
+.tabs button.active {
+    background-color: #f2cbd3;
+    color: #b65f73;
+    box-shadow: 0 2px 5px rgba(180, 100, 120, 0.12);
+}
+
+.tabs button:not(.active):hover {
+    background-color: rgba(242, 203, 211, 0.35);
+    color: #b65f73;
 }
 
 /* レター一覧 */
-main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 20px 100px;
+#letter-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 45px 30px;
+    width: 92%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    box-sizing: border-box;
 }
 
 /* レター */
 .letter {
-    position:relative;
-    background-color:white;
-    margin-bottom:35px;
-    padding:20px 120px 20px 25px;
-    border:2px solid #666;
-    border-radius:12px;
-    min-height:150px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 250, 250, 0.72);
+    padding: 18px 22px;
+    border: 1px solid rgba(150, 120, 120, 0.35);
+    border-radius: 16px;
+    min-height: 210px;
+    width: auto;
+    box-sizing: border-box;
+    margin: 0;
+    cursor:pointer;
+    overflow: visible;
+    transition:
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
 }
 
-.letter h2 {
-    font-size: 18px;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
+.letter h2,
 .letter p {
-    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.letter-title {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+}
+
+.letter-title h2 {
+    font-size:20px;
+    line-height:1.4;
+    margin:4px 0 12px;
+    overflow-wrap:anywhere;
+}
+
+.letter-content {
+    display:block;
+    padding-right:100px;
 }
 
 .letter button {
@@ -167,89 +258,159 @@ main {
 
 /* 速達 */
 .letter.express {
-    border:5px solid #e45f6f;
-    background-color:#fff7f7;
+    border:2px solid rgba(228,95,111,0.55);
+    background-color:rgba(255,240,243,0.72);
 }
 
 /* 感情の影 */
 .letter.joy {
-    box-shadow:0 0 12px rgba(255,180,55,0.65);
+    box-shadow:0 4px 12px rgba(230,162,60,0.20);
 }
 
 .letter.fun {
-    box-shadow:0 0 12px rgba(90,205,105,0.65);
+    box-shadow:0 4px 12px rgba(101,167,101,0.20);
 }
 
 .letter.sad {
-    box-shadow:0 0 12px rgba(125,115,230,0.65);
+    box-shadow:0 4px 12px rgba(119,114,201,0.20);
 }
 
 .letter.angry {
-    box-shadow:0 0 12px rgba(245,90,100,0.65);
+    box-shadow:0 4px 12px rgba(216,92,92,0.20);
 }
 
 /* 感情カラー */
 .emotion-color {
-    width:70px;
-    height:8px;
+    width:55px;
+    height:6px;
     border-radius:10px;
+    margin-bottom:8px;
 }
 .joy .emotion-color {
-    background-color:#e6a23c;
+    background-color:#e5bc78;
 }
 .fun .emotion-color {
-    background-color:#65a765;
+    background-color:#91be96;
 }
 .sad .emotion-color {
-    background-color:#7772c9;
+    background-color:#a6a0d4;
 }
 .angry .emotion-color {
-    background-color:#d85c5c;
+    background-color:#dfa0a5;
 }
 
-/* カテゴリ */
+/* カテゴリー・投稿時間 */
+.letter-top {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:8px;
+}
+
+.category-group {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    min-width:0;
+}
+
 .category {
-    font-size: 15px;
-    margin-top: 10px;
+    font-size:14px;
+    margin:0;
+    color:#666;
 }
 
-
-/* タイトル */
-.letter-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.posted-time {
+    font-size:12px;
+    color:#888;
+    white-space:nowrap;
+    flex-shrink:0;
 }
-
-.letter-title h2 {
-    font-size: 22px;
-    margin: 10px 0;
-}
-
 
 /* 説明 */
 .description {
+    flex:1;
+    min-width:0;
     color: #666;
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow:hidden;
+    overflow-wrap:anywhere;
+}
+
+.express-label {
+    display:inline-flex;
+    align-items:center;
+    padding:3px 8px;
+    background-color:#f8dce1;
+    color:#b66b76;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:bold;
+    line-height:1.2;
+    white-space:nowrap;
+}
+
+/* カード下部 */
+.letter-footer {
+    position:absolute;
+    left:22px;
+    bottom:30px;
+    right:115px;
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 /* 時間・ポイント */
 .letter-info {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 18px;
-    font-size: 18px;
-    font-weight: bold;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
     line-height: 1;
-
+    white-space: nowrap;
 }
 
 .letter-info span {
     display: inline-flex;
     align-items: center;
     height: 20px;
+}
+
+/* 通信方法 */
+.letter-footer .talk-icons {
+    position:static;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0;
+    padding:0;
+    flex-shrink:0;
+}
+
+.letter-footer .talk-icons img {
+    position:static;
+    display:block;
+    width:23px;
+    height:23px;
+    margin:0;
+    object-fit:contain;
+    opacity:1;
+    filter:none;
+}
+
+.letter[data-call="no"] .talk-icons .call-icon {
+    display:none;
 }
 
 
@@ -260,7 +421,8 @@ main {
     width:100%;
     height:75px;
     background-color:#f7caca;
-    border-top:1px solid #aaa;
+    border-top:1px solid rgba(190,140,150,0.25);
+    box-shadow:0 -2px 8px rgba(150,100,110,0.04);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -290,37 +452,27 @@ main {
     font-size:13px;
     font-weight:bold;
 }
-/* 表情のアイコン */
-.call-icon {
-    position: absolute;
-    right: 25px;
-    top: 25px;
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
-
-
 /* 感情キャラクター */
 
 .goat {
     position:absolute;
-    right:-35px;
-    bottom:-40px;
-    width:160px;
-    height:160px;
+    bottom:-35px;
+    right:-15px;
+    width:115px;
+    height:115px;
     object-fit:contain;
+    pointer-events:none;
 }
 
 /* ポイントやぎ */
 #pointgoat {
-    position:fixed;
-    right:15px;
-    bottom:65px;
-    width:17vw;
-    max-width:290px;
-    min-width:190px;
-    z-index:90;
+    position: fixed;
+    right: 15px;
+    bottom: 65px;
+    width: 13vw;
+    max-width: 230px;
+    min-width: 150px;
+    z-index: 90;
 }
 
 #pointgoat img {
@@ -329,16 +481,16 @@ main {
 }
 
 #userpoint {
-    position:absolute;
-    left:27%;
-    top:19%;
-    width:31%;
-    text-align:center;
-    font-size:clamp(22px,1.7vw,34px);
-    font-weight:bold;
-    font-family:"Segoe Print","Comic Sans MS",cursive;
-    color:#5a4035;
-    transform:rotate(-3deg);
+    position: absolute;
+    left: 27%;
+    top: 19%;
+    width: 31%;
+    text-align: center;
+    font-size: clamp(17px, 1.4vw, 27px);
+    font-weight: bold;
+    font-family: "Segoe Print", "Comic Sans MS", cursive;
+    color: #5a4035;
+    transform: rotate(-3deg);
 }
 
 /* 詳細ページ */
@@ -449,6 +601,29 @@ main {
     border-radius:10px;
     font-size:16px;
     line-height:1.6;
+}
+
+#modal-talk-icons {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+}
+
+#modal-talk-icons img {
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    opacity:0.3;
+}
+
+#modal-talk-icons img.selected {
+    opacity:1;
+}
+
+#modal-talk-icons span {
+    color:#777;
+    font-size:17px;
 }
 
 /* 評価 */
@@ -674,28 +849,6 @@ main {
     margin-left: 20px;
 }
 
-/* 新着・速達：カーソルを合わせると下線を表示 */
-.tabs button {
-    border-bottom: 3px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-}
-
-.tabs button:hover,
-.tabs button.active {
-    color: #e86f7d;
-    border-bottom-color: #e86f7d;
-}
-
-/* 検索バー左のアイコン：少し拡大＋薄いピンクの光 */
-.user {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.user:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0 22px rgba(232, 111, 125, 0.4);
-}
-
 /* 下部ナビゲーションの画像 */
 .bottommenu img {
     transition: transform 0.2s;
@@ -705,23 +858,133 @@ main {
     transform: scale(1.15);
 }
 
-/* 投稿カード内の画像 */
-.call-icon,
-.goat {
-    transition: transform 0.2s;
+/* ホバー時の色 */
+.letter.joy:not(.express):hover {
+    background-color: rgba(255, 248, 231, 0.78);
 }
 
-.call-icon:hover,
-.goat:hover {
-    transform: scale(1.08);
+.letter.fun:not(.express):hover {
+    background-color: rgba(241, 248, 235, 0.78);
 }
 
-/* 投稿カード全体 */
-.letter {
-    cursor: pointer;
-    transition: transform 0.2s;
+.letter.sad:not(.express):hover {
+    background-color: rgba(246, 241, 252, 0.78);
 }
 
-.letter:hover {
-    transform: scale(1.01);
+.letter.angry:not(.express):hover {
+    background-color: rgba(255, 240, 242, 0.78);
+}
+
+.letter.express:hover {
+    background-color:rgba(249,211,219,0.82);
+}
+
+@media (max-width:1100px) {
+    #letter-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width:650px) {
+    header {
+        height: 55px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .top-menu {
+        width: 95%;
+        margin: 18px auto 16px;
+        padding: 0 5px;
+        gap: 10px;
+    }
+
+    .user {
+        width: 46px;
+        height: 46px;
+    }
+
+    .user img {
+        width: 46px;
+        height: 46px;
+    }
+
+    .notice {
+        width: 46px;
+        height: 46px;
+    }
+
+    .notice img {
+        width: 46px;
+        height: 46px;
+    }
+
+    .search input {
+        height: 42px;
+        font-size: 13px;
+        padding-left: 36px;
+        padding-right: 10px;
+    }
+
+    .search-icon {
+        left: 12px;
+        font-size: 19px;
+    }
+
+    .tabs {
+        width: 240px;
+        margin-bottom: 20px;
+    }
+
+    .tabs button {
+        height: 36px;
+        font-size: 16px;
+    }
+
+    #pointgoat {
+        width: 140px;
+        min-width: 0;
+        right: 8px;
+        bottom: 65px;
+    }
+
+    #userpoint {
+        font-size: 16px;
+    }
+
+    #letter-list {
+        grid-template-columns: 1fr;
+        width:90%;
+    }
+
+    .letter-footer {
+        right:100px;
+        gap:12px;
+    }
+
+    .letter-info {
+        font-size:14px;
+    }
+
+    .letter-footer .talk-icons {
+        gap:8px;
+    }
+
+    .letter-footer .talk-icons img {
+        width:20px;
+        height:20px;
+    }
+
+    .bottommenu {
+        gap:20px;
+    }
+}
+
+@media (max-width:410px) {
+    .letter {
+        min-height:240px;
+    }
 }
